@@ -22,15 +22,18 @@ a = b
 console.log(a, b, c)
 
 2. RESPOSTA
+Erro pois a variável "c" não foi declarada, mas caso a variável "c" fosse declarada, os valores impresso serião:
 10 10 10
 ---------------------------------------------
 3.
 
 let p = prompt("Quantas horas você trabalha por dia?")
 let t = prompt("Quanto você recebe por dia?")
-alert('Voce recebe ${t/p} por hora')
+alert('Você recebe ${t/p} por hora')
 
 3. RESPOSTA
+O código faz o cálculo de quanto o usuário recebe por hora.
+
 A variável "p" pode ser chamada de horasDeTrabalhoPorDia
 A variável "t" pode ser chamada de dinheiroRecebidoPorDia
 
@@ -48,7 +51,7 @@ console.log("O tipo da variável nome é:", typeof nome)
 console.log("O tipo da variável idade é:", typeof idade)
 
 
-    // Será imperesso como sendo o tipo das variáveis de: "undefined"
+    // Será imperesso o tipo das variáveis de: "undefined"
     // Pois não atribuímos nada as duas variáveis, nem mesmo o "null"
 
 
@@ -66,17 +69,17 @@ console.log("Olá" , nome, ", você tem", idade, "anos. ")
 --------------------------------------------------------------
 2.
 
-let cachorroResposta, perguntaCachorro
-let sorveteResposta, perguntaSorvete
-let leituraResposta, perguntaLeitura
+const cachorroResposta, perguntaCachorro
+const sorveteResposta, perguntaSorvete
+const leituraResposta, perguntaLeitura
 
 perguntaCachorro = "Você gosta de cachorro?"
 perguntaSorvete = "Você gosta de sorvete?"
 perguntaLeitura = "Você gosta de ler?"
 
-cachorroResposta = true
-sorveteResposta = true
-leituraResposta = true
+cachorroResposta = prompt(perguntaCachorro)
+sorveteResposta = prompt(perguntaSorvete)
+leituraResposta = prompt(perguntaLeitura)
 
 console.log(perguntaCachorro, " - ", cachorroResposta)
 console.log(perguntaSorvete, " - ", sorveteResposta)
@@ -107,7 +110,7 @@ DESAFIO
 
 
 
-let number1, number2
+const number1, number2
 
 number1 =  Number(prompt("Insira um valor "))
 number2 =  Number(prompt("Insira um segundo valor"))
