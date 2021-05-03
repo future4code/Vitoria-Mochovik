@@ -64,6 +64,25 @@ console.log("O tipo da variável idadeNumero é:", typeof idadeNumero)
 console.log("Olá" , nome, ", você tem", idade, "anos. ")
 
 --------------------------------------------------------------
+2.
+
+let cachorroResposta, perguntaCachorro
+let sorveteResposta, perguntaSorvete
+let leituraResposta, perguntaLeitura
+
+perguntaCachorro = "Você gosta de cachorro?"
+perguntaSorvete = "Você gosta de sorvete?"
+perguntaLeitura = "Você gosta de ler?"
+
+cachorroResposta = true
+sorveteResposta = true
+leituraResposta = true
+
+console.log(perguntaCachorro, " - ", cachorroResposta)
+console.log(perguntaSorvete, " - ", sorveteResposta)
+console.log(perguntaLeitura, " - ", leituraResposta)
+
+--------------------------------------------------------------
 
 */
 
