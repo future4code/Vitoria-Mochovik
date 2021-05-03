@@ -83,6 +83,18 @@ console.log(perguntaSorvete, " - ", sorveteResposta)
 console.log(perguntaLeitura, " - ", leituraResposta)
 
 --------------------------------------------------------------
+3.
+
+let a = 10
+let b = 25
+let c
+
+c = a
+a = b
+b = c
+
+console.log("O valor da variável 'a' é:" ,a)
+console.log("O valor da variável 'b' é:" ,b)
 
 */
 
