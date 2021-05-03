@@ -96,5 +96,29 @@ b = c
 console.log("O valor da variável 'a' é:" ,a)
 console.log("O valor da variável 'b' é:" ,b)
 
+--------------------------------------------------------------
+DESAFIO
+
+//Faça um programa que receba dois números do usuário e faça as seguintes operações, 
+  //imprimindo os resultados no console da seguinte forma:
+
+//1. O primeiro número somado ao segundo número resulta em: x.
+//2. O primeiro número multiplicado pelo segundo número resulta em: y.
+
+
+
+let number1, number2
+
+number1 =  Number(prompt("Insira um valor "))
+number2 =  Number(prompt("Insira um segundo valor"))
+
+let adicao = number1 + number2
+let multiplicacao = number1 * number2
+console.log("O primeiro número somado ao segundo número resulta em:", adicao )
+console.log("O primeiro número multiplicado pelo segundo número resulta em:", multiplicacao )
+
+console.log(number1, "+", number2, "=", adicao)
+console.log(number1, '*', number2, '=', multiplicacao)
+
 */
 
