@@ -35,6 +35,35 @@ A variável "p" pode ser chamada de horasDeTrabalhoPorDia
 A variável "t" pode ser chamada de dinheiroRecebidoPorDia
 
 -----------------------------------------------
+- Exercícios de escrita de código
+
+-----------------------------------------------
+
+1.
+
+let nome
+let idade
+
+console.log("O tipo da variável nome é:", typeof nome)
+console.log("O tipo da variável idade é:", typeof idade)
+
+
+    // Será imperesso como sendo o tipo das variáveis de: "undefined"
+    // Pois não atribuímos nada as duas variáveis, nem mesmo o "null"
+
+
+nome = prompt("Qual o seu nome?")
+idade = prompt("Qual a sua idade?")
+let idadeNumero = Number(idade)
+
+console.log("O tipo da variável nome é:", typeof nome)
+console.log("O tipo da variável idadeNumero é:", typeof idadeNumero)
+
+    //Após passar pelo prompt a variável assume um tipo (string), para idade é preciso mudar de string para number
+
+console.log("Olá" , nome, ", você tem", idade, "anos. ")
+
+--------------------------------------------------------------
 
 */
 
