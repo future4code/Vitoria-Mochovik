@@ -118,3 +118,17 @@ let porcentagemDeDesconto =0.15
 console.log("Uma residência que consumiu 280 quilowatt-hora, mas teve 15% de desconto, pagou", (quilowattHora*280)-(quilowattHora*280*porcentagemDeDesconto))
 
 */
+
+// DESAFIO 03 --------------------------------------------------
+
+console.log("20lb equivalem a", 20/2.205, "kg")
+console.log("10.5oz equivalem a", 10.5/35.274, "kg")
+console.log("100mi equivalem a", 100*1609, "m")
+console.log("50ft equivalem a", 50/3.281, "m")
+console.log("103.56gal equivalem a", 103.56*3.785, "l")
+console.log("450xic equivalem a", 450*(6/25, "l"))
+
+let libra
+
+libra = Number(prompt("Digite um valor em libras"))
+console.log(libra, "lb equivalem a", libra/2.205, "kg")
