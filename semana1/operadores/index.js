@@ -53,5 +53,20 @@ console.log(numeroPar, "% 2 = ", numeroPar % 2 )
 
 */
 
+// EXERCÍCIO 03-------------------------------------------------------
+
+/*
+
+const idadeAnos = Number(prompt("Quas sua idade em anos?"))
+console.log("Você tem ", idadeAnos, " ANOS de idade")
+
+const idadeMes = idadeAnos * 12
+const idadeDias = idadeAnos * 365
+const idadeHoras = idadeAnos * 8766
+console.log("Você tem", idadeMes, "MESES de idade")
+console.log("Você tem", idadeDias, "DIAS de idade")
+console.log("Você tem", idadeHoras, "HORAS de idade")
+
+*/
 
 
