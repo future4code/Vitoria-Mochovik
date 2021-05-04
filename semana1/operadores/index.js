@@ -2,13 +2,14 @@
 
 /*
  1.RESPOSTA 
- false
- false
- true
- boolean
+ a. false
+ b. false
+ c. true
+ d. boolean
 
  2.RESPOSTA
- Vai ser impresso o primeiro número que o usuário inseriu ao lado do segundo número.
+ Vai ser impresso o primeiro número que o usuário inseriu ao lado do segundo número,
+ ou seja, ele não consegue somar.
  Se o usuário inseriu 1 e 2:
  O programa imprimirá: 12
  
@@ -49,7 +50,7 @@ console.log(numeroPar, "% 2 = ", numeroPar % 2 )
 // igual a 0. Isso acontece pois TODOS os inúmeros pares são divisíveis por dois.
 
 // 2-D Caso o usuário insira um número ímpar sempre sobrará o valor 1 como resto da divisão por 2.
-// Pois NENHUM dos números ímpares é divisíveis por 2, e em cada dvisão resta 1 (como resto da divisão).
+// Pois NENHUM dos números ímpares é divisível por 2, e em cada dvisão resta 1 (como resto da divisão).
 
 */
 
@@ -62,7 +63,8 @@ console.log("Você tem ", idadeAnos, " ANOS de idade")
 
 const idadeMes = idadeAnos * 12
 const idadeDias = idadeAnos * 365
-const idadeHoras = idadeAnos * 8766
+const idadeHoras = idadeAnos * 365
+ * 24
 console.log("Você tem", idadeMes, "MESES de idade")
 console.log("Você tem", idadeDias, "DIAS de idade")
 console.log("Você tem", idadeHoras, "HORAS de idade")
@@ -99,7 +101,7 @@ console.log("80ºC =", ((80)*(9/5) + 32), "F" )
 console.log("30ºC =", ((30)*(9/5) + 32), "F" )
 console.log("30ºC =", ((((30)*(9/5) + 32) - 32)*(5/9) + 273,15), "K" )
 
-celcius = prompt("Insira um valor em Celsius:")
+celcius = Number(prompt("Insira um valor em Celsius:"))
 let fahrenheit = ((celcius)*(9/5) + 32)
 let converteKelvin =  ((fahrenheit - 32)*(5/9) + 273,15)
 
@@ -113,22 +115,25 @@ console.log("O valor", celcius,"ºC =", fahrenheit, "F", "e = ", converteKelvin,
 const quilowattHora = 0.05
 let quantidadeQuilowatsConsumida = Number(prompt("Quantos Quilowats sua residência consumiu?"))
 console.log("Uma residência que consumiu 280 quilowatt-hora, pagou", quilowattHora*280)
-let porcentagemDeDesconto =0.15
+let porcentagemDeDesconto = Number(prompt("Digite a porcentagem de desconto"))
 
-console.log("Uma residência que consumiu 280 quilowatt-hora, mas teve 15% de desconto, pagou", (quilowattHora*280)-(quilowattHora*280*porcentagemDeDesconto))
+console.log("Uma residência que consumiu 280 quilowatt-hora, mas teve 15% de desconto, pagou", (quilowattHora*280)-(quilowattHora*280*(porcentagemDeDesconto/100)))
 
 */
 
 // DESAFIO 03 --------------------------------------------------
-
-console.log("20lb equivalem a", 20/2.205, "kg")
-console.log("10.5oz equivalem a", 10.5/35.274, "kg")
-console.log("100mi equivalem a", 100*1609, "m")
-console.log("50ft equivalem a", 50/3.281, "m")
-console.log("103.56gal equivalem a", 103.56*3.785, "l")
-console.log("450xic equivalem a", 450*(6/25, "l"))
+ 
+/*
+console.log("20lb equivalem a", 20 * 0.453592, "kg")
+console.log("10.5oz equivalem a", 10.5 * 0.29767, "kg")
+console.log("100mi equivalem a", 100*1609.34, "m")
+console.log("50ft equivalem a", 50 * 0.3048, "m")
+console.log("103.56gal equivalem a", 103.56 * 3.785, "l")
+console.log("450xic equivalem a", 450 * 0.15, "l")
 
 let libra
 
 libra = Number(prompt("Digite um valor em libras"))
-console.log(libra, "lb equivalem a", libra/2.205, "kg")
+console.log(libra, "lb equivalem a", libra * 0.4533592, "kg")
+
+*/
