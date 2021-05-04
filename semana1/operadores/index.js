@@ -24,3 +24,16 @@
  console.log(soma)
 */
 
+// ---------------Exercícios de escrita de código------------------
+
+// EXERCÍCIO 01
+/*
+
+const idade = Number(prompt("Qual a sua idade?"))
+const idadeMelhorAmigo = Number(prompt("Qual a idade do seu melhor amigo?"))
+
+console.log("Sua idade é maior do que a do seu melhor amigo?", idade > idadeMelhorAmigo)
+console.log("A diferença de idade entre você e seu melhor amigo é de:", idade - idadeMelhorAmigo)
+
+*/
+
