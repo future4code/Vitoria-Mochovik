@@ -15,5 +15,12 @@
  Esse erro acontece pois quando passa pelo "prompt" 
  o resultado sai como string, então precisa-se converter para número.
 
+ 3.RESPOSTA
+ let primeiroNumero = Number(prompt("Digite um numero!"))
+ let segundoNumero = Number(prompt("Digite outro numero!"))
+
+ const soma = primeiroNumero + segundoNumero
+
+ console.log(soma)
 */
 
