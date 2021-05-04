@@ -106,3 +106,15 @@ let converteKelvin =  ((fahrenheit - 32)*(5/9) + 273,15)
 console.log("O valor", celcius,"ºC =", fahrenheit, "F", "e = ", converteKelvin, "K")
 */
 
+// DESAFIO 02 --------------------------------------------------
+
+/*
+
+const quilowattHora = 0.05
+let quantidadeQuilowatsConsumida = Number(prompt("Quantos Quilowats sua residência consumiu?"))
+console.log("Uma residência que consumiu 280 quilowatt-hora, pagou", quilowattHora*280)
+let porcentagemDeDesconto =0.15
+
+console.log("Uma residência que consumiu 280 quilowatt-hora, mas teve 15% de desconto, pagou", (quilowattHora*280)-(quilowattHora*280*porcentagemDeDesconto))
+
+*/
