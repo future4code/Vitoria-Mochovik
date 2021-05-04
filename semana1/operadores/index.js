@@ -26,7 +26,7 @@
 
 // ---------------Exercícios de escrita de código------------------
 
-// EXERCÍCIO 01
+// EXERCÍCIO 01----------------------------------------------------
 /*
 
 const idade = Number(prompt("Qual a sua idade?"))
@@ -36,4 +36,22 @@ console.log("Sua idade é maior do que a do seu melhor amigo?", idade > idadeMel
 console.log("A diferença de idade entre você e seu melhor amigo é de:", idade - idadeMelhorAmigo)
 
 */
+
+// EXERCÍCIO 02-------------------------------------------------------
+
+/*
+
+const numeroPar = Number(prompt("Insira um número par"))
+console.log("O resto da divisão de", numeroPar, "por 2 é:", numeroPar % 2)
+console.log(numeroPar, "% 2 = ", numeroPar % 2 )
+
+//  2-C Sim existe um padrão, todos os números pares inseridos vão dar como resto da divisão por 2 
+// igual a 0. Isso acontece pois TODOS os inúmeros pares são divisíveis por dois.
+
+// 2-D Caso o usuário insira um número ímpar sempre sobrará o valor 1 como resto da divisão por 2.
+// Pois NENHUM dos números ímpares é divisíveis por 2, e em cada dvisão resta 1 (como resto da divisão).
+
+*/
+
+
 
