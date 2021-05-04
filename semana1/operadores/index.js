@@ -71,6 +71,8 @@ console.log("Você tem", idadeHoras, "HORAS de idade")
 
 // EXERCÍCIO 04-------------------------------------------------------
 
+/*
+
 const numero1 = Number(prompt("Digite o primeiro número"))
 const numero2 = Number(prompt("Digite o segundo número"))
 
@@ -80,5 +82,27 @@ console.log("O primeiro número é igual ao segundo?", numero1 === numero2)
 console.log("O primeiro número é divisível pelo segundo?", (numero1 % numero2) === 0)
 console.log("O segundo número é divisível pelo primeiro?", (numero2 % numero1) === 0)
 
+*/ 
 
+// ----------------DESAFIOS-------------------------------------
+
+// DESAFIO 01 --------------------------------------------------
+
+/*
+let celcius, kelvin
+
+
+console.log("77ºF = ", ((77 - 32)*(5/9) + 273,15), "K")
+console.log("80ºC =", ((80)*(9/5) + 32), "F" )
+
+
+console.log("30ºC =", ((30)*(9/5) + 32), "F" )
+console.log("30ºC =", ((((30)*(9/5) + 32) - 32)*(5/9) + 273,15), "K" )
+
+celcius = prompt("Insira um valor em Celsius:")
+let fahrenheit = ((celcius)*(9/5) + 32)
+let converteKelvin =  ((fahrenheit - 32)*(5/9) + 273,15)
+
+console.log("O valor", celcius,"ºC =", fahrenheit, "F", "e = ", converteKelvin, "K")
+*/
 
