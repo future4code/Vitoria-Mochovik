@@ -24,6 +24,14 @@ SUBI NUM ÔNIBUS EM MIRROCOS 27
 
 */
 
+//-----------------------Exercícios de escrita de código-----------------------------
 
+//EXERCÍCIO 01------------------------------------------------------------------------------
 
+/*
+const nameOfUser = prompt("Qual seu nome?")
+const emailOfUser = prompt("Qual seu e-mail")
 
+console.log("O e-mail", (emailOfUser.trim()), "foi cadastrado com suceso. Seja bem-vinda(o),", nameOfUser, "!" )
+
+*/
