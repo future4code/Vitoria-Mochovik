@@ -76,6 +76,8 @@ console.log(textoParaImpressãoNovaLista)
 
 //EXERCÍCIO 03------------------------------------------------------------------------------
 
+/*
+
 const listaDeTarefas = [null]
 
 listaDeTarefas[0] = prompt("Digite uma tarefa que você precise realizar no dia:")
@@ -93,3 +95,23 @@ listaDeTarefas.splice(indiceDaTarefaRealizada, 1)
 console.log("As tarefas pendentes do seu dia são:")
 console.log(listaDeTarefas[0])
 console.log(listaDeTarefas[1])
+
+*/
+
+//-----------------------Desafios-----------------------------
+
+//DESAFIO 01
+
+/* 
+
+const frase = prompt("Digite uma frase")
+
+const separador = " "
+let arrayDaFrase = [null];
+arrayDaFrase = frase.split(separador)
+
+console.log("O array tem", arrayDaFrase.length, "elementos")
+console.log("O array com a frase é:")
+console.log(arrayDaFrase.join(" / "))
+
+*/
