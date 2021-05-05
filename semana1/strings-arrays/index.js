@@ -73,3 +73,23 @@ ${favoriteFoods[4]};`
 console.log(textoParaImpressãoNovaLista)
 
 */
+
+//EXERCÍCIO 03------------------------------------------------------------------------------
+
+const listaDeTarefas = [null]
+
+listaDeTarefas[0] = prompt("Digite uma tarefa que você precise realizar no dia:")
+listaDeTarefas[1] = prompt("Digite uma tarefa que você precise realizar no dia:")
+listaDeTarefas[2] = prompt("Digite uma tarefa que você precise realizar no dia:")
+
+console.log("As tarefas do seu dia são:")
+console.log(listaDeTarefas[0])
+console.log(listaDeTarefas[1])
+console.log(listaDeTarefas[2])
+
+const indiceDaTarefaRealizada = prompt("Qual das tarefas você já realizou? Digite 0, 1 ou 2")
+listaDeTarefas.splice(indiceDaTarefaRealizada, 1)
+
+console.log("As tarefas pendentes do seu dia são:")
+console.log(listaDeTarefas[0])
+console.log(listaDeTarefas[1])
