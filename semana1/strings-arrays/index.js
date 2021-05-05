@@ -35,3 +35,41 @@ const emailOfUser = prompt("Qual seu e-mail")
 console.log("O e-mail", (emailOfUser.trim()), "foi cadastrado com suceso. Seja bem-vinda(o),", nameOfUser, "!" )
 
 */
+
+//EXERCÍCIO 02------------------------------------------------------------------------------
+
+/*
+
+const favoriteFoods = ["hot dog", "french fries", "pizza", "chocolate cake", "ice cream"]
+console.log(favoriteFoods)
+
+//Item b, fiz duas possibilidade:
+//Primeira possibilidade com um espaço entre cada linha:
+console.log("Essas são minhas comidas preferidas:")
+console.log(favoriteFoods[0])
+console.log(favoriteFoods[1])
+console.log(favoriteFoods[2])
+console.log(favoriteFoods[3])
+console.log(favoriteFoods[4])
+
+//Segunda possibilidade sem espaço
+const textoParaImpressão = `Essas são minhas comidas preferidas:
+${favoriteFoods[0]}; 
+${favoriteFoods[1]};
+${favoriteFoods[2]};
+${favoriteFoods[3]};
+${favoriteFoods[4]};`
+
+console.log(textoParaImpressão)
+
+favoriteFoods[1] = prompt("Qual sua comida preferida?")
+const textoParaImpressãoNovaLista = `Nova lista de comidas:
+${favoriteFoods[0]}; 
+${favoriteFoods[1]};
+${favoriteFoods[2]};
+${favoriteFoods[3]};
+${favoriteFoods[4]};`
+
+console.log(textoParaImpressãoNovaLista)
+
+*/
