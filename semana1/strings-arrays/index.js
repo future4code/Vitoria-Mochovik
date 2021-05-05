@@ -100,7 +100,7 @@ console.log(listaDeTarefas[1])
 
 //-----------------------Desafios-----------------------------
 
-//DESAFIO 01
+//DESAFIO 01--------------------------------------------------
 
 /* 
 
@@ -113,5 +113,18 @@ arrayDaFrase = frase.split(separador)
 console.log("O array tem", arrayDaFrase.length, "elementos")
 console.log("O array com a frase é:")
 console.log(arrayDaFrase.join(" / "))
+
+*/
+
+//DESAFIO 02--------------------------------------------------
+
+/*
+
+let frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
+let indiceDaFruta
+const frutaQueDesejaLocalizar = "Abacaxi"
+indiceDaFruta = frutas.indexOf(frutaQueDesejaLocalizar)
+
+console.log("O índice da fruta Abacaxi é:", indiceDaFruta, " e o tamanho do array é:", frutas.length)
 
 */
