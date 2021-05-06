@@ -126,14 +126,19 @@ function informacoesDaMensagem(mensagem) {
     console.log("O tamanho da mensagem com espaços é", mensagem.length)
     console.log("A mensagem em letras maiúsculas:", mensagem.toUpperCase())
 
-    console.log("A mensagem conta com", mensagemArray.length, "palavras")
-}
+    const quantidadeDePalavras = mensagemArray.length
+    console.log("A mensagem conta com", quantidadeDePalavras, "palavras")
 
+    const contagemDeCaracteres = (mensagem.length - (quantidadeDePalavras - 1))
+    console.log(`O número de caracteres sem espaço é: ${contagemDeCaracteres}`)
+
+}
 
 const frase = prompt("Digite sua frase favorita")
 informacoesDaMensagem(frase)
 
 */
+
 
 //EXERCÍCIO 03-------------------------------------------------------------------
 
