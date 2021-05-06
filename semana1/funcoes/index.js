@@ -70,3 +70,67 @@ const occupation = prompt("Qual sua profissão?")
 console.log(unificaInformacoes(name1, age, city, occupation))
 
 */
+
+//EXERCÍCIO 02-------------------------------------------------------------------
+
+//2A
+
+/*
+function soma(numero1, numero2) {
+    const soma = numero1 + numero2
+    return soma
+}
+
+const number1 = Number(prompt("Insira o primeiro número"))
+const number2 = Number(prompt("Insira o segundo número"))
+
+const resultado = soma(number1, number2)
+console.log("A soma de", number1, "+", number2, "=", resultado)
+*/
+
+//2B
+
+/*
+function verificaMaior(numero1, numero2) {
+    const numero1Maior = numero1 >= numero2
+    return numero1Maior
+}
+
+const number1 = prompt("Insira o primeiro número")
+const number2 = prompt("Insira o segundo número")
+
+const resultado = verificaMaior(number1, number2)
+console.log("O número", number1, "é maior ou igual ao número", number2, "?", resultado)
+
+*/
+
+//2C
+
+/*
+function verificaPar(numero1) {
+    const resultado = ((numero1 % 2) === 0)
+    return resultado
+}
+
+const number = prompt("Digite um número")
+const resultadoPar = verificaPar(number)
+console.log("O número", number, "é par?", resultadoPar)
+*/
+
+//2D
+
+/*
+
+function informacoesDaMensagem(mensagem) {
+    const mensagemArray = mensagem.split(" ")
+    console.log("O tamanho da mensagem com espaços é", mensagem.length)
+    console.log("A mensagem em letras maiúsculas:", mensagem.toUpperCase())
+
+    console.log("A mensagem conta com", mensagemArray.length, "palavras")
+}
+
+
+const frase = prompt("Digite sua frase favorita")
+informacoesDaMensagem(frase)
+
+*/
