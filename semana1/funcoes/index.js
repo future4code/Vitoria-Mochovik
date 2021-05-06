@@ -36,3 +36,37 @@ II - true
 III - true
 
 */
+
+//---------------------Exercícios de escrita de código---------------------
+
+//EXERCÍCIO 01-------------------------------------------------------------------
+
+//1A
+
+/*
+
+function imprimeInformacao() {
+    console.log("Eu sou a Vitória, tenho 21 anos, moro em Araranguá - SC e sou estudante.")
+}
+
+imprimeInformacao()
+
+*/
+
+//1B
+
+/*
+
+function unificaInformacoes(nome, idade, cidade, profissao) {
+     const informacoes = (`Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${profissao}.`)
+     return informacoes
+}
+
+let name1 = prompt("Qual seu nome?")
+const age = Number(prompt("Qual a sua idade?"))
+const city = prompt("Qual cidade você mora?")
+const occupation = prompt("Qual sua profissão?")
+
+console.log(unificaInformacoes(name1, age, city, occupation))
+
+*/
