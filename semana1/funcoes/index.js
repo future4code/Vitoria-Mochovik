@@ -196,3 +196,21 @@ const numero2 = Number(prompt("Digite o segundo número"))
 const imprimeSoma = soma(numero1, numero2)
 
 */
+
+//DESAFIO 02 ---------------------------------------------
+
+/*
+function resolvePitagoras(catetoA, catetoB) {
+    const somaQuadrado = Number(Math.pow(catetoA, 2) + Math.pow(catetoB, 2))
+    const resultado = Number(Math.sqrt(somaQuadrado, 2))
+    return resultado
+}
+
+const cateto1 = Number(prompt("Digite o valor do cateto 'a' "))
+const cateto2 = Number(prompt("Digite o valor do cateto 'b' "))
+
+const resultadoPitagoras = resolvePitagoras(cateto1, cateto2)
+console.log(`Cateto A: ${cateto1}
+Cateto B: ${cateto2}
+Hipotenusa: ${resultadoPitagoras.toFixed(3)}`)
+*/
