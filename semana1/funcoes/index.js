@@ -174,3 +174,25 @@ console.log(`Multiplicação: ${numero1} * ${numero2} = ${resultadoMultiplicacao
 console.log(`Divisão: ${numero1} / ${numero2} = ${resultadoDivisao.toFixed(2)}`)
 
 */
+
+//---------------------DESAFIOS---------------------------
+
+//DESAFIO 01 ---------------------------------------------
+
+/* 
+
+const resultadoSoma = (resultado) => {
+    console.log("O resultado da soma atual é:", resultado)
+}
+
+const soma = (number1, number2) => {
+    const resultado = Number(number1 + number2)
+    somaResultado = resultadoSoma(resultado)
+}
+
+const numero1 = Number(prompt("Digite o primeiro número"))
+const numero2 = Number(prompt("Digite o segundo número"))
+
+const imprimeSoma = soma(numero1, numero2)
+
+*/
