@@ -134,3 +134,43 @@ const frase = prompt("Digite sua frase favorita")
 informacoesDaMensagem(frase)
 
 */
+
+//EXERCÍCIO 03-------------------------------------------------------------------
+
+/*
+
+function soma(number1, number2) {
+    const resultado = number1 + number2
+    return resultado
+}
+
+function subtracao(number1, number2) {
+    const resultado = number1 - number2
+    return resultado
+}
+
+function multiplicacao(number1, number2) {
+    const resultado = number1 * number2
+    return resultado
+}
+
+function divisao(number1, number2) {
+    const resultado = number1 / number2
+    return resultado
+}
+
+const numero1 = Number(prompt("Digite o primeiro número"))
+const numero2 = Number(prompt("Digite o segundo número"))
+
+const resultadoSoma = soma(numero1, numero2)
+const resultadoSubtracao = subtracao(numero1, numero2)
+const resultadoMultiplicacao = multiplicacao(numero1, numero2)
+const resultadoDivisao = divisao(numero1, numero2)
+
+console.log("Você inseriu", numero1, "e", numero2)
+console.log(`Soma: ${numero1} + ${numero2} = ${resultadoSoma}`)
+console.log(`Diferença: ${numero1} - ${numero2} = ${resultadoSubtracao}`)
+console.log(`Multiplicação: ${numero1} * ${numero2} = ${resultadoMultiplicacao}`)
+console.log(`Divisão: ${numero1} / ${numero2} = ${resultadoDivisao.toFixed(2)}`)
+
+*/
