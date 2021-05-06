@@ -40,7 +40,13 @@ console.log("O e-mail", (emailOfUser.trim()), "foi cadastrado com suceso. Seja b
 
 /*
 
-const favoriteFoods = ["hot dog", "french fries", "pizza", "chocolate cake", "ice cream"]
+const favoriteFoods = [
+    "hot dog", 
+    "french fries", 
+    "pizza", 
+    "chocolate cake", 
+    "ice cream"
+];
 console.log(favoriteFoods)
 
 //Item b, fiz duas possibilidade:
@@ -89,7 +95,7 @@ console.log(listaDeTarefas[0])
 console.log(listaDeTarefas[1])
 console.log(listaDeTarefas[2])
 
-const indiceDaTarefaRealizada = prompt("Qual das tarefas você já realizou? Digite 0, 1 ou 2")
+const indiceDaTarefaRealizada = Number(prompt("Qual das tarefas você já realizou? Digite 0, 1 ou 2"))
 listaDeTarefas.splice(indiceDaTarefaRealizada, 1)
 
 console.log("As tarefas pendentes do seu dia são:")
@@ -102,7 +108,7 @@ console.log(listaDeTarefas[1])
 
 //DESAFIO 01--------------------------------------------------
 
-/* 
+/*
 
 const frase = prompt("Digite uma frase")
 
@@ -120,7 +126,7 @@ console.log(arrayDaFrase.join(" / "))
 
 /*
 
-let frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
+const frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
 let indiceDaFruta
 const frutaQueDesejaLocalizar = "Abacaxi"
 indiceDaFruta = frutas.indexOf(frutaQueDesejaLocalizar)
