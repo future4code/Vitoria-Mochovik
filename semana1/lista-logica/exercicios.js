@@ -98,6 +98,13 @@ const string02 = prompt("Escreva outra palavra ou frase")
 checaStringsMesmoTamanho(string01, string02)
 
 //EXERCÍCIO 9-----------------------------------------------------------------------
+
+function retornaPrimeiroElemento(array) {
+   return array[0]
+}
+
+const arrayUsarioEscolhe = []
+
 //EXERCÍCIO 10-----------------------------------------------------------------------
 //EXERCÍCIO 11-----------------------------------------------------------------------
 //EXERCÍCIO 12-----------------------------------------------------------------------
