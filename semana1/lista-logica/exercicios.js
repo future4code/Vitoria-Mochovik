@@ -104,6 +104,8 @@ function retornaPrimeiroElemento(array) {
 }
 
 const arrayUsarioEscolhe = []
+retornaPrimeiroElemento(arrayUsarioEscolhe)
+
 
 //EXERCÍCIO 10-----------------------------------------------------------------------
 //EXERCÍCIO 11-----------------------------------------------------------------------
