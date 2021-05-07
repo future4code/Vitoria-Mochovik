@@ -106,8 +106,14 @@ function retornaPrimeiroElemento(array) {
 const arrayUsarioEscolhe = []
 retornaPrimeiroElemento(arrayUsarioEscolhe)
 
-
 //EXERCÍCIO 10-----------------------------------------------------------------------
+
+function retornaUltimoElemento(array) {
+   return array[array.length-1]
+}
+const array = []
+retornaUltimoElemento(array)
+
 //EXERCÍCIO 11-----------------------------------------------------------------------
 //EXERCÍCIO 12-----------------------------------------------------------------------
 //EXERCÍCIO 13-----------------------------------------------------------------------
