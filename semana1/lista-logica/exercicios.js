@@ -26,3 +26,14 @@ function imprimeMensagem() {
    const areaDoRetangulo = Number((altura * largura))
    console.log(areaDoRetangulo)
 }
+
+//EXERCÍCIO 2-----------------------------------------------------------------------
+ 
+function imprimeIdade() {
+   const anoAtual = Number(prompt("Qual o ano atual?"))
+   const anoDeNascimento = Number(prompt("Qual o ano do seu nascimento?"))
+
+   const idade = anoAtual - anoDeNascimento
+   console.log(idade)
+}
+
