@@ -167,3 +167,26 @@ const ano01 = 0
 checaAnoBissexto(ano01)
 
 //EXERCÍCIO 15-----------------------------------------------------------------------
+
+function checaValidadeInscricaoLabenu(pessoa) {
+   const idadeMaior = prompt("Você tem mais de 18 anos?")
+   const ensinoMedio = prompt("Você possui ensino médio completo?")
+   const disponibilidade = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
+
+   const comparaIdade = (((idadeMaior.includes("sim")))
+   || (idadeMaior.includes("si"))
+   || (idadeMaior.includes("s")))
+   const comparaEnsinoMedio = ((ensinoMedio.includes("sim")) 
+   || (ensinoMedio.includes("si"))
+   || (ensinoMedio.includes("s")))
+   const comparaDisponibilidade = ((disponibilidade.includes("sim")) 
+   || (disponibilidade.includes("si") )
+   || (disponibilidade.includes("s")))
+
+   const validoEstudarLabenu = ((comparaIdade === true) 
+   && (comparaEnsinoMedio === true) 
+   && (comparaDisponibilidade === true))
+
+   console.log(validoEstudarLabenu)
+   
+}
