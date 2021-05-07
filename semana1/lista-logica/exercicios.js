@@ -115,6 +115,20 @@ const array = []
 retornaUltimoElemento(array)
 
 //EXERCÍCIO 11-----------------------------------------------------------------------
+
+function trocaPrimeiroEUltimo(array) {
+   const salvaPrimeiroElemento = retornaPrimeiroElemento(array)
+   array[0] = retornaUltimoElemento(array)
+   array[array.length - 1] = salvaPrimeiroElemento
+   
+   
+   return array
+}
+
+const arrayParaTrocas = []
+trocaPrimeiroEUltimo(arrayParaTrocas)
+console.log(arrayParaTrocas)
+
 //EXERCÍCIO 12-----------------------------------------------------------------------
 //EXERCÍCIO 13-----------------------------------------------------------------------
 //EXERCÍCIO 14-----------------------------------------------------------------------
