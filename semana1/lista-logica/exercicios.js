@@ -76,6 +76,16 @@ const frase = prompt("Digite uma palavra ou frase")
 retornaStringEmMaiuscula(frase)
 
 //EXERCÍCIO 7-----------------------------------------------------------------------
+
+function calculaIngressosEspetaculo(custo, valorIngresso) {
+   return (custo / valorIngresso)
+}
+
+const custoEspetaculo = Number(prompt("Qual o custo do espetáculo de teatro?"))
+const valorDeCadaIngresso = Number(prompt("Qual o valor de cada ingresso?"))
+
+calculaIngressosEspetaculo(custoEspetaculo, valorDeCadaIngresso)
+
 //EXERCÍCIO 8-----------------------------------------------------------------------
 //EXERCÍCIO 9-----------------------------------------------------------------------
 //EXERCÍCIO 10-----------------------------------------------------------------------
