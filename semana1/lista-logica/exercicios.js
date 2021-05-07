@@ -37,3 +37,10 @@ function imprimeIdade() {
    console.log(idade)
 }
 
+//EXERCÍCIO 3-----------------------------------------------------------------------
+ 
+function calculaIMC(peso, altura) {
+   const resultadoIMC = peso / (Math.pow(altura, 2))
+   return resultadoIMC.toFixed(2)
+}
+
