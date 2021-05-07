@@ -138,5 +138,21 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 checaIgualdadeDesconsiderandoCase(string01, string02)
 
 //EXERCÍCIO 13-----------------------------------------------------------------------
+
+function checaRenovacaoRG() {
+   const anoAtual = Number(prompt("Qual o ano atual?"))
+   const anoDeNascimento = Number(prompt("Qual o seu ano de nascimento?"))
+   const anoIdentidade = Number(prompt("Qual ano a sua carteira de indentidade foi emitida?"))
+
+   const idade = (anoAtual - anoDeNascimento)
+   const tempoIdentidade = anoAtual - anoIdentidade
+   const verificaRenovacao = (((idade <= 20) && (tempoIdentidade >= 5 ) )
+   || ((idade > 20 && idade <= 50) && (tempoIdentidade >= 10) )
+   || ((idade > 50 ) && (tempoIdentidade >= 15)) )
+
+   console.log(verificaRenovacao)
+
+}
+
 //EXERCÍCIO 14-----------------------------------------------------------------------
 //EXERCÍCIO 15-----------------------------------------------------------------------
