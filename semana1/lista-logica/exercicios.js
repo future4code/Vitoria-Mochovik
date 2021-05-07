@@ -87,6 +87,16 @@ const valorDeCadaIngresso = Number(prompt("Qual o valor de cada ingresso?"))
 calculaIngressosEspetaculo(custoEspetaculo, valorDeCadaIngresso)
 
 //EXERCÍCIO 8-----------------------------------------------------------------------
+
+function checaStringsMesmoTamanho(string1, string2) {
+   return (string1.length === string2.length)
+}
+
+const string01 = prompt("Escreva uma palavra ou frase")
+const string02 = prompt("Escreva outra palavra ou frase")
+
+checaStringsMesmoTamanho(string01, string02)
+
 //EXERCÍCIO 9-----------------------------------------------------------------------
 //EXERCÍCIO 10-----------------------------------------------------------------------
 //EXERCÍCIO 11-----------------------------------------------------------------------
