@@ -130,6 +130,13 @@ trocaPrimeiroEUltimo(arrayParaTrocas)
 console.log(arrayParaTrocas)
 
 //EXERCÍCIO 12-----------------------------------------------------------------------
+
+function checaIgualdadeDesconsiderandoCase(string1, string2) {
+   return (retornaStringEmMaiuscula(string1) === retornaStringEmMaiuscula(string2))
+}
+
+checaIgualdadeDesconsiderandoCase(string01, string02)
+
 //EXERCÍCIO 13-----------------------------------------------------------------------
 //EXERCÍCIO 14-----------------------------------------------------------------------
 //EXERCÍCIO 15-----------------------------------------------------------------------
