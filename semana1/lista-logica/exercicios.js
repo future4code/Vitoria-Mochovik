@@ -67,6 +67,14 @@ function imprimeTresCoresFavoritas() {
 }
 
 //EXERCÍCIO 6-----------------------------------------------------------------------
+
+function retornaStringEmMaiuscula(string) {
+   return (string.toUpperCase())
+}
+
+const frase = prompt("Digite uma palavra ou frase")
+retornaStringEmMaiuscula(frase)
+
 //EXERCÍCIO 7-----------------------------------------------------------------------
 //EXERCÍCIO 8-----------------------------------------------------------------------
 //EXERCÍCIO 9-----------------------------------------------------------------------
