@@ -72,7 +72,7 @@ function retornaStringEmMaiuscula(string) {
    return (string.toUpperCase())
 }
 
-const frase = prompt("Digite uma palavra ou frase")
+const frase = 0
 retornaStringEmMaiuscula(frase)
 
 //EXERCÍCIO 7-----------------------------------------------------------------------
@@ -120,8 +120,6 @@ function trocaPrimeiroEUltimo(array) {
    const salvaPrimeiroElemento = retornaPrimeiroElemento(array)
    array[0] = retornaUltimoElemento(array)
    array[array.length - 1] = salvaPrimeiroElemento
-   
-   
    return array
 }
 
@@ -134,8 +132,6 @@ console.log(arrayParaTrocas)
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
    return (retornaStringEmMaiuscula(string1) === retornaStringEmMaiuscula(string2))
 }
-
-checaIgualdadeDesconsiderandoCase(string01, string02)
 
 //EXERCÍCIO 13-----------------------------------------------------------------------
 
@@ -162,9 +158,6 @@ function checaAnoBissexto(ano) {
 
    return (resultadoBissexto)
 }
-
-const ano01 = 0
-checaAnoBissexto(ano01)
 
 //EXERCÍCIO 15-----------------------------------------------------------------------
 
