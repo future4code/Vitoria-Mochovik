@@ -155,4 +155,15 @@ function checaRenovacaoRG() {
 }
 
 //EXERCÍCIO 14-----------------------------------------------------------------------
+
+function checaAnoBissexto(ano) {
+   const resultadoBissexto = ( ((ano  % 400) === 0)
+   || (((ano % 4) === 0) && ((ano % 100) !== 0)) )
+
+   return (resultadoBissexto)
+}
+
+const ano01 = 0
+checaAnoBissexto(ano01)
+
 //EXERCÍCIO 15-----------------------------------------------------------------------
