@@ -150,3 +150,29 @@ const pessoa = {
 perguntaUsuario()
 
 */
+
+//DESAFIO 01--------------------------------------------------------------------
+
+/*
+
+function comparaFilmes(filme1, filme2) {
+    console.log("O primeiro filme foi lançado antes do segundo?", filme1.anoDeLancamento > filme2.anoDeLancamento)
+    console.log("O primeiro filme foi lançado no mesmo ano do segundo?", filme1.anoDeLancamento === filme2.anoDeLancamento)
+
+}
+
+const filme1 = {
+    nome: prompt("Digite o nome de um filme"),
+    anoDeLancamento: prompt("Qual o ano de lançamento do filme?"),
+}
+    
+
+const filme2 = {
+    nome: prompt("Digite o nome de um filme"),
+    anoDeLancamento: prompt("Qual o ano de lançamento do filme?"),
+
+}
+
+comparaFilmes(filme1, filme2)
+
+*/
