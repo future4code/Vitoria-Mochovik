@@ -75,7 +75,9 @@ const pessoa = {
 }
 
 const novaPessoa = {
-    ...pessoa
+    nome: "Julia",
+    idade: 25,
+    profissao: "Dentista"
 }
 
 function informacoes(pessoa, novaPessoa) {
