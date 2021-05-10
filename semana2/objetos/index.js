@@ -151,7 +151,7 @@ perguntaUsuario()
 
 */
 
-//DESAFIO 01--------------------------------------------------------------------
+//DESAFIO 02--------------------------------------------------------------------
 
 /*
 
@@ -174,5 +174,47 @@ const filme2 = {
 }
 
 comparaFilmes(filme1, filme2)
+
+*/
+
+//DESAFIO 03--------------------------------------------------------------------
+
+/*
+
+const carrinho = []
+
+const frutas = {
+    nome: "Banana",
+    disponibilidade: true,
+
+}
+const frutas02 = {
+    nome: "Morango",
+    disponibilidade: true,
+
+}
+
+const frutas03 = {
+    nome: "Caju",
+    disponibilidade: true,
+
+}
+
+function colocarCarrinho(fruta) {
+    return carrinho.push(fruta)
+}
+
+function inverteDisponibilidade(fruta) {
+    fruta.disponibilidade = !fruta.disponibilidade
+}
+
+colocarCarrinho(frutas)
+colocarCarrinho(frutas02)
+colocarCarrinho(frutas03)
+
+console.log(carrinho)
+
+inverteDisponibilidade(frutas)
+console.log(`A fruta ${frutas.nome} está disponivel? ${frutas.disponibilidade}`)
 
 */
