@@ -19,5 +19,21 @@ e isso nos permite mudar ou adicionar algumas propriedades referente ao objeto c
 
 */
 
+//EXERCÍCIO 03--------------------------------------------------------------------
+
+/*
+
+3A
+false
+undefined
+
+3B
+Primeiro ele retorna 'false', pois enviamos para a função nosso objeto 'pessoa',
+e a propriedade que queremos analisar (no primeiro caso 'backender'), já foi definida como 
+uma booleada que para backender indica 'false'.
+No segundo caso passamos como parâmetro para a função, uma propriedade que não existe em nosso objeto
+'pessoa', por isso esse retorna 'undefined'.
+
+*/
 
 //------------------Exercício de escrita de código--------------------------------
