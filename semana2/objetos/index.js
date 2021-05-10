@@ -91,3 +91,38 @@ function informacoes(pessoa, novaPessoa) {
 informacoes(pessoa, novaPessoa)
 
 */
+
+//EXERCÍCIO 03--------------------------------------------------------------------
+
+/*
+
+const carrinho = []
+
+const frutas = {
+    nome: "Banana",
+    disponibilidade: true,
+
+}
+const frutas02 = {
+    nome: "Morango",
+    disponibilidade: true,
+
+}
+
+const frutas03 = {
+    nome: "Caju",
+    disponibilidade: true,
+
+}
+
+function colocarCarrinho(fruta) {
+    return carrinho.push(fruta)
+}
+
+colocarCarrinho(frutas)
+colocarCarrinho(frutas02)
+colocarCarrinho(frutas03)
+
+console.log(carrinho)
+
+*/
