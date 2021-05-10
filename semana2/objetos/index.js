@@ -61,3 +61,33 @@ const novosApelidos = {
 imprimeObjeto(novosApelidos)
 
 */
+
+//EXERCÍCIO 02--------------------------------------------------------------------
+
+/*
+
+const pessoa = {
+    nome: "Vitória",
+    idade: 21,
+    profissao: "Estudante",
+
+}
+
+const novaPessoa = {
+    ...pessoa
+}
+
+function informacoes(pessoa, novaPessoa) {
+    const arrayInformacoes = []
+    arrayInformacoes[0] = pessoa.nome
+    arrayInformacoes[1] = pessoa.nome.length
+    arrayInformacoes[2] = pessoa.idade
+    arrayInformacoes[3] = pessoa.profissao
+    arrayInformacoes[4] = pessoa.profissao.length
+
+    return arrayInformacoes
+}
+
+informacoes(pessoa, novaPessoa)
+
+*/
