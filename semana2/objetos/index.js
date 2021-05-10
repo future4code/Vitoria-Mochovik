@@ -137,17 +137,14 @@ console.log(carrinho)
 /*
 
 function perguntaUsuario() {
-    pessoa.nome = prompt("Qual seu nome?")
-    pessoa.idade = prompt("Qual sua idade?")
-    pessoa.profissao = prompt("Qual sua profissão?")
-    
-    console.log(pessoa)
-}
+    const pessoa = {
+    nome: prompt("Qual seu nome?"),
+    idade: Number(prompt("Qual sua idade?")),
+    profissao: prompt("Qual sua profissão?")
+    }
 
-const pessoa = {
-    nome: 0,
-   idade: 0,
-   profissao: 0,
+    console.log(pessoa)
+    console.log(typeof pessoa)
 }
 
 perguntaUsuario()
