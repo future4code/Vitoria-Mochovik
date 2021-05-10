@@ -37,3 +37,27 @@ No segundo caso passamos como parâmetro para a função, uma propriedade que n�
 */
 
 //------------------Exercício de escrita de código--------------------------------
+
+//EXERCÍCIO 01--------------------------------------------------------------------
+
+/*
+
+const pessoa = {
+    nome: "Vitória",
+    apelidos: ["Vi", "Vivi", "Vih"],
+}
+
+function imprimeObjeto(pessoa) {
+    console.log(`Eu sou ${pessoa.nome}, mas pode me chamar de: ${pessoa.apelidos[0]}, ${pessoa.apelidos[1]}, ou ${pessoa.apelidos[2]}.`)
+}
+
+imprimeObjeto(pessoa)
+
+const novosApelidos = {
+    ...pessoa,
+    apelidos: ["Carol", "Carolina", "Viii"]
+}
+
+imprimeObjeto(novosApelidos)
+
+*/
