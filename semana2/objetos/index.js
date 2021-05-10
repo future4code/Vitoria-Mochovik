@@ -10,8 +10,9 @@
 
 /*
 2A
-Nada será impresso no console já que temos um erro em 'const tartaruga = ...',
-pois não consigo usar o método 'replaceAll()' dessa forma.
+{ nome: "Juca", idade: 3, raca: "SRD" }
+{ nome: "Juba", idade: 3, raca: "SRD" }
+{ nome: "Jubo", idade: 3, raca: "SRD" }
 
 2B
 Os três pontos fazem uma cópia completa do objeto mencionado para outro objeto,
