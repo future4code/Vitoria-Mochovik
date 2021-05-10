@@ -126,3 +126,27 @@ colocarCarrinho(frutas03)
 console.log(carrinho)
 
 */
+
+//------------------Desafios--------------------------------
+
+//DESAFIO 01--------------------------------------------------------------------
+
+/*
+
+function perguntaUsuario() {
+    pessoa.nome = prompt("Qual seu nome?")
+    pessoa.idade = prompt("Qual sua idade?")
+    pessoa.profissao = prompt("Qual sua profissão?")
+    
+    console.log(pessoa)
+}
+
+const pessoa = {
+    nome: 0,
+   idade: 0,
+   profissao: 0,
+}
+
+perguntaUsuario()
+
+*/
