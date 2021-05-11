@@ -161,3 +161,79 @@ if (generoFilme.toLocaleLowerCase() === "fantasia" && valorIngresso < 15) {
 }
 
 */
+
+//DESAFIO 02-------------------------------------------------------------------------------
+
+/*
+
+const nomeCompleto = prompt("Qual seu nome completo?")
+const tipoDeJogo = prompt("Qual o tipo de jogo? Digite internacional ou doméstico")
+const etapaDoJogo = prompt("Qual a etapa do jogo? Digite semi-final, decisão para decisão de terceiro lugar ou final")
+const categoria = prompt("Qual a categoria? 1, 2, 3, ou 4")
+const quantidadeDeIngressos = prompt("Quantos ingressos deseja comprar?")
+let valorIngresso = 0
+let valorIngressoFinal = 0
+
+switch (etapaDoJogo.toUpperCase(), categoria) {
+    case "SEMI-FINAL", "1":
+        valorIngresso = 1320.00
+        break;
+    case "SEMI-FINAL", "2":
+        valorIngresso = 880.00
+        break;
+    case "SEMI-FINAL", "3":
+        valorIngresso = 550.00
+        break;
+    case "SEMI-FINAL", "4":
+        valorIngresso = 220.00
+        break;
+    case "DECISÃO", "1":
+        valorIngresso = 660.00
+        break;
+    case "DECISÃO", "2":
+        valorIngresso = 440.00
+        break;
+    case "DECISÃO", "3":
+        valorIngresso = 330.00
+        break;
+    case "DECISÃO", "4":
+        valorIngresso = 170.00
+        break;
+    case "FINAL", "1":
+        valorIngresso = 1980.00
+        break;
+    case "FINAL", "2":
+        valorIngresso = 1320.00
+        break;
+    case "FINAL", "3":
+        valorIngresso = 880.00
+        break;
+    case "FINAL", "4":
+        valorIngresso = 330.00
+        break;
+    default:
+        alert("Não temos essa opção :(")
+        break;
+}
+
+if (tipoDeJogo.toUpperCase() === "INTERNACIONAL") {
+    valorIngresso = valorIngresso*4.10
+    valorIngressoFinal = valorIngresso*quantidadeDeIngressos
+} else {
+    valorIngressoFinal = valorIngresso*quantidadeDeIngressos
+}
+
+
+console.log(
+    `---Dados da compra---
+    Nome do cliente: ${nomeCompleto}
+    Tipo de jogo: ${tipoDeJogo}
+    Etapa do jogo: ${etapaDoJogo}
+    Categoria: ${categoria}
+    Quantidade de Ingressos: ${quantidadeDeIngressos}
+    ---Valores---
+    Valor do ingresso: ${valorIngresso}
+    Valor total: ${valorIngressoFinal}`
+)
+
+*/
