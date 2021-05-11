@@ -66,3 +66,19 @@ na parte global podemos acessar dentro de outros escopos, o contrário não é p
 podemos acessar no global o que foi definido dentro de um escopo.
 
 */
+
+//---------------------Exercícios de escrita de código---------------------------------
+
+//EXERCÍCIO 01-------------------------------------------------------------------------------
+
+/*
+
+const idade = Number(prompt("Qual a sua idade?"))
+
+if (idade >= 18) {
+    console.log("Você pode dirigir")
+} else {
+    console.log("Você não pode dirigir ainda, poderá em", 18 - idade, "anos.")
+}
+
+*/
