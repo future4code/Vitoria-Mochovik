@@ -42,3 +42,27 @@ para 5. Por fim será impresso no console:
 O preço da fruta  Pêra  é  R$  5
 
 */
+
+//EXERCÍCIO 03-------------------------------------------------------------------------------
+
+/*
+
+3A
+A primeira linha pede ao usuário para digitar um primeiro número, que é convertido de string 
+para número e salvo na variável constante chamada de `numero`.
+
+3B
+Para o valor 10, será impresso no console:
+Esse número passou no teste
+Mensagem de erro: mensagem is not defined
+
+Para o valor -10, será impresso no console:
+Mensagem de erro: mensagem is not defined
+
+3C
+Sim, pois a variável mensagem foi declarada apenas dentro do escopo `if` nesse caso não posso 
+acessar ela como se fosse uma variável global fora desse escopo. Resumindo, o que está declarado 
+na parte global podemos acessar dentro de outros escopos, o contrário não é permitido. Não 
+podemos acessar no global o que foi definido dentro de um escopo.
+
+*/
