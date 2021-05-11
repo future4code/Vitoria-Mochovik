@@ -82,3 +82,19 @@ if (idade >= 18) {
 }
 
 */
+
+//EXERCÍCIO 02-------------------------------------------------------------------------------
+
+/*
+
+const turnoEstuda = prompt("Qual turno você estuda? Digite M para matutino, V para vespertino ou N para noturno")
+
+if (turnoEstuda.toUpperCase() === "M") {
+    console.log("Bom dia!")
+} else if (turnoEstuda.toUpperCase() === "V") {
+    console.log("Boa tarde!")
+} else if (turnoEstuda.toUpperCase() === "N") {
+    console.log("Boa noite!")
+}
+
+*/
