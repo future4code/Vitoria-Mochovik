@@ -98,3 +98,26 @@ if (turnoEstuda.toUpperCase() === "M") {
 }
 
 */
+
+//EXERCÍCIO 03-------------------------------------------------------------------------------
+
+/*
+
+const turnoEstuda = prompt("Qual turno você estuda? Digite M para matutino, V para vespertino ou N para noturno")
+
+switch (turnoEstuda.toUpperCase()) {
+    case "M":
+        console.log("Bom dia!")
+        break;
+    case "V":
+        console.log("Boa tarde!")
+        break;
+    case "N":
+        console.log("Boa noite!")
+        break;
+    default:
+        console.log("Não consigo indentificar o turno do dia!")
+        break;
+}
+
+*/
