@@ -19,3 +19,26 @@ Ele imprime no console "Não passou no teste" para todos os valores que não pas
 todos que o resto da divisão por 2 for diferente de 0, ou seja, todos que forem ímpares.
 
 */
+
+//EXERCÍCIO 02-------------------------------------------------------------------------------
+
+/*
+
+2A
+O código serve para mostrar ao usuário o valor da fruta que ele escolher, ou seja, o programa 
+analisa 4 frutas diferentes, para cada uma temos um preço diferente, então conforme a fruta 
+digitada pelo usuário, a variável preço muda seu valor, e caso a fruta do usuário não seja 
+nenhuma das quatro (laranja, maçã, uva ou pêra), o preço terá o valor único de 5. Por fim, o 
+porgrama imprime no console qual fruta o usuário escolheu e qual o seu preço.
+
+2B
+O preço da fruta Maçã é R$ 2.25
+
+2C
+Quando retiramos o `break` o código não sai do nosso `switch`, ele continua rodanda linha por 
+linha mesmo que nossa condição já tenha sido encontrada, ou seja, nesse caso ele atribui o 
+valor 5.5 a variável `preco` mas acaba entrando no caso `default` e mudando o valor do `preco` 
+para 5. Por fim será impresso no console:
+O preço da fruta  Pêra  é  R$  5
+
+*/
