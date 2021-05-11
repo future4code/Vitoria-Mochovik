@@ -136,3 +136,28 @@ if (generoFilme.toLocaleLowerCase() === "fantasia" && valorIngresso < 15) {
 }
 
 */
+
+//---------------------Desafios------------------------------------------------------------
+
+//DESAFIO 01-------------------------------------------------------------------------------
+
+/* 
+
+const generoFilme = prompt("Qual gênero de filme você vai assistir?")
+const valorIngresso = prompt("Qual o valor do ingresso?")
+
+
+if (generoFilme.toLocaleLowerCase() === "fantasia" && valorIngresso < 15) {
+    const lanchinho = prompt("Qual lanche você deseja comprar?")
+
+    console.log("Bom filme!")
+    if (lanchinho.substr(lanchinho.length - 1) === "a") {
+        console.log(`Aproveite a sua ${lanchinho}`)
+    } else {
+        console.log(`Aproveite o seu ${lanchinho}`)
+    }
+} else {
+    console.log("Escolha outro filme :(")
+}
+
+*/
