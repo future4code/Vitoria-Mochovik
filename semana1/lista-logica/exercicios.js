@@ -16,10 +16,10 @@ function imprimeMensagem() {
 }
 
 // EXERCÍCIO-----------------------------------------------------------------------
- 
- //EXERCÍCIO 1-----------------------------------------------------------------------
- 
- function calculaAreaRetangulo() {
+
+//EXERCÍCIO 1-----------------------------------------------------------------------
+
+function calculaAreaRetangulo() {
    const altura = Number(prompt("Insira a altura do retângulo"))
    const largura = Number(prompt("Insira o valor da largura do retângulo"))
 
@@ -28,7 +28,7 @@ function imprimeMensagem() {
 }
 
 //EXERCÍCIO 2-----------------------------------------------------------------------
- 
+
 function imprimeIdade() {
    const anoAtual = Number(prompt("Qual o ano atual?"))
    const anoDeNascimento = Number(prompt("Qual o ano do seu nascimento?"))
@@ -38,14 +38,14 @@ function imprimeIdade() {
 }
 
 //EXERCÍCIO 3-----------------------------------------------------------------------
- 
+
 function calculaIMC(peso, altura) {
    const resultadoIMC = peso / (Math.pow(altura, 2))
    return resultadoIMC.toFixed(2)
 }
 
 //EXERCÍCIO 4-----------------------------------------------------------------------
- 
+
 function imprimeInformacoesUsuario() {
    const nome = prompt("Qual seu nome?")
    const idade = Number(prompt("Qual sua idade?"))
@@ -72,19 +72,16 @@ function retornaStringEmMaiuscula(string) {
    return (string.toUpperCase())
 }
 
-const frase = 0
-retornaStringEmMaiuscula(frase)
-
 //EXERCÍCIO 7-----------------------------------------------------------------------
 
 function calculaIngressosEspetaculo(custo, valorIngresso) {
    return (custo / valorIngresso)
 }
 
-const custoEspetaculo = Number(prompt("Qual o custo do espetáculo de teatro?"))
-const valorDeCadaIngresso = Number(prompt("Qual o valor de cada ingresso?"))
+//const custoEspetaculo = Number(prompt("Qual o custo do espetáculo de teatro?"))
+//const valorDeCadaIngresso = Number(prompt("Qual o valor de cada ingresso?"))
 
-calculaIngressosEspetaculo(custoEspetaculo, valorDeCadaIngresso)
+//calculaIngressosEspetaculo(custoEspetaculo, valorDeCadaIngresso)
 
 //EXERCÍCIO 8-----------------------------------------------------------------------
 
@@ -92,10 +89,10 @@ function checaStringsMesmoTamanho(string1, string2) {
    return (string1.length === string2.length)
 }
 
-const string01 = prompt("Escreva uma palavra ou frase")
-const string02 = prompt("Escreva outra palavra ou frase")
+//const string01 = prompt("Escreva uma palavra ou frase")
+//const string02 = prompt("Escreva outra palavra ou frase")
 
-checaStringsMesmoTamanho(string01, string02)
+//checaStringsMesmoTamanho(string01, string02)
 
 //EXERCÍCIO 9-----------------------------------------------------------------------
 
@@ -103,29 +100,27 @@ function retornaPrimeiroElemento(array) {
    return array[0]
 }
 
-const arrayUsarioEscolhe = []
-retornaPrimeiroElemento(arrayUsarioEscolhe)
-
 //EXERCÍCIO 10-----------------------------------------------------------------------
 
 function retornaUltimoElemento(array) {
-   return array[array.length-1]
+   return array[array.length - 1]
 }
-const array = []
-retornaUltimoElemento(array)
 
 //EXERCÍCIO 11-----------------------------------------------------------------------
 
+let contador = 1
 function trocaPrimeiroEUltimo(array) {
-   const salvaPrimeiroElemento = retornaPrimeiroElemento(array)
-   array[0] = retornaUltimoElemento(array)
-   array[array.length - 1] = salvaPrimeiroElemento
+
+   contador += 1
+   if (contador === 2 || contador === 3) {
+      const primeiroElemento = retornaPrimeiroElemento(array);
+      const ultimoElemento = retornaUltimoElemento(array);
+      array[0] = ultimoElemento;
+      array[array.length - 1] = primeiroElemento;
+
+   }
    return array
 }
-
-const arrayParaTrocas = []
-trocaPrimeiroEUltimo(arrayParaTrocas)
-console.log(arrayParaTrocas)
 
 //EXERCÍCIO 12-----------------------------------------------------------------------
 
@@ -142,9 +137,9 @@ function checaRenovacaoRG() {
 
    const idade = (anoAtual - anoDeNascimento)
    const tempoIdentidade = anoAtual - anoIdentidade
-   const verificaRenovacao = (((idade <= 20) && (tempoIdentidade >= 5 ) )
-   || ((idade > 20 && idade <= 50) && (tempoIdentidade >= 10) )
-   || ((idade > 50 ) && (tempoIdentidade >= 15)) )
+   const verificaRenovacao = (((idade <= 20) && (tempoIdentidade >= 5))
+      || ((idade > 20 && idade <= 50) && (tempoIdentidade >= 10))
+      || ((idade > 50) && (tempoIdentidade >= 15)))
 
    console.log(verificaRenovacao)
 
@@ -153,8 +148,8 @@ function checaRenovacaoRG() {
 //EXERCÍCIO 14-----------------------------------------------------------------------
 
 function checaAnoBissexto(ano) {
-   const resultadoBissexto = ( ((ano  % 400) === 0)
-   || (((ano % 4) === 0) && ((ano % 100) !== 0)) )
+   const resultadoBissexto = (((ano % 400) === 0)
+      || (((ano % 4) === 0) && ((ano % 100) !== 0)))
 
    return (resultadoBissexto)
 }
@@ -167,19 +162,19 @@ function checaValidadeInscricaoLabenu(pessoa) {
    const disponibilidade = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
 
    const comparaIdade = (((idadeMaior.includes("sim")))
-   || (idadeMaior.includes("si"))
-   || (idadeMaior.includes("s")))
-   const comparaEnsinoMedio = ((ensinoMedio.includes("sim")) 
-   || (ensinoMedio.includes("si"))
-   || (ensinoMedio.includes("s")))
-   const comparaDisponibilidade = ((disponibilidade.includes("sim")) 
-   || (disponibilidade.includes("si") )
-   || (disponibilidade.includes("s")))
+      || (idadeMaior.includes("si"))
+      || (idadeMaior.includes("s")))
+   const comparaEnsinoMedio = ((ensinoMedio.includes("sim"))
+      || (ensinoMedio.includes("si"))
+      || (ensinoMedio.includes("s")))
+   const comparaDisponibilidade = ((disponibilidade.includes("sim"))
+      || (disponibilidade.includes("si"))
+      || (disponibilidade.includes("s")))
 
-   const validoEstudarLabenu = ((comparaIdade === true) 
-   && (comparaEnsinoMedio === true) 
-   && (comparaDisponibilidade === true))
+   const validoEstudarLabenu = ((comparaIdade === true)
+      && (comparaEnsinoMedio === true)
+      && (comparaDisponibilidade === true))
 
    console.log(validoEstudarLabenu)
-   
+
 }
