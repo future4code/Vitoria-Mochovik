@@ -121,3 +121,18 @@ switch (turnoEstuda.toUpperCase()) {
 }
 
 */
+
+//EXERCÍCIO 04-------------------------------------------------------------------------------
+
+/*
+
+const generoFilme = prompt("Qual gênero de filme você vai assistir?")
+const valorIngresso = prompt("Qual o valor do ingresso?")
+
+if (generoFilme.toLocaleLowerCase() === "fantasia" && valorIngresso < 15) {
+    console.log("Bom filme!")
+} else {
+    console.log("Escolha outro filme :(")
+}
+
+*/
