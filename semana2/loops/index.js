@@ -85,7 +85,7 @@ O resultado impresso no console será:
 
 */
 
-//---------------------Exercício de escrita de código------------------------------
+//---------------------Exercício de escrita de código------------------------------------
 
 //EXERCÍCIO 01---------------------------------------------------------------------------
 
@@ -112,4 +112,74 @@ if (quantidadeAnimais <= 0) {
   }
 
 }
+*/
+
+//EXERCÍCIO 02---------------------------------------------------------------------------
+
+/*
+
+let arrayOriginal = [1, 20, 3, 4, 10, 1]
+
+function imprimeArrayOriginal(array) {
+  console.log("Os valores originais do array são:")
+  for (i = 0; i <= array.length - 1; i++) {
+    console.log(array[i])
+  }
+}
+
+function imprimeArrayModificado(array) {
+  console.log("Os valores do array divididos por 10 são:")
+  for (i = 0; i <= array.length - 1; i++) {
+    console.log(array[i] / 10)
+  }
+}
+
+function criaNovoArrayPares(array) {
+  let arrayPares = []
+  for (i = 0; i <= array.length - 1; i++) {
+    if (array[i] % 2 === 0) {
+      arrayPares.push(array[i])
+    }
+  }
+
+  console.log("O array de pares é:")
+  for (i = 0; i <= arrayPares.length - 1; i++) {
+    console.log(arrayPares[i])
+  }
+}
+
+function criaNovoArrayStrings(array) {
+  let arrayStrings = []
+  for (i = 0; i <= array.length - 1; i++) {
+    arrayStrings.push("O elemento do index " + i + " é: " + array[i])
+  }
+  console.log("O array de strings é:")
+  for (i = 0; i <= arrayStrings.length - 1; i++) {
+    console.log(arrayStrings[i])
+  }
+}
+
+function verificaMaiorEMenor(array) {
+  let maiorNumero = array[array.length-1]
+  let menorNumero = array[0]
+
+  for(i=0; i<= array.length - 2; i++) {
+    if(array[i] < array[i +1] && array[i] < menorNumero) {
+      menorNumero = array[i]
+    }
+    if(array[i] > array[i +1] && array[i] > maiorNumero) {
+      maiorNumero = array[i]
+    }
+  }
+  
+  console.log("O maior número é:", maiorNumero)
+  console.log("O menor número é:", menorNumero)
+}
+
+imprimeArrayOriginal(arrayOriginal)
+imprimeArrayModificado(arrayOriginal)
+criaNovoArrayPares(arrayOriginal)
+criaNovoArrayStrings(arrayOriginal)
+verificaMaiorEMenor(arrayOriginal)
+
 */
