@@ -74,3 +74,13 @@ for (let numero of lista) {
 
 */
 
+//EXERCÍCIO 03---------------------------------------------------------------------------
+
+/*
+O resultado impresso no console será:
+0
+00
+000
+0000
+
+*/
