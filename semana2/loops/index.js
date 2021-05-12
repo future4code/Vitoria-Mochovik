@@ -68,8 +68,8 @@ for (let numero of lista) {
     console.log(`O número ${numero} está na posição ${indice}`)
     indice += 1
   if (numero > 18) {
-		//console.log(numero)
-	}
+    //console.log(numero)
+  }
 }
 
 */
@@ -83,4 +83,33 @@ O resultado impresso no console será:
 000
 0000
 
+*/
+
+//---------------------Exercício de escrita de código------------------------------
+
+//EXERCÍCIO 01---------------------------------------------------------------------------
+
+/*
+
+const quantidadeAnimais = Number(prompt("Quantos animais de estimação você tem?"))
+let nomesAnimais = []
+
+if (quantidadeAnimais <= 0) {
+  console.log("Que pena! Você pode adotar um pet!")
+} else if (quantidadeAnimais > 0) {
+  for (i = 1; i <= quantidadeAnimais; i++) {
+    nomesAnimais.push(prompt("Qual o nome do seu pet?"))
+  }
+  if (quantidadeAnimais === 1) {
+    console.log("O nome do seu pet é:")
+    console.log(nomesAnimais[0])
+  } else {
+    console.log("Os nomes dos seus animais são:")
+    for (i = 0; i <= nomesAnimais.length - 1; i++) {
+      console.log(nomesAnimais[i])
+    }
+
+  }
+
+}
 */
