@@ -41,3 +41,36 @@ O resultado visto no console será:
 10
 
 */
+
+//EXERCÍCIO 02---------------------------------------------------------------------------
+
+/*
+
+2A
+Será impresso no console:
+19
+21
+23
+25
+27
+30
+
+2B
+Eu consigo sim acessar o ìndice de cada elemento criando uma variável auxiliar (como faço 
+no exemplo abaixo), essa variável serve para mim como um contador que me ajuda a identificar 
+qual a posição de cada elemento.
+Exemplo:
+
+const lista = [10, 11, 12, 15, 18, 19, 21, 23, 25, 27, 30]
+
+let indice = 0
+for (let numero of lista) {
+    console.log(`O número ${numero} está na posição ${indice}`)
+    indice += 1
+  if (numero > 18) {
+		//console.log(numero)
+	}
+}
+
+*/
+
