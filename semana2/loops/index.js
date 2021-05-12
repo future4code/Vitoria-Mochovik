@@ -183,3 +183,31 @@ criaNovoArrayStrings(arrayOriginal)
 verificaMaiorEMenor(arrayOriginal)
 
 */
+
+//---------------------Desafios------------------------------------------------------
+
+//DESAFIO 01-----------------------------------------------------------------------
+
+/*
+const numeroCerto = Number(prompt("Qual o número você deseja?"))
+console.log("Vamos jogar!")
+
+let numeroTentativas = 0
+let numeroChutado = Number(prompt("Chute um número!"))
+
+while(numeroChutado != numeroCerto) {
+  numeroTentativas += 1
+  console.log("O número chutado foi:", numeroChutado)
+  if(numeroChutado > numeroCerto) {
+    console.log(" Errou!! O número chutado é maior que o número certo")
+  } else if(numeroChutado < numeroCerto) {
+    console.log("Errou!! O número chutado é menor que o número certo")
+  }
+  numeroChutado = Number(prompt("Chute um número!"))
+
+}
+
+console.log("Acertou!!!")
+console.log("O número de tentativas foi", numeroTentativas)
+
+*/
