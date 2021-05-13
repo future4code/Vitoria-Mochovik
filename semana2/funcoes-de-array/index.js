@@ -83,3 +83,75 @@ imprime(salsichaDogs)
 imprime(mensagemPoodle)
 */
 
+//EXERCÍCIO 02------------------------------------------------------------------------------------  
+
+/*
+
+const produtos = [
+    { nome: "Alface Lavada", categoria: "Hortifruti", preco: 2.5 },
+    { nome: "Guaraná 2l", categoria: "Bebidas", preco: 7.8 },
+    { nome: "Veja Multiuso", categoria: "Limpeza", preco: 12.6 },
+    { nome: "Dúzia de Banana", categoria: "Hortifruti", preco: 5.7 },
+    { nome: "Leite", categoria: "Bebidas", preco: 2.99 },
+    { nome: "Cândida", categoria: "Limpeza", preco: 3.30 },
+    { nome: "Detergente Ypê", categoria: "Limpeza", preco: 2.2 },
+    { nome: "Vinho Tinto", categoria: "Bebidas", preco: 55 },
+    { nome: "Berinjela kg", categoria: "Hortifruti", preco: 8.99 },
+    { nome: "Sabão em Pó Ypê", categoria: "Limpeza", preco: 10.80 }
+]
+
+const nomeItens = produtos.map((item) => {
+    return item.nome
+})
+
+const nomePrecoDesconto = produtos.map((item) => {
+    return { ...item, preco: (item.preco * 0.95).toFixed(2) }
+})
+
+const stringsPrecoDesconto = nomePrecoDesconto.map((item) => {
+    return (`Nome: ${item.nome}, preço: ${item.preco}`)
+})
+
+const apenasBebidas = produtos.filter((item) => {
+    return item.categoria === "Bebidas"
+})
+
+const stringsApenasBebidas = apenasBebidas.map((item) => {
+    return (`Nome: ${item.nome}, categoria: ${item.categoria}, preço: ${item.preco}`)
+})
+
+const apenasYpe = produtos.filter((item) => {
+    return item.nome.includes("Ypê")
+})
+
+const stringApenasYpe = apenasYpe.map((item) => {
+    return (`Nome: ${item.nome}, categoria: ${item.categoria}, preço: ${item.preco}`)
+})
+
+const stringAnuncioApenasYpe = apenasYpe.map((item) => {
+    return (`Compre ${item.nome} por R$${item.preco}`)
+})
+
+function imprimeValores(array) {
+    for(i=0; i<= array.length-1; i++) {
+        console.log(array[i])
+    }
+}
+
+console.log(" \n Apenas o nome de cada item:")
+imprimeValores(nomeItens)
+
+console.log(" \n Itens com preço de desconto:")
+imprimeValores(stringsPrecoDesconto)
+
+console.log(" \n Apenas a categoria de bebidas:")
+imprimeValores(stringsApenasBebidas)
+
+console.log(" \n Apenas produtos da marca Ypê:")
+imprimeValores(stringApenasYpe)
+
+console.log(" \n Frase com Ypê:")
+imprimeValores(stringAnuncioApenasYpe)
+
+*/
+
