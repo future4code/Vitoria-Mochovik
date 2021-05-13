@@ -21,3 +21,12 @@
 ]
  
   */
+
+//EXERCÍCIO 02------------------------------------------------------------------------------------
+
+  /*
+  Será impresso no console:
+  [ 'Amanda Rangel', 'Laís Petra', 'Letícia Chijo' ]
+  */
+
+  
