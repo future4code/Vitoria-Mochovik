@@ -155,3 +155,46 @@ imprimeValores(stringAnuncioApenasYpe)
 
 */
 
+
+//----------------------------------Desafios----------------------------------------------------
+
+//DESAFIO 01------------------------------------------------------------------------------------  
+
+/* 
+const pokemons = [
+    { nome: "Bulbasaur", tipo: "grama" },
+    { nome: "Bellsprout", tipo: "grama" },
+    { nome: "Charmander", tipo: "fogo" },
+    { nome: "Vulpix", tipo: "fogo" },
+    { nome: "Squirtle", tipo: "água" },
+    { nome: "Psyduck", tipo: "água" },
+ ]
+
+ const ordemAlfabetica = pokemons.sort((a, b) => {
+     if(a.nome > b.nome) {
+         return 1;
+     }
+     if (a.nome <b.nome) {
+         return -1;
+     }
+ })
+ 
+const tiposApenas = pokemons.map((item) => {
+    return item.tipo
+})
+
+const tiposSemRepeticao = tiposApenas.filter((item, index, self) => {
+    return self.indexOf(item) === index
+
+})
+
+function imprime(array) {
+    for(i=0; i<= array.length -1; i++) {
+        console.log(array[i])
+    }
+}
+
+imprime(ordemAlfabetica)
+imprime(tiposSemRepeticao)
+
+*/
