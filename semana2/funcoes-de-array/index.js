@@ -29,4 +29,12 @@
   [ 'Amanda Rangel', 'Laís Petra', 'Letícia Chijo' ]
   */
 
-  
+//EXERCÍCIO 03------------------------------------------------------------------------------------  
+
+  /*
+  Será impresso no console:
+  [
+    { nome: 'Amanda Rangel', apelido: 'Mandi' },
+    { nome: 'Laís Petra', apelido: 'Laura' }
+  ]
+  */
