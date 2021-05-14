@@ -6,8 +6,17 @@ const cartasUsuario = []
 let apenasCartasUsuario
 let apenasCartasComputador
 
+function jogarNovamente() {
+   alert("Bem vindo ao jogo de Blackjack!")
+   totalPontosUsuario = 0
+   totalPontosComputador = 0
+   cartasUsuario.splice(0, cartasUsuario.length-1)
+   iniciaJogo();
+
+}
+
 function iniciaJogo() {
-   console.log(verificaPontuacao(atribuiCartasUsuario(), atribuiCartasComputador()))
+   verificaPontuacao(atribuiCartasUsuario(), atribuiCartasComputador())
 
 }
 
@@ -74,9 +83,10 @@ function compraMaisCartaUsuario() {
 }
 function comprarMaisCartasComputador() {
    if (totalPontosUsuario >= totalPontosComputador && totalPontosUsuario < 21) {
-      while (totalPontosComputador <= totalPontosUsuario) {
-         cartasComputador.push(comprarCarta());
-         totalPontosComputador = totalPontosComputador + cartasComputador[cartasComputador.length -1].valor
+      if (totalPontosComputador <= totalPontosUsuario || totalPontosComputador >= 21) { //acho melhor usar `while` nessa linha porém 
+         cartasComputador.push(comprarCarta());                                         //por alguma razão ele trava todo meu computador
+         totalPontosComputador = totalPontosComputador + cartasComputador[cartasComputador.length - 1].valor
+         comprarMaisCartasComputador();
       }
 
    }
@@ -94,6 +104,12 @@ function fimDeJogo() {
    alert(`Suas cartas são: ${apenasCartasUsuario}. Sua pontuação é: ${totalPontosUsuario} ` + `\n` +
       `As cartas do computador são: ${apenasCartasComputador}. A pontuação do computador é: ${totalPontosComputador}` + `\n` +
       `${verificaPontuacao(totalPontosUsuario, totalPontosComputador)}`)
+
+   if (confirm("Quer iniciar uma nova rodada?")) {
+      jogarNovamente()
+   } else {
+      console.log("O jogo acabou!")
+   }
 }
 
 function verificaPontuacao(pontuacaoUsuario, pontuacaoComputador) {
@@ -113,7 +129,3 @@ if (confirm("Quer iniciar uma nova rodada?")) {
 } else {
    console.log("O jogo acabou!")
 }
-
-
-
-
