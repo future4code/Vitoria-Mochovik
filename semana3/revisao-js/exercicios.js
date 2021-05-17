@@ -45,10 +45,10 @@ function retornaMaiorNumero(array) {
    return maiorNumero
 }
 
-//Exercício 5
+//Exercício 5-----------------------------------------------------------------------------------------
 
 function retornaQuantidadeElementos (array) {
-   // implemente sua lógica aqui
+   return array.length
 }
 
 //Exercício 6
