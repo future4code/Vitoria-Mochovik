@@ -285,7 +285,7 @@ function retornaPessoasNaoAutorizadas() {
    return pessoasNaoAutorizadas
 }
 
-//Exercício 19
+//Exercício 19-----------------------------------------------------------------------------------------
 
 const consultasNome = [
    { nome: "João", dataDaConsulta: "01/10/2021" },
@@ -297,7 +297,17 @@ const consultasNome = [
 //Exercício 19, letra A
 
 function ordenaPorNome() {
-
+   let auxiliarSalvaNomes 
+   for(i =0; i<consultasNome.length; i++) {
+      for(j=0; j<consultasNome.length; j++) {
+         if(consultasNome[i].nome.toLowerCase().substr(0, 1) < consultasNome[j].nome.toLowerCase().substr(0, 1)) {
+            auxiliarSalvaNomes = consultasNome[i]
+            consultasNome[i] = consultasNome[j]
+            consultasNome[j] = auxiliarSalvaNomes
+         }
+      }
+   }
+   return consultasNome
 }
 
 // Exercício 19, letra B
