@@ -68,10 +68,16 @@ function retornaExpressoesBooleanas() {
    return respostasBooleanas
 }
 
-//Exercício 7
+//Exercício 7-----------------------------------------------------------------------------------------
 
 function retornaNNumerosPares(n) {
-   // implemente sua lógica aqui
+   let arrayPares = []
+   for(i=0; i<= (2*n)-1; i++){
+      if(i % 2 === 0) {
+         arrayPares.push(i)
+      }
+   }
+   return arrayPares
 }
 
 // Exercício 8
