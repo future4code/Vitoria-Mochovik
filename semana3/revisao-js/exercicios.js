@@ -233,7 +233,12 @@ function multiplicaArrayPor2(array) {
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-   // implemente sua lógica aqui
+   let arrayDeString = []
+   const arrayNumerosPorDois = multiplicaArrayPor2(array)
+   for(i=0; i<array.length; i++) {
+      arrayDeString.push(arrayNumerosPorDois[i].toString())
+   }
+   return arrayDeString
 }
 
 // Exercício 17, letra C
