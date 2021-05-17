@@ -92,10 +92,23 @@ function checaTriangulo(a, b, c) {
    }
 }
 
-// Exercício 9
+// Exercício 9-----------------------------------------------------------------------------------------
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+   let propriedadesNumero = {
+      maiorNumero: num1,
+      maiorDivisivelporMenor: true,
+      diferenca: 0
+   }
+   let menorNumero = num2
+   if(num2 > num1) {
+      propriedadesNumero.maiorNumero = num2;
+      menorNumero = num1;
+   } 
+   propriedadesNumero.maiorDivisivelporMenor = (propriedadesNumero.maiorNumero % menorNumero === 0 )
+   propriedadesNumero.diferenca = propriedadesNumero.maiorNumero - menorNumero
+   
+   return propriedadesNumero
 }
 
 // Exercício 10
