@@ -111,10 +111,23 @@ function comparaDoisNumeros(num1, num2) {
    return propriedadesNumero
 }
 
-// Exercício 10
+// Exercício 10-----------------------------------------------------------------------------------------
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+   let maior = retornaMaiorNumero(array)
+   let menor = array[0]
+   let arraySegundoMaiorMenor = []
+   arraySegundoMaiorMenor[0] = array[0]
+   arraySegundoMaiorMenor[1] = array[1]
+
+   for(i=0; i < array.length; i++) {
+      if(array[i] < maior && array[i] > arraySegundoMaiorMenor[0]) {
+         arraySegundoMaiorMenor[0] = array[i]
+      } else if( array[i] > menor && array[i] < arraySegundoMaiorMenor[1]){
+         arraySegundoMaiorMenor[1] = array[i]
+      }
+   }
+   return arraySegundoMaiorMenor
 }
 
 //Exercício 11
