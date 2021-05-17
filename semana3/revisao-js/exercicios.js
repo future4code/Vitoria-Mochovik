@@ -153,7 +153,7 @@ function filmeFavorito() {
       nome: `O Diabo Veste Prada`,
       ano: 2006,
       diretor: `David Frankel`,
-      atores: [ `Meryl Streep`, `Anne Hathaway`, `Emily Blunt`, `Stanley Tucci`]
+      atores: [`Meryl Streep`, `Anne Hathaway`, `Emily Blunt`, `Stanley Tucci`]
    }
    return filme
 }
@@ -170,7 +170,7 @@ function criaRetangulo(lado1, lado2) {
    const triangulo = {
       largura: lado1,
       altura: lado2,
-      perimetro: (2*(lado1 + lado2)),
+      perimetro: (2 * (lado1 + lado2)),
       area: (lado1 * lado2)
    }
    return triangulo
@@ -224,8 +224,8 @@ function menoresDe18(arrayDePessoas) {
 
 function multiplicaArrayPor2(array) {
    let arrayMultiplicado = []
-   for(i=0; i<array.length; i++){
-      arrayMultiplicado.push(array[i]*2)
+   for (i = 0; i < array.length; i++) {
+      arrayMultiplicado.push(array[i] * 2)
    }
    return arrayMultiplicado
 }
@@ -235,7 +235,7 @@ function multiplicaArrayPor2(array) {
 function multiplicaArrayPor2S(array) {
    let arrayDeString = []
    const arrayNumerosPorDois = multiplicaArrayPor2(array)
-   for(i=0; i<array.length; i++) {
+   for (i = 0; i < array.length; i++) {
       arrayDeString.push(arrayNumerosPorDois[i].toString())
    }
    return arrayDeString
@@ -245,8 +245,8 @@ function multiplicaArrayPor2S(array) {
 
 function verificaParidade(array) {
    let arrayString = []
-   for(i=0; i<array.length; i++) {
-      if(array[i] % 2 === 0) {
+   for (i = 0; i < array.length; i++) {
+      if (array[i] % 2 === 0) {
          arrayString.push(`${array[i]} é par`)
       } else {
          arrayString.push(`${array[i]} é ímpar`)
@@ -297,10 +297,10 @@ const consultasNome = [
 //Exercício 19, letra A
 
 function ordenaPorNome() {
-   let auxiliarSalvaNomes 
-   for(i =0; i<consultasNome.length; i++) {
-      for(j=0; j<consultasNome.length; j++) {
-         if(consultasNome[i].nome.toLowerCase().substr(0, 1) < consultasNome[j].nome.toLowerCase().substr(0, 1)) {
+   let auxiliarSalvaNomes
+   for (i = 0; i < consultasNome.length; i++) {
+      for (j = 0; j < consultasNome.length - 1; j++) {
+         if (consultasNome[i].nome.toLowerCase().substr(0, 1) < consultasNome[j].nome.toLowerCase().substr(0, 1)) {
             auxiliarSalvaNomes = consultasNome[i]
             consultasNome[i] = consultasNome[j]
             consultasNome[j] = auxiliarSalvaNomes
@@ -320,7 +320,33 @@ const consultasData = [
 ]
 
 function ordenaPorData() {
-
+   let auxiliarSalva
+   for (i = 0; i < consultasData.length; i++) {
+      for (j = 0; j < consultasData.length; j++) {
+         //Verifico qual o dias mais próximo
+         if (consultasData[i].dataDaConsulta.substr(0, 2)
+            < consultasData[j].dataDaConsulta.substr(0, 2)) {
+            auxiliarSalva = consultasData[i]
+            consultasData[i] = consultasData[j]
+            consultasData[j] = auxiliarSalva
+         }
+         //Verifico qual o mês mais próximo
+         if (consultasData[i].dataDaConsulta.substr(3, 2)
+            < consultasData[j].dataDaConsulta.substr(3, 2)) {
+            auxiliarSalva = consultasData[i]
+            consultasData[i] = consultasData[j]
+            consultasData[j] = auxiliarSalva
+         }
+         //Verifico qual o ano mais próximo
+         if (consultasData[i].dataDaConsulta.substr(6, 4)
+            < consultasData[j].dataDaConsulta.substr(6, 4)) {
+            auxiliarSalva = consultasData[i]
+            consultasData[i] = consultasData[j]
+            consultasData[j] = auxiliarSalva
+         }
+      }
+   }
+   return consultasData
 }
 
 //Exercício 20
