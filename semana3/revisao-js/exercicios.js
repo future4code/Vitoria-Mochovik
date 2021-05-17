@@ -279,7 +279,10 @@ function retornaPessoasAutorizadas() {
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
-   // implemente sua lógica aqui
+   const pessoasNaoAutorizadas = pessoas.filter((index) => {
+      return index.idade <= 14 || index.idade >= 60 || index.altura < 1.5
+   })
+   return pessoasNaoAutorizadas
 }
 
 //Exercício 19
