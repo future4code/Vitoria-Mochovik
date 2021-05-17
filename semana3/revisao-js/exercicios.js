@@ -192,7 +192,7 @@ function anonimizaPessoa(pessoa) {
    return novaIdentidade
 }
 
-// Exercício 16
+// Exercício 16-----------------------------------------------------------------------------------------
 
 const arrayDePessoas = [
    { nome: "Pedro", idade: 20 },
@@ -204,7 +204,10 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   const adultos = arrayDePessoas.filter((indice) => {
+      return indice.idade >= 20
+   })
+   return adultos
 }
 
 // Exercício 16, letra B
