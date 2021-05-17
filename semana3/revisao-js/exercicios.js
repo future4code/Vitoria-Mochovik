@@ -176,10 +176,20 @@ function criaRetangulo(lado1, lado2) {
    return triangulo
 }
 
-// Exercício 15
+// Exercício 15-----------------------------------------------------------------------------------------
 
 function anonimizaPessoa(pessoa) {
-   // implemente sua lógica aqui
+   const identidade = {
+      nome: "Astrodev",
+      idade: 25,
+      email: "astrodev@future4.com.br",
+      endereco: "Rua do Futuro, 4"
+   }
+   const novaIdentidade = {
+      ...identidade,
+      nome: "ANÔNIMO"
+   }
+   return novaIdentidade
 }
 
 // Exercício 16
