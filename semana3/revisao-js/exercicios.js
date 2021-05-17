@@ -213,7 +213,10 @@ function maioresDe18(arrayDePessoas) {
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   const crianca = arrayDePessoas.filter((indice) => {
+      return indice.idade < 20
+   })
+   return crianca
 }
 
 // Exercício 17, letra A
