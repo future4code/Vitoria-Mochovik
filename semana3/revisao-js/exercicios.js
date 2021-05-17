@@ -219,10 +219,15 @@ function menoresDe18(arrayDePessoas) {
    return crianca
 }
 
+//Exercício 17-----------------------------------------------------------------------------------------
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
+   let arrayMultiplicado = []
+   for(i=0; i<array.length; i++){
+      arrayMultiplicado.push(array[i]*2)
+   }
+   return arrayMultiplicado
 }
 
 // Exercício 17, letra B
