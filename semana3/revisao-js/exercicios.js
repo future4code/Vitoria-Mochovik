@@ -255,7 +255,7 @@ function verificaParidade(array) {
    return arrayString
 }
 
-// Exercício 18
+// Exercício 18-----------------------------------------------------------------------------------------
 
 const pessoas = [
    { nome: "Paula", idade: 12, altura: 1.8 },
@@ -269,7 +269,10 @@ const pessoas = [
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
-   // implemente sua lógica aqui
+   const pessoasAutorizadas = pessoas.filter((index) => {
+      return index.idade > 14 && index.idade < 60 && index.altura >= 1.5
+   })
+   return pessoasAutorizadas
 }
 
 
