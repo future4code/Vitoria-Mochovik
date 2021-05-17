@@ -80,10 +80,16 @@ function retornaNNumerosPares(n) {
    return arrayPares
 }
 
-// Exercício 8
+// Exercício 8-----------------------------------------------------------------------------------------
 
 function checaTriangulo(a, b, c) {
-   // implemente sua lógica aqui
+   if( a === b && a === c) {
+      return `Equilátero`
+   } else if(a === b || b === c || a === c) {
+      return `Isósceles`
+   } else if( a != b && b != c && a != c) {
+      return `Escaleno`
+   }
 }
 
 // Exercício 9
