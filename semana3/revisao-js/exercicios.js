@@ -164,10 +164,16 @@ function imprimeChamada() {
    return (`Venha assistir ao filme ${filmeFavorito().nome}, de ${filmeFavorito().ano}, dirigido por ${filmeFavorito().diretor} e estrelado por ${filmeFavorito().atores[0]}, ${filmeFavorito().atores[1]}, ${filmeFavorito().atores[2]}, ${filmeFavorito().atores[3]}.`)
 }
 
-// Exercício 14
+// Exercício 14-----------------------------------------------------------------------------------------
 
 function criaRetangulo(lado1, lado2) {
-   // implemente sua lógica aqui
+   const triangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: (2*(lado1 + lado2)),
+      area: (lado1 * lado2)
+   }
+   return triangulo
 }
 
 // Exercício 15
