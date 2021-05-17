@@ -10,10 +10,16 @@ const arrayCopia = array.slice()
   return array
 }
 
-//Exercício 2
+//Exercício 2-----------------------------------------------------------------------------------------
 
 function retornaNumerosParesElevadosADois (array) {
-   // implemente sua lógica aqui
+   let arrayParesQuadrado = [] 
+   for(i=0; i< array.length; i++) {
+      if(array[i] % 2 === 0) {
+        arrayParesQuadrado.push(Math.pow(array[i], 2))
+      }
+   }
+   return arrayParesQuadrado
 }
 
 //Exercício 3
