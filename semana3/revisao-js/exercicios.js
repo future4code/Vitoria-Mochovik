@@ -72,8 +72,8 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    let arrayPares = []
-   for(i=0; i<= (2*n)-1; i++){
-      if(i % 2 === 0) {
+   for (i = 0; i <= (2 * n) - 1; i++) {
+      if (i % 2 === 0) {
          arrayPares.push(i)
       }
    }
@@ -83,11 +83,11 @@ function retornaNNumerosPares(n) {
 // Exercício 8-----------------------------------------------------------------------------------------
 
 function checaTriangulo(a, b, c) {
-   if( a === b && a === c) {
+   if (a === b && a === c) {
       return `Equilátero`
-   } else if(a === b || b === c || a === c) {
+   } else if (a === b || b === c || a === c) {
       return `Isósceles`
-   } else if( a != b && b != c && a != c) {
+   } else if (a != b && b != c && a != c) {
       return `Escaleno`
    }
 }
@@ -101,13 +101,13 @@ function comparaDoisNumeros(num1, num2) {
       diferenca: 0
    }
    let menorNumero = num2
-   if(num2 > num1) {
+   if (num2 > num1) {
       propriedadesNumero.maiorNumero = num2;
       menorNumero = num1;
-   } 
-   propriedadesNumero.maiorDivisivelporMenor = (propriedadesNumero.maiorNumero % menorNumero === 0 )
+   }
+   propriedadesNumero.maiorDivisivelporMenor = (propriedadesNumero.maiorNumero % menorNumero === 0)
    propriedadesNumero.diferenca = propriedadesNumero.maiorNumero - menorNumero
-   
+
    return propriedadesNumero
 }
 
@@ -120,20 +120,30 @@ function segundoMaiorEMenor(array) {
    arraySegundoMaiorMenor[0] = array[0]
    arraySegundoMaiorMenor[1] = array[1]
 
-   for(i=0; i < array.length; i++) {
-      if(array[i] < maior && array[i] > arraySegundoMaiorMenor[0]) {
+   for (i = 0; i < array.length; i++) {
+      if (array[i] < maior && array[i] > arraySegundoMaiorMenor[0]) {
          arraySegundoMaiorMenor[0] = array[i]
-      } else if( array[i] > menor && array[i] < arraySegundoMaiorMenor[1]){
+      } else if (array[i] > menor && array[i] < arraySegundoMaiorMenor[1]) {
          arraySegundoMaiorMenor[1] = array[i]
       }
    }
    return arraySegundoMaiorMenor
 }
 
-//Exercício 11
+//Exercício 11-----------------------------------------------------------------------------------------
 
 function ordenaArray(array) {
-   // implemente sua lógica aqui
+   let auxiliarSalvaNumeros
+   for (i = 0; i < array.length; i++) {
+      for (j = 0; j < array.length; j++) {
+         if (array[i] < array[j]) {
+            auxiliarSalvaNumeros = array[i]
+            array[i] = array[j]
+            array[j] = auxiliarSalvaNumeros
+         }
+      }
+   }
+   return array
 }
 
 // Exercício 12
