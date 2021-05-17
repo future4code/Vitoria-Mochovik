@@ -349,7 +349,7 @@ function ordenaPorData() {
    return consultasData
 }
 
-//Exercício 20
+//Exercício 20-----------------------------------------------------------------------------------------
 
 const contas = [
    { cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
@@ -361,5 +361,10 @@ const contas = [
 ]
 
 function atualizaSaldo() {
-   // implemente sua lógica aqui
+   for (i = 0; i < contas.length; i++) {
+      for (j = 0; j < contas[i].compras.length; j++) {
+         contas[i].saldoTotal = contas[i].saldoTotal - contas[i].compras[j]
+      }
+   }
+   return contas
 }
