@@ -22,10 +22,15 @@ function retornaNumerosParesElevadosADois (array) {
    return arrayParesQuadrado
 }
 
-//Exercício 3
+//Exercício 3-----------------------------------------------------------------------------------------
 
 function retornaNumerosPares (array) {
-   // implemente sua lógica aqui
+   for(i=0; i< array.length; i++) {
+      if(array[i] % 2 != 0) {
+         array.splice(i, 1)
+      }
+   }
+   return array
 }
 
 //Exercício 4
