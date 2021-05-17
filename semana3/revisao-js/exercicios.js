@@ -244,7 +244,15 @@ function multiplicaArrayPor2S(array) {
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   // implemente sua lógica aqui
+   let arrayString = []
+   for(i=0; i<array.length; i++) {
+      if(array[i] % 2 === 0) {
+         arrayString.push(`${array[i]} é par`)
+      } else {
+         arrayString.push(`${array[i]} é ímpar`)
+      }
+   }
+   return arrayString
 }
 
 // Exercício 18
