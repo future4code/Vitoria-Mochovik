@@ -1,0 +1,35 @@
+.cabecalho {
+    background-color: #efd1c6;
+    color: white;
+    font-family: snell Roundhand, cursive;
+    font-size: 200%;
+    position: top;
+    float: left;
+    padding: 0%;
+    margin: 0px;
+    width: 30%
+    
+}
+
+#cabecalho {
+    display: table;
+    width: 100%;
+}
+
+.menu {
+    background-color: #efd1c6;
+    float: left;
+    width: 70%;
+    height: 163px;
+}
+.descricaoloja {
+    border-bottom: 5px solid palevioletred;
+}
+
+td{
+    background-color: salmon;
+}
+
+.tabela {
+    display: inline-block;
+}
