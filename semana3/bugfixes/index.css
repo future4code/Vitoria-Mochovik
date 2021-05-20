@@ -25,6 +25,7 @@ input {
 
 button:focus {
     color: white;
+    
 }
 
 
@@ -136,8 +137,13 @@ td > img {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin: 50px;
 }
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+.container-back {
+    text-align: center;
 }
