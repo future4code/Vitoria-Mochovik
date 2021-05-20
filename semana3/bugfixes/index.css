@@ -52,7 +52,16 @@ button:focus {
 
 .icone {
     height: 15px;
+    cursor: pointer;
     
+}
+
+.icone:hover {
+    opacity: 0.4;
+}
+
+.icone:active {
+    opacity: 1;
 }
 
 
