@@ -104,8 +104,6 @@ div > table {
 
 table {
     width: 60%;
-   
-    
 }
 
 td button {
@@ -114,6 +112,10 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+}
+
+td > img {
+    width: 45px;
 }
 
 .container-do-search {
