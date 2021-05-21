@@ -1,0 +1,61 @@
+/**
+*
+* ESTILOS PARA TODOS
+*
+**/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/**
+*
+* ESTILOS HOM
+*
+**/
+
+h2 {
+    
+
+}
+
+.cabecalho {
+    background-color: #FFB6C1;
+    position: relative;
+ 
+}
+.titulo {
+    
+    padding: 2%;
+    color: white; 
+    display: inline-block;
+
+    text-align: left;
+    width: 28%;
+    
+    
+}
+.botoes {
+    
+    width: 60%;
+    display: inline-block;
+    text-align: right;
+   
+}
+
+.botao-fale, .botao-contatos, .botao-portifolio, .botao-perfil {
+    width: 50px;
+}
+
+.botao-fale:hover, .botao-contatos:hover, .botao-portifolio:hover, .botao-perfil:hover {
+    cursor: pointer;
+    opacity: 15%;
+}
+
+.botao-fale,  .botao-portifolio, .botao-perfil {
+    
+    padding-right: 5%;
+}
