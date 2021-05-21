@@ -6,7 +6,8 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0; 
+    font-family: monospace;
 }
 
 
@@ -58,4 +59,110 @@ h2 {
 .botao-fale,  .botao-portifolio, .botao-perfil {
     
     padding-right: 5%;
+}
+
+/**
+** CORPO
+**/
+
+.imagem-perfil {
+    width: 400px;
+    padding: 3%;
+    float:left;
+    margin-left: 30%;
+    
+}
+
+.container-corpo {
+
+}
+
+.imagem-tag {
+    
+    width: 60px;
+    float:right;
+    margin-right: 400px;
+}
+
+.textos-corpo {
+    font-weight: bold;
+    font-size: 15px;
+    font-style: oblique;
+    color: black;
+   
+    display: inline-block;
+    
+}
+
+#texto-java {
+    margin-top: 60%;
+    text-indent: 20%;
+    transition: all 0.5s linear;
+   
+}
+#texto-css {
+    margin-top: 45%;
+    text-indent: 110%;
+    transition: all 0.5s linear;
+}
+
+#texto-html {
+    margin-top: 45%;
+    text-indent: 200%;
+    transition: all 0.5s linear;
+}
+
+
+#texto-c2 {
+    margin-top: 45%;
+    text-indent: 110%;
+    transition: all 0.5s linear;
+}
+
+
+#texto-react {
+    margin-top: 45%;
+    text-indent: 150%;
+    transition: all 0.5s linear;
+}
+
+#texto-ts {
+    margin-top: 45%;
+    text-indent: 160%;
+    transition: all 0.5s linear;
+}
+
+#texto-git {
+    margin-top: 45%;
+    text-indent: 45%;
+    transition: all 0.5s linear;
+}
+
+#texto-git:hover, #texto-c2:hover, #texto-ts:hover, #texto-html:hover, #texto-react:hover, #texto-css:hover, #texto-java:hover {
+-moz-transform: scale(1.97);
+    -webkit-transform: scale(1.97);
+    transform: scale(1.97);
+}
+/**
+** RODAPÉ
+**/
+
+footer {
+    background-color: #936d73;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+.imagem-icone {
+    width: 40px;
+}
+
+.imagem-icone:hover {
+    cursor: pointer;
+    opacity: 15%;
 }
