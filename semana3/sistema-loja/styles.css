@@ -1,0 +1,66 @@
+.cabecalho {
+    background-color: #efd1c6;
+    color: white;
+    font-family: snell Roundhand, cursive;
+    font-size: 200%;
+    position: top;
+    float: left;
+    width: 30%
+}
+h1 {
+    background-color: #efd1c6;
+    color: white;
+    font-family: snell Roundhand, cursive;
+    font-size: 200%;
+}
+
+#cabecalho {
+    display: table;
+    width: 100%;
+}
+
+.menu {
+    border: transparent;
+    background-color: #efd1c6;
+    float: left;
+    width: 70%;
+    height: 163px;
+   
+}
+
+.button {
+    
+    color:#936d73;
+    border:1px solid #936d73;
+    border-radius:10px;
+    display:inline-block;
+    cursor: pointer;
+    font-family:Verdana;
+    font-weight:bold;
+    font-size:13px;
+    padding:6px 10px;
+    text-decoration:none;
+}
+
+.descricaoloja {
+    font-family: Hand, cursive ;
+    font-size: 20px;
+    color: white;
+    background: #936d73;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+}
+
+.rodape {
+    border-top: 5px solid palevioletred;
+    background-color: #efd1c6;
+    color: #936d73;
+}
+td{
+    background-color: #936d73;
+}
+
+.tabela {
+    
+    display: inline-block;
+}
