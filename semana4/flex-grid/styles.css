@@ -41,3 +41,30 @@ header > button {
     
 
 }
+
+/* NAV */
+
+nav {
+    width: 300px;
+    background-color: #f2d0e0;
+    padding: 10px 10px 10px 20px;
+    height: 100VH;
+   
+}
+
+.icone {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.icone-texto {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botao-nav {
+    display: flex;
+    justify-content: space-between;
+}
