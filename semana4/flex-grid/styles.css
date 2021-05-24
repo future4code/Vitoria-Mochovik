@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: mediumvioletred;
+    height: 70px;
+    display: flex;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+}
+
+header > div > img {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    
+}
+
+header > div > h3 {
+    padding-left: 18px;
+}
+
+header > button {
+    text-align: center;
+    
+
+}
