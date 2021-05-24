@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0; 
+    font-family: monospace;
+}
+
+.cabecalho {
+    background-color: #FFB6C1;
+    position: relative;
+    height: 50px;
+    padding: 10px;
+ 
+}
+.titulo {
+    
+    padding-left: 20px;
+    color: white; 
+    display: inline-block;
+
+    text-align: left;
+    width: 50%;
+    box-sizing: border-box;
+    
+    
+}
+
+.botoes {
+    box-sizing: border-box;
+    padding-right: 40px;
+    width: 49%;
+    display: inline-block;
+    text-align: right;
+}
+
+.botao-voltar {
+    background: #FFB6C1;
+    color: #fff;
+    border: 3px solid white;
+    border-radius: 2500px;
+    padding: 6px 10px;
+}
+
+.botao-voltar:hover {
+    opacity: 25%;
+}
+
+form p {
+    text-align: center;
+    font-size: 200%;
+    font-family: optima;
+}
+
+.caixas-mensagem {
+    padding-top: 5%;
+    padding-left: 25%;
+    width: 50%;
+    height: 370px;
+    /* float: left; */
+    /* box-sizing: border-box; */
+    border-right: 1px solid white;
+}
+
+.nome, .email, .telefone {
+    text-align: center;
+}
+
+.nome:hover, .email:hover, .telefone:hover {
+    box-shadow: 0 0 100px black
+}
+
+.enviar {
+    background-color:mediumseagreen;
+    border-radius: 10px solid black;
+    text-align: center;
+}
