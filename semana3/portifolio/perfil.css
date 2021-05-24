@@ -47,22 +47,28 @@
 .container-descrição {
     display: inline-block;
     box-sizing: border-box;
-    background-color: tomato;
+    /* background-color: tomato; */
     width: 50%;
     font-size: 200%;
+    text-align: justify;
+    padding-left: 5%;
 }
 
 .container-imagem {
     display: inline-block;
     box-sizing: border-box;
-    background-color: teal;
+    /* background-color: teal; */
     text-align: right;
-    width: 30%;
+    width: 35%;
 }
 
 .imagem-labenu, .imagem-ufsc {
-    width: 150px;
-    padding-left: 20%;
+    width: 200px;
+    padding-left: 15%;
     padding-top: 15%;
     
+}
+
+.imagem-labenu:hover, .imagem-ufsc:hover {
+    opacity: 25%;
 }
