@@ -35,3 +35,41 @@ header {
 .lupa:hover {
     opacity: 15%;
 }
+
+
+.card-video {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   /* align-items: center; */
+   /* align-items: flex-start; */
+    background-color: darkgreen;
+}
+
+.texto-card {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.imagem-card {
+  width: 100%;
+
+   display: flex;
+   /* align-items: center; */
+   
+}
+
+video { 
+    
+   
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    margin: 20px;
+    
+}
