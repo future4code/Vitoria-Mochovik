@@ -22,9 +22,9 @@ header {
     margin-right: 100px;
 }
 
-.caixa-search:hover {
+/* .caixa-search:hover {
     /* box-shadow: 0 0 1em darkblue; */
-}
+
 
 .lupa {
     height: 29px;
@@ -38,12 +38,9 @@ header {
 
 
 .card-video {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   /* align-items: center; */
-   /* align-items: flex-start; */
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: 10px 10px 10px 5px black;
 }
 
@@ -55,17 +52,11 @@ header {
 }
 
 .imagem-card {
-  width: 100%;
-
-   display: flex;
-   /* align-items: center; */
+    width: 100%;
+    display: flex;
    
 }
 
-video { 
-    
-   
-}
 
 main {
     display: grid;
@@ -74,4 +65,18 @@ main {
     column-gap: 20px;
     margin: 20px;
     
+}
+
+footer {
+    height: 100px;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.texto-footer {
+    align-items: center;
+    font-size: 30px;
 }

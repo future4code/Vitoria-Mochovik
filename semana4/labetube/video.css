@@ -22,9 +22,6 @@ header {
     margin-right: 100px;
 }
 
-.caixa-search:hover {
-    /* box-shadow: 0 0 1em darkblue; */
-}
 
 .lupa {
     height: 29px;
@@ -37,14 +34,32 @@ header {
 }
 
 video {
-    height: 500px;
-    width: 100%;
-    text-align: center;
-
+    width: 70%;
+    display: block;
+    margin: auto;
 }
+
 
 h2 {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+main {
+    padding-bottom: 5%;
+}
+
+footer {
+    height: 100px;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.texto-footer {
+    align-items: center;
+    font-size: 30px;
 }
