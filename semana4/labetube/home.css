@@ -43,11 +43,12 @@ header {
    justify-content: space-between;
    /* align-items: center; */
    /* align-items: flex-start; */
-    background-color: darkgreen;
+   
+    box-shadow: 10px 10px 10px 5px black;
 }
 
 .texto-card {
-    height: 50px;
+    height: 80px;
     display: flex;
     align-items: center;
     
@@ -65,6 +66,7 @@ video {
     
    
 }
+
 main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
