@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: coral;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.texto-cabeçalho {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.caixa-search {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+/* .caixa-search:hover {
+    /* box-shadow: 0 0 1em darkblue; */
+
+
+.lupa {
+    height: 29px;
+    width: 29px;
+    padding-left: 15px;
+}
+
+.lupa:hover {
+    opacity: 15%;
+}
+
+
+.card-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 10px 10px 10px 5px black;
+}
+
+.texto-card {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.imagem-card {
+    width: 100%;
+    display: flex;
+   
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    margin: 20px;
+    
+}
+
+footer {
+    height: 100px;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.texto-footer {
+    align-items: center;
+    font-size: 30px;
+}
