@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: coral;
+    display: flex;
+    justify-content: space-between;
+    height: 4em;
+}
+
+.texto-cabeçalho {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.caixa-search {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+/* .caixa-search:hover {
+    /* box-shadow: 0 0 1em darkblue; */
+
+
+.lupa {
+    height: 2em;
+    width: 2em;
+    padding-left: 15px;
+}
+
+.lupa:hover {
+    opacity: 15%;
+}
+
+
+.card-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 10px 10px 10px 5px black;
+}
+
+.texto-card {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    width: 5em;
+    
+}
+
+.imagem-card {
+    width: 100%;
+    display: flex;
+   
+}
+
+body {
+    height: 100vh;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(200px, 50%);
+    grid-gap: 10px;
+    padding: 20px 20px 20px 20px; 
+    
+}
+
+
+footer {
+    height: 5em;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.texto-footer {
+    align-items: center;
+    font-size: 10px;
+}
+
+@media (max-width: 400px) {
+    footer {
+        position: relative;
+        padding: 0;
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
+}
