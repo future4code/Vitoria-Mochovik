@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
 import CardGrande from './components/CardGrande/CardGrande';
+import CardPequeno from './components/CardPequeno'
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import ImagemPerfil from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/labedin/src/img/WhatsApp Image 2020-09-07 at 10.12.47.jpeg'
+import IconeEmail from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/labedin/src/img/icone-email.png'
+import IconeCasa from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/labedin/src/img/icone-casa.png'
 
 function App() {
   return (
@@ -19,6 +22,18 @@ function App() {
           imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
           texto="Ver mais"
         />
+
+        <CardPequeno
+          imagem={IconeEmail}
+          nome="Email:"
+          descricao="vitoriacarolinemochovik@gmail.com"
+        />  
+
+        <CardPequeno
+          imagem={IconeCasa}
+          nome="Endereço:"
+          descricao="Rua Genésio Ronconi, nº 134, Urussanguinha, Araranguá"
+        />  
       </div>
 
       <div className="page-section-container">
