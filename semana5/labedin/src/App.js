@@ -6,18 +6,38 @@ import ImagemButton from './components/ImagemButton/ImagemButton';
 import ImagemPerfil from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/labedin/src/img/WhatsApp Image 2020-09-07 at 10.12.47.jpeg'
 import IconeEmail from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/labedin/src/img/icone-email.png'
 import IconeCasa from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/labedin/src/img/icone-casa.png'
+import styled from 'styled-components'
+
 
 function App() {
+
+  const Borda = styled.div ` 
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 200px;
+  `
+
+  const ImagemBigCard = styled.props.imagem `
+    width: 70px;
+    margin-right: 10px;
+    border-radius: 50%;
+  `
   return (
     <div className="App">
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
-        <CardGrande 
-          imagem={ImagemPerfil}
-          nome="Vitória Carolina Mochovik" 
-          descricao="Oi, eu sou a Vitória. Sou estudante de engenharia de computação na UFSC e aluna da Labenu."
+      <Borda>   
+       <CardGrande 
+      
+        imagem={ImagemPerfil} 
+            nome="Vitória Carolina Mochovik" 
+            descricao="Oi, eu sou a Vitória. Sou estudante de engenharia de computação na UFSC e aluna da Labenu."
+           
         />
-        
+      </Borda>
         <ImagemButton 
           imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
           texto="Ver mais"
