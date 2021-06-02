@@ -1,5 +1,5 @@
 import React from 'react';
-import './CardPequeno.css'
+// import './CardPequeno.css'
 
 function CardPequeno(props) {
     return (
