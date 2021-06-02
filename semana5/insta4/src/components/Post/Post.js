@@ -3,10 +3,17 @@ import styled from 'styled-components'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
+import iconeSalvarPreto from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/insta4/src/img/bookmark_black_24dp.svg'
+import iconeSalvarBranco from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/insta4/src/img/bookmark-white_icon-icons.com_73653.svg'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+
+const IconeSalvar = styled.img`
+  width: 24px;
+  height: 24px;
+`
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -42,10 +49,12 @@ const PostPhoto = styled.img`
 
 class Post extends React.Component {
   state = {
+    salvando: false,
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    numeroSalvar: 0
   }
 
   onClickCurtida = () => {
@@ -78,6 +87,21 @@ class Post extends React.Component {
     })
   }
 
+  onClickSalvar = () => {
+
+    let newNumberSalvar
+    if(this.state.salvando === false) {
+      newNumberSalvar = this.state.numeroSalvar +1
+    } else {
+      newNumberSalvar = this.state.numeroSalvar -1
+    }
+
+    this.setState({
+      salvando: !this.state.salvando,
+      numeroSalvar: newNumberSalvar
+    })
+  }
+
   render() {
     let iconeCurtida
 
@@ -91,6 +115,14 @@ class Post extends React.Component {
 
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    }
+
+    let iconeSalvar
+
+    if(this.state.salvando) {
+      iconeSalvar = iconeSalvarPreto
+    } else {
+      iconeSalvar = iconeSalvarBranco
     }
 
     return <PostContainer>
@@ -113,6 +145,15 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
+
+        <IconeComContador
+          
+           icone={iconeSalvar}
+           onClickIcone={this.onClickSalvar}
+           valorContador={this.state.numeroSalvar}
+         /> 
+        
+
       </PostFooter>
       {componenteComentario}
     </PostContainer>
