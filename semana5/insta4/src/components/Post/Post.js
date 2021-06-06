@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
+
 import iconeSalvarPreto from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/insta4/src/img/bookmark_black_24dp.svg'
 import iconeSalvarBranco from '/home/vitoria/Documents/Repositorios/Vitoria-Mochovik/semana5/insta4/src/img/bookmark-white_icon-icons.com_73653.svg'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
@@ -102,7 +103,10 @@ class Post extends React.Component {
     })
   }
 
+   
+
   render() {
+   
     let iconeCurtida
 
     if(this.state.curtido) {
@@ -125,39 +129,42 @@ class Post extends React.Component {
       iconeSalvar = iconeSalvarBranco
     }
 
-    return <PostContainer>
-      <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
-        <p>{this.props.nomeUsuario}</p>
-      </PostHeader>
+    return (
+      <PostContainer>
+        <PostHeader>
+          <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+          <p>{this.props.nomeUsuario}</p>
+        </PostHeader>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+        <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
 
-      <PostFooter>
-        <IconeComContador
-          icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}
-          valorContador={this.state.numeroCurtidas}
-        />
+        <PostFooter>
+          <IconeComContador
+            icone={iconeCurtida}
+            onClickIcone={this.onClickCurtida}
+            valorContador={this.state.numeroCurtidas}
+          />
 
-        <IconeComContador
-          icone={iconeComentario}
-          onClickIcone={this.onClickComentario}
-          valorContador={this.state.numeroComentarios}
-        />
+          <IconeComContador
+            icone={iconeComentario}
+            onClickIcone={this.onClickComentario}
+            valorContador={this.state.numeroComentarios}
+          />
 
-        <IconeComContador
+          <IconeComContador
+            
+            icone={iconeSalvar}
+            onClickIcone={this.onClickSalvar}
+            valorContador={this.state.numeroSalvar}
+          /> 
           
-           icone={iconeSalvar}
-           onClickIcone={this.onClickSalvar}
-           valorContador={this.state.numeroSalvar}
-         /> 
-        
 
-      </PostFooter>
-      {componenteComentario}
-    </PostContainer>
+        </PostFooter>
+        {componenteComentario}
+      </PostContainer>
+    )
   }
+
 }
 
 export default Post
