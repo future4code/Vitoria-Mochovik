@@ -5,6 +5,37 @@ import Etapa2 from './components/Etapa2'
 import Etapa3 from './components/Etapa3'
 import Final from './components/Final'
 import React from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 1px solid black;
+  cursor: pointer;
+  width: 180px;
+  background-color: #228B22;
+  font-size: 20px;
+  margin: 15px;
+  color: black;
+
+  &:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.4);
+  }
+
+`
+
+
+const ContainerButton = styled.div `
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: #836FFF;
+`
+
+
 
 export class App extends React.Component {
 
@@ -39,7 +70,9 @@ export class App extends React.Component {
     return (
       <div>
         {this.renderizaEtapa()}
-        <button onClick={this.irParaProximaEtapa}>Próxima etapa</button>
+        <ContainerButton>
+          <Button onClick={this.irParaProximaEtapa}>Próxima etapa</Button>
+        </ContainerButton>
       </div>
     );
   }
