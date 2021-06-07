@@ -1,7 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const ContainerFormulario = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 15px;
+    width: 300px;
+`
 
+const Input = styled.input `
+    padding: 5px;
+    margin-bottom: 15px;
+
+`
+
+const Button = styled.button `
+    margin-bottom: 15px;
+    height: 30px;
+   
+`
 
 export default class CreatePost extends React.Component {
     state = {
@@ -40,24 +58,24 @@ export default class CreatePost extends React.Component {
 
     render() {
         return (
-            <div>
-                <input
+            <ContainerFormulario>
+                <Input
                     value={this.state.valorInputNomeUsuario}
                     onChange={this.onChangeInputNomeUsuario}
                     placeholder={'nome de usuario'}
                 />
-                <input
+                <Input
                     value={this.state.valorInputFotoUsuario}
                     onChange={this.onChangeInputFotoUsuario}
                     placeholder={'foto usuario'}
                 />
-                <input
+                <Input
                     value={this.state.valorInputFotoPost}
                     onChange={this.onChangeInputFotoPost}
                     placeholder={'foto do post'}
                 />
-                <button onClick={this.adicionaPost} >Adicionar</button>
-            </div>
+                <Button onClick={this.adicionaPost} >Adicionar</Button>
+            </ContainerFormulario>
         )
     }
 }
