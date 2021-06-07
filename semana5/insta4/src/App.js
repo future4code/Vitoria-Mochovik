@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import CreatePost from './components/createPost/CreatePost';
 import Post from './components/Post/Post';
 
 const MainContainer = styled.div`
@@ -31,7 +32,11 @@ class App extends React.Component {
       ]
     }
 
-  
+    adicionarNovoPost = (novoPost) => {
+      const copiaPost = [...this.state.posts]
+      copiaPost.push(novoPost)
+      this.setState({posts: copiaPost})
+    }
   render() {
      
     const listaPosts = this.state.posts.map((post) => {
@@ -45,6 +50,9 @@ class App extends React.Component {
     })
     return (
       <MainContainer>
+        <CreatePost
+          adicionarNovoPost={this.adicionarNovoPost}
+        />
         {listaPosts}
       </MainContainer>
       
