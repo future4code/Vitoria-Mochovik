@@ -54,14 +54,13 @@ export class App extends React.Component {
       case 4:
         return <Final/>
       default :
-        <div></div>
+        return <Final/>
     }
   }
 
   irParaProximaEtapa = () => {
-    // this.setState({etapa: 2})
-    
-      const novoValorEtapa = this.state.etapa < 4 ?  this.state.etapa + 1 : 1
+   
+      const novoValorEtapa = this.state.etapa < 4 && this.state.etapa + 1 
       this.setState({ etapa: novoValorEtapa})
    
   }
@@ -71,7 +70,9 @@ export class App extends React.Component {
       <div>
         {this.renderizaEtapa()}
         <ContainerButton>
+        {this.state.etapa < 4 && (
           <Button onClick={this.irParaProximaEtapa}>Próxima etapa</Button>
+        )}
         </ContainerButton>
       </div>
     );
