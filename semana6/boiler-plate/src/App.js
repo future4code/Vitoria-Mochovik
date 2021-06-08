@@ -52,6 +52,7 @@ class App extends React.Component {
 
   onChangeInput = (event) => {
     this.setState({inputValue: event.target.value})
+
   }
 
   criaTarefa = () => {
@@ -64,6 +65,7 @@ class App extends React.Component {
     const copiaEstado = [...this.state.tarefas, novaTarefa]
     this.setState({tarefas: copiaEstado})
 
+    this.setState({inputValue: ""})
   }
 
   selectTarefa = (id) => {
@@ -81,6 +83,15 @@ class App extends React.Component {
   onChangeFilter = (event) => {
     this.setState({ filtro: event.target.value})
   }
+
+  apagarTarefa = (id) => {
+    const novaListaTarefas = this.state.tarefas.filter((tarefa) => {
+     return id !== tarefa.id
+    })
+
+    this.setState({tarefas: novaListaTarefas})
+  }
+
 
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
@@ -112,11 +123,13 @@ class App extends React.Component {
           </select>
         </InputsContainer>
         <TarefaList>
+          
           {listaFiltrada.map(tarefa => {
             return (
               <Tarefa
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
+                onDoubleClick={() => this.apagarTarefa(tarefa.id)}
               >
                 {tarefa.texto}
               </Tarefa>
@@ -129,3 +142,5 @@ class App extends React.Component {
 }
 
 export default App
+
+
