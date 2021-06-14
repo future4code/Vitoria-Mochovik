@@ -131,6 +131,7 @@ class App extends React.Component {
                 onClick={() => this.selectTarefa(tarefa.id)}
                 onDoubleClick={() => this.apagarTarefa(tarefa.id)}
               >
+                
                 {tarefa.texto}
               </Tarefa>
             )
