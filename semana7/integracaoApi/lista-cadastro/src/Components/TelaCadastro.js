@@ -34,8 +34,8 @@ export default class Cadastro extends React.Component {
           .post(url, body, headers)
           .then((res) => {
             alert("Usuário cadastrado com sucesso!")
-            this.setState({ inputName: ""})
-            this.setState({ inputEmail: ""})
+            this.setState({ inputName: "", inputEmail: ""})
+            
           })
           .catch((err) => {
             alert(err.response.data.message)
@@ -50,9 +50,17 @@ export default class Cadastro extends React.Component {
         return (
             <div>
                 <p> Nome: </p>
-                <input value={this.state.inputName} onChange={this.onChangeInputNome} /> 
+                <input 
+                  value={this.state.inputName} 
+                  onChange={this.onChangeInputNome} 
+                  placeholder={"Nome"}
+                /> 
                 <p> E-mail</p>
-                <input value={this.state.inputEmail} onChange={this.onChangeInputEmail} />
+                <input 
+                  value={this.state.inputEmail} 
+                  onChange={this.onChangeInputEmail} 
+                  placeholder={"E-mail"} 
+                />
                 <button onClick={this.criarUsuario}> Salvar</button>
                 <button onClick={this.props.irParaListaPessoasCadastradas} > Ver lista de usuários</button> 
             </div>
