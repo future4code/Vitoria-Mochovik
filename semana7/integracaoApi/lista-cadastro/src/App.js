@@ -2,56 +2,41 @@ import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import axios from "axios";
+import TelaCadastro from './Components/TelaCadastro'
+import TelaListaPessoasCadastradas from './Components/TelaListaPessoasCadastradas'
 
-const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-const headers = {
-  headers: {
-    Authorization: "vitoria-mochovik-molina"
-  }
-}
 
 export default class App extends React.Component {
+ 
   state = {
-    listPessoas: [],
-    inputEmail: "",
-    inputName: ""
+    page: "cadastro",
+
   }
 
-  onChangeInputNome = (event) => {
-    this.setState({ inputName: event.target.value })
-  }
-
-  onChangeInputEmail = (event) => {
-    this.setState({ inputEmail: event.target.value})
-  }
-
-  criarUsuario = () => {
-    const body = {
-      name: this.state.inputName,
-      email: this.state.inputEmail,
+  mudarTela = () => {
+    switch (this.state.page) {
+      case "cadastro":
+        return <TelaCadastro irParaListaPessoasCadastradas={this.irParaListaPessoasCadastradas} />
+      case "listaPessoasCadastradas":
+        return <TelaListaPessoasCadastradas irParaCadastro={this.irParaCadastro} />
+      default:
+        return <div> Erro </div>
     }
-
-    axios
-      .post(url, body, headers)
-      .then((res) => {
-        alert("Usuário cadastrado com sucesso!")
-        this.setState({ inputName: ""})
-        this.setState({ inputEmail: ""})
-      })
-      .catch((err) => {
-        alert(err.response.data.message)
-      })
   }
 
+  irParaCadastro = () => {
+    this.setState({ page: "cadastro"})
+  }
+
+  irParaListaPessoasCadastradas = () => {
+    this.setState({ page: "listaPessoasCadastradas"})
+  }
 
   render () {
     return (
       <div>
-        <p> Nome: </p>
-         <input value={this.state.inputName} onChange={this.onChangeInputNome} /> 
-        <p> E-mail</p>
-        <input value={this.state.inputEmail} onChange={this.onChangeInputEmail} />
-        <button onClick={this.criarUsuario}> Salvar</button>
+        {this.mudarTela()}
+        
       </div>
     );
   }
