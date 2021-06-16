@@ -79,7 +79,7 @@ export default class TelaListaPessoasCadastradas extends React.Component {
 
         const listaUsuarios = this.state.usuarios.map((usuario) => {
             return <CardNomes key={usuario.id}> 
-                {usuario.name} 
+                <p onClick={this.props.irParaInformacoesUser}>{usuario.name}  </p>
                 <button onClick={() => this.deleteUsuario(usuario.id)}> X </button>
             </CardNomes>
         })
