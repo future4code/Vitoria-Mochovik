@@ -8,7 +8,7 @@ export default class TelaListaPessoasCadastradas extends React.Component {
         usuarios: []
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
         this.pegarUsuarios()
     }
 
@@ -31,16 +31,37 @@ export default class TelaListaPessoasCadastradas extends React.Component {
             alert("Ocorreu um erro!")
         })
     }
+
+    deleteUsuario = (id) => {
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+        const headers = {
+            headers: {
+                Authorization: "vitoria-mochovik-molina"
+            }
+        }
+
+        axios.delete(url, headers)
+        .then((res) => {
+            console.log(res)
+            this.pegarUsuarios()
+        })
+        .catch((err) => {
+            alert(err.response.data)
+        })
+    }
     
     render() {
 
-        const listaUsuario = this.state.usuarios.map((usuario) => {
-            return <div key={usuario.id}> {usuario.name} </div>
+        const listaUsuarios = this.state.usuarios.map((usuario) => {
+            return <div key={usuario.id}> 
+                {usuario.name} 
+                <button onClick={() => this.deleteUsuario(usuario.id)}> X </button>
+            </div>
         })
         return (
             <div>
                 <button onClick={this.props.irParaCadastro}> Ir para cadastro </button>
-                {listaUsuario}
+                {listaUsuarios}
             </div>
         )
     }
