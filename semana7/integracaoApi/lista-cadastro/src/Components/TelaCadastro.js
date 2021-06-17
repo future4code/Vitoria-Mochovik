@@ -49,6 +49,26 @@ const Button = styled.button`
 
   height: 35px;
   width: 100px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  border: none;
+  color: white;
+  background-color: #340059;
+  border-radius: 5px;
+  /* box-shadow: 0 5px 0 #210053; */
+  transition: all 0.5s;
+
+  &:hover{
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  &:active {
+    position:relative;
+    top: 5px;
+  }
+
 
 `
 
@@ -58,7 +78,13 @@ const IconePerfil = styled.img`
   border-radius: 150px;
   margin-bottom: 280px;
  position: absolute;
+ transition: all 1s;
   
+  &:hover{
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+    cursor: pointer;
+  }
   
 
 `
@@ -83,8 +109,32 @@ const ContainerBotaoLista = styled.div`
 `
 
 const ButtonLista = styled.button`
-  width: 15
-  0px;
+  width: 150px;
+
+  height: 35px;
+  
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  border: none;
+  color: white;
+  background-color: transparent;
+
+  border-radius: 5px;
+  border: 1px solid white;
+  /* box-shadow: 0 5px 0 #210053; */
+  transition: all 0.5s;
+
+  &:hover{
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  &:active {
+    position:relative;
+    top: 5px;
+  }
+  
 `
 
 export default class Cadastro extends React.Component {
@@ -152,7 +202,7 @@ export default class Cadastro extends React.Component {
                   placeholder={"E-mail"} 
                 />
                 <ContainerButton>
-                  <Button onClick={this.criarUsuario}> Salvar</Button>
+                  <Button onClick={this.criarUsuario}> CADASTRAR </Button>
                 </ContainerButton>
               </CardCadastro>
               <ContainerBotaoLista>
@@ -163,4 +213,3 @@ export default class Cadastro extends React.Component {
     }
 }
 
-// this.props.irParaListaPessoasCadastradas
