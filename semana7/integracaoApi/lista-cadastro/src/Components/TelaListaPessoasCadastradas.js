@@ -25,7 +25,8 @@ const Button = styled.button`
 export default class TelaListaPessoasCadastradas extends React.Component {
     
     state = {
-        usuarios: []
+        usuarios: [],
+        busca: "",
     }
 
     componentDidMount() {
@@ -75,7 +76,29 @@ export default class TelaListaPessoasCadastradas extends React.Component {
         }
       
     }
-        
+
+    onChangeBusca = (event) => {
+        this.setState({buscaNome: event.target.value})
+    }
+    
+    buscar = () => {
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${this.state.buscaNome}&email=`
+        const headers = {
+            headers: {
+                Authorization: "vitoria-mochovik-molina"
+            }
+        }
+
+        axios.get(url, headers )
+        .then((res) => {
+            console.log("consegui")
+            this.setState({usuarios: res.data})
+        })
+        .catch((err) => {
+            console.log("não encontrei ele")
+        })
+    }
+
     render() {
 
         const listaUsuarios = this.state.usuarios.map((usuario) => {
@@ -86,6 +109,8 @@ export default class TelaListaPessoasCadastradas extends React.Component {
                 <button onClick={() => this.deleteUsuario(usuario.id)}> X </button>
             </CardNomes>
         })
+
+        
         return (
             <div>
                 <ContainerButton>
@@ -93,6 +118,14 @@ export default class TelaListaPessoasCadastradas extends React.Component {
                     
                 </ContainerButton>
                 <h2> Lista de Usuários Cadastrados </h2>
+                <input 
+                    type="text"
+                    value={this.state.buscaNome}
+                    onChange={this.onChangeBusca}
+                    placeholder={"digite um nome"}
+                
+                />
+                <button onClick={this.buscar}> Buscar </button>
                 {listaUsuarios}
                 
             </div>
