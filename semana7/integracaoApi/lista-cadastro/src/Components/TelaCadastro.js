@@ -121,6 +121,11 @@ export default class Cadastro extends React.Component {
           })
       }
     
+
+      oonClick =() => {
+        console.log("telacadastro")
+        this.props.irParaListaPessoasCadastradas()
+      }
     
     
 
@@ -151,9 +156,11 @@ export default class Cadastro extends React.Component {
                 </ContainerButton>
               </CardCadastro>
               <ContainerBotaoLista>
-                <ButtonLista onClick={this.props.irParaListaPessoasCadastradas} > Ver lista de usuários</ButtonLista> 
+                <ButtonLista onClick={this.oonClick} > Ver lista de usuários</ButtonLista> 
               </ContainerBotaoLista>
             </Background>
         )
     }
 }
+
+// this.props.irParaListaPessoasCadastradas

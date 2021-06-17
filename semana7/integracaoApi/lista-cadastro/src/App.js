@@ -9,9 +9,19 @@ import TelaInformacoesUser from './Components/TelaInformacoesUser'
 
 export default class App extends React.Component {
  
+  
   state = {
     page: "cadastro",
+    renderizacao: <></> ,
 
+  }
+
+  componentDidMount() {
+    this.setState({ renderizacao: 
+      <TelaCadastro  
+        irParaListaPessoasCadastradas={this.irParaListaPessoasCadastradas}>
+      </TelaCadastro>
+    })
   }
 
   mudarTela = () => {
@@ -30,23 +40,45 @@ export default class App extends React.Component {
     }
   }
 
-  irParaInformacoesUser = () => {
-    this.setState({ page: "informacoesUser"})
+  irParaInformacoesUser = (id) => {
+    this.setState({ 
+      page: "informacoesUser",
+      renderizacao: <TelaInformacoesUser 
+        irParaListaPessoasCadastradas={this.irParaListaPessoasCadastradas}
+        id={id}
+        deleteUsuario={this.deleteUsuario}
+        />
+    
+    })
   }
 
   irParaCadastro = () => {
-    this.setState({ page: "cadastro"})
+    this.setState({ 
+      page: "cadastro",
+      renderizacao: <TelaCadastro irParaListaPessoasCadastradas={this.irParaListaPessoasCadastradas} />
+
+    })
+  
   }
 
   irParaListaPessoasCadastradas = () => {
-    this.setState({ page: "listaPessoasCadastradas"})
+    console.log("aaa")
+    this.setState({ 
+      page: "listaPessoasCadastradas",
+      renderizacao: <TelaListaPessoasCadastradas 
+      irParaCadastro={this.irParaCadastro} 
+      irParaInformacoesUser={this.irParaInformacoesUser} 
+      />
+    
+    })
   }
 
   render () {
     return (
       <div>
-        {this.mudarTela()}
+        {/* {this.mudarTela()} */}
         
+        {this.state.renderizacao}        
       </div>
     );
   }

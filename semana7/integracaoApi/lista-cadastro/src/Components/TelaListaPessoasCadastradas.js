@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components'
+import TelaInformacoesUser from './TelaInformacoesUser';
 
 
 const CardNomes = styled.div `
@@ -43,7 +44,7 @@ export default class TelaListaPessoasCadastradas extends React.Component {
         axios
         .get(url, headers)
         .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.setState({ usuarios: res.data})
         })
         .catch((err) => {
@@ -65,7 +66,7 @@ export default class TelaListaPessoasCadastradas extends React.Component {
 
             axios.delete(url, headers)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 this.pegarUsuarios()
             })
             .catch((err) => {
@@ -79,7 +80,9 @@ export default class TelaListaPessoasCadastradas extends React.Component {
 
         const listaUsuarios = this.state.usuarios.map((usuario) => {
             return <CardNomes key={usuario.id}> 
-                <p onClick={this.props.irParaInformacoesUser}>{usuario.name}  </p>
+                <p onClick={() => this.props.irParaInformacoesUser(usuario.id)}
+               
+                >{usuario.name}  </p>
                 <button onClick={() => this.deleteUsuario(usuario.id)}> X </button>
             </CardNomes>
         })
@@ -91,6 +94,7 @@ export default class TelaListaPessoasCadastradas extends React.Component {
                 </ContainerButton>
                 <h2> Lista de Usuários Cadastrados </h2>
                 {listaUsuarios}
+                
             </div>
         )
     }
