@@ -48,7 +48,7 @@ const Input = styled.input `
 const Button = styled.button`
 
   height: 35px;
-  width: 100px;
+  width: 130px;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   padding: 5px;
@@ -58,11 +58,12 @@ const Button = styled.button`
   border-radius: 5px;
   /* box-shadow: 0 5px 0 #210053; */
   transition: all 0.5s;
+  font-size: 15px;
 
   &:hover{
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
-  }
+  }  
 
   &:active {
     position:relative;
@@ -124,10 +125,11 @@ const ButtonLista = styled.button`
   border: 1px solid white;
   /* box-shadow: 0 5px 0 #210053; */
   transition: all 0.5s;
+  font-size: 15px;
 
   &:hover{
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
   }
 
   &:active {
@@ -206,7 +208,7 @@ export default class Cadastro extends React.Component {
                 </ContainerButton>
               </CardCadastro>
               <ContainerBotaoLista>
-                <ButtonLista onClick={this.oonClick} > Ver lista de usuários</ButtonLista> 
+                <ButtonLista onClick={this.oonClick} > Lista de usuários</ButtonLista> 
               </ContainerBotaoLista>
             </Background>
         )

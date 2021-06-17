@@ -2,6 +2,10 @@ import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components'
 import TelaInformacoesUser from './TelaInformacoesUser';
+import IconePessoa from '../img/icone-lista3.png'
+import Excluir from '../img/excluir.png'
+import BackgroundImage from '../img/back-lista.jpg'
+
 
 
 const CardNomes = styled.div `
@@ -10,18 +14,78 @@ const CardNomes = styled.div `
     margin: 10px;
     display: flex;
     justify-content: space-between;
+    background-color: white;
 `
 const ContainerButton = styled.div `
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 15px;
+    
 
 `
 
 const Button = styled.button`
+margin: 0px;
 
 `
+
+const IconeLista = styled.img`
+    width: 80px;
+
+`
+
+const ContainerNome = styled.div`
+
+`
+const IconeExcluir = styled.img`
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+
+`
+
+const ContainerGeral = styled.div`
+    background-image: url(${BackgroundImage});
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+
+    button {
+        
+    }
+    
+
+`
+
+const TituloLista = styled.h2`
+    color: white;
+    margin-left: 15px;
+    
+
+`
+
+const Header = styled.div`
+    background-color: #340059;
+    margin: 0px;
+    padding: 0px;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+
+    display:flex;
+    align-items: center;
+    
+
+`
+
+const ContainerLista = styled.div`
+    margin-top: 250px;
+
+`
+
 export default class TelaListaPessoasCadastradas extends React.Component {
     
     state = {
@@ -102,33 +166,45 @@ export default class TelaListaPessoasCadastradas extends React.Component {
     render() {
 
         const listaUsuarios = this.state.usuarios.map((usuario) => {
-            return <CardNomes key={usuario.id}> 
-                <p onClick={() => this.props.irParaInformacoesUser(usuario.id)}
-               
-                >{usuario.name}  </p>
-                <button onClick={() => this.deleteUsuario(usuario.id)}> X </button>
-            </CardNomes>
+            return (
+                <CardNomes key={usuario.id}> 
+                    <ContainerNome>
+                        <IconeLista src={IconePessoa}/>
+                        <p  onClick={() => this.props.irParaInformacoesUser(usuario.id)}
+                            >{usuario.name}  
+                        </p>
+                    </ContainerNome>
+                    
+                    <IconeExcluir src={Excluir} onClick={() => this.deleteUsuario(usuario.id)}  />
+                </CardNomes>
+            )
         })
 
         
         return (
-            <div>
-                <ContainerButton>
-                    <Button onClick={this.props.irParaCadastro}> Ir para cadastro </Button>
+            <ContainerGeral>
+                <Header> 
+                    <TituloLista> Lista de Usuários Cadastrados </TituloLista>
+                    <input 
+                        type="text"
+                        value={this.state.buscaNome}
+                        onChange={this.onChangeBusca}
+                        placeholder={"digite um nome"}
+                
+                    /> 
+                    <button onClick={this.buscar}> Buscar </button>
+                    <ContainerButton>
+                        <Button onClick={this.props.irParaCadastro}> Voltar para cadastro </Button>
+    
+                    </ContainerButton>
                     
-                </ContainerButton>
-                <h2> Lista de Usuários Cadastrados </h2>
-                <input 
-                    type="text"
-                    value={this.state.buscaNome}
-                    onChange={this.onChangeBusca}
-                    placeholder={"digite um nome"}
+                </Header>
+                <ContainerLista>
+                    {listaUsuarios}
+                </ContainerLista>
                 
-                />
-                <button onClick={this.buscar}> Buscar </button>
-                {listaUsuarios}
-                
-            </div>
+                 
+            </ContainerGeral>
         )
     }
 }
