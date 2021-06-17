@@ -8,7 +8,10 @@ export default class TelaInformacoesUser extends React.Component {
     state = {
         usuario: {
 
-        }
+        },
+        editar: false,
+        inputEmail: "",
+        inputNome: ""
     }
 
     componentDidMount() {
@@ -70,7 +73,47 @@ export default class TelaInformacoesUser extends React.Component {
         console.log("nova lista usuario", this.state.usuario.id)
       
     }
+
+    editarAgora = () => {
+        this.setState({ editar: true})
+    }
     
+    onChangeInputNome =(event) => {
+        this.setState({ inputNome: event.target.value})
+    }
+
+    onChangeInputEmail = (event) => {
+        this.setState({ inputEmail: event.target.value})
+    }
+
+    editarUsuario = () => {
+
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${this.props.id}`
+        const headers = {
+            headers: {
+                Authorization: "vitoria-mochovik-molina"
+            }
+        }
+        const body = {
+            name: this.state.inputNome,
+            email: this.state.inputEmail
+        }
+
+
+
+
+        axios.put(url, body, headers)
+        .then((res) => {
+            alert("usuario alterado com sucesso")
+            this.setState({inputNome: "", inputEmail: "", editar: false})
+            this.pegarUsuario()
+
+        })
+        .catch((err) => {
+            alert(err.response.data.message)
+        })
+    }
+
     render() {
         console.log("nova lista usuario2", this.state.usuario.id)
         return (
@@ -80,11 +123,27 @@ export default class TelaInformacoesUser extends React.Component {
                     <div key={this.state.usuario.id}>
                         <p> Nome: {this.state.usuario.name}</p>
                         <p> E-mail: {this.state.usuario.email}</p>
+                        <button onClick={this.deleteUsuario} > Deletar usuário</button>
+                        
                     </div>
                 : <div> Usuario deletado</div>}
-                <button onClick={this.deleteUsuario}
+                {this.state.editar ?
+                    <div>
+                        <input 
+                            value={this.state.inputNome}
+                            onChange={this.onChangeInputNome} 
+                            placeholder={"Nome nome"} 
+                        />
+                        <input 
+                            value={this.state.inputEmail}
+                            onChange={this.onChangeInputEmail} 
+                            placeholder={"Novo e-mail"} 
+                        />
+                        <button onClick={this.editarUsuario}> Salvar </button>
+                    </div>
+                : <button onClick={this.editarAgora}> Editar</button> }
                 
-                > Deletar usuário</button>
+               
                
             </div>
         )
