@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React from 'react';
+import TelaInformation from './TelaInformation.js'
+
 
 export default class TelaVisualizarPlaylist extends React.Component {
     state = {
@@ -28,22 +30,28 @@ export default class TelaVisualizarPlaylist extends React.Component {
     }
 
     deletePlaylist = (id) => {
-        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
-        const headers = {
-            headers: {
-                Authorization: "vitoria-mochovik-molina"
-            }
-        }
 
-        axios.delete(url, headers)
-        .then((res) => {
-            alert("playlist excluida")
-            this.getAllPlaylist()
-        })
-        .catch((err) => {
-            alert(err.response.data.message)
-        })
+        if(window.confirm("Tem certeza que deseja excluir?")) {
+            const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`
+            const headers = {
+                headers: {
+                    Authorization: "vitoria-mochovik-molina"
+                }
+            }
+
+            axios.delete(url, headers)
+            .then((res) => {
+                alert("playlist excluida")
+                this.getAllPlaylist()
+            })
+            .catch((err) => {
+                alert(err.response.data.message)
+            })    
+        }
+        
     }
+
+    
 
     render() {
 
@@ -52,6 +60,7 @@ export default class TelaVisualizarPlaylist extends React.Component {
                 <div>
                    <p> {play.name}</p>
                    <button onClick={() => this.deletePlaylist(play.id)}> Excluir </button>
+                   <button onClick={() => this.props.irParaPageInformations(play.id, play.name)}> Ver músicas</button>
                     
                 </div>
             )
