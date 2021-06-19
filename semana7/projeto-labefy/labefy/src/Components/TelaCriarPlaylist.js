@@ -1,5 +1,37 @@
 import axios from 'axios';
 import React from 'react';
+import styled from 'styled-components'
+
+const InputPlaylist = styled.input`
+    height: 30px;
+    width: 350px;
+`
+
+const Button = styled.button`
+    height: 36px;
+    width: 80px;
+    background-color: #7572FF;
+    border:none;
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+`
+
+const Main = styled.main`
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+`
+
+const ContainerAddPlaylist = styled.div`
+    height: 150px;
+    /* background-color: blue; */
+
+`
 
 export default class TelaVisualizarPlaylist extends React.Component {
 
@@ -36,14 +68,16 @@ export default class TelaVisualizarPlaylist extends React.Component {
 
     render() {
         return(
-            <div>
-                <input 
-                    placeholder={"Nome da playlist"}
-                    onChange={this.onChangeNamePlaylist}
-                    value={this.state.namePlaylist}
-                />
-                <button onClick={this.createPlaylist}> Cadastrar</button>
-            </div>
+            <Main>
+                <ContainerAddPlaylist>
+                    <InputPlaylist 
+                        placeholder={"Nome da playlist"}
+                        onChange={this.onChangeNamePlaylist}
+                        value={this.state.namePlaylist}
+                    />
+                    <Button onClick={this.createPlaylist}> Cadastrar</Button>
+                </ContainerAddPlaylist>
+            </Main>
         )
     }
 }

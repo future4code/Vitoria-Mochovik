@@ -5,6 +5,8 @@ import TelaVisualizarPlaylist from './Components/TelaVisualizarPlaylist.js'
 import TelaInformation from './Components/TelaInformation.js'
 import Icone from './img/icone-simbolo2.png'
 import styled from 'styled-components'
+import IconePerfil from './img/icone-perfil2.png'
+import IconeCoracao from './img/coracao3.png'
 
 
 const IconeLogo = styled.img`
@@ -31,6 +33,7 @@ const Header = styled.header`
 const Nome = styled.h3`
   margin-left: 10px;
   color: white;
+  font-size: 25px;
 
 `
 
@@ -44,8 +47,42 @@ const ContainerIcones = styled.div`
 const ContainerButtons = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 30px;
   
+
+`
+
+const Perfil = styled.img`
+  width: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+`
+
+const IconeGostei = styled.img`
+  width: 30px;
+  margin-right: 20px;
+
+`
+
+const Button = styled.button`
+  margin-right: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  /* box-shadow: 0 5px 0 #210053; */
+  transition: all 0.5s;
+  font-size: 15px;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
 
 `
 export default class App extends React.Component {
@@ -107,8 +144,11 @@ export default class App extends React.Component {
             <Nome> LABEFY </Nome>
           </ContainerIcones>
           <ContainerButtons>
-            <button onClick={this.irParaPageCriarPlaylist}> Criar uma playlist</button>
-            <button onClick={this.irParaPageVisualizarPlaylist}> Visualizar minhas playlist</button>
+            <Button> HOME </Button>
+            <Button onClick={this.irParaPageCriarPlaylist}> CREATE PLAYLIST</Button>
+            <Button onClick={this.irParaPageVisualizarPlaylist}> SEE MY PLAYLIST</Button>
+            <IconeGostei src={IconeCoracao} />
+            <Perfil src={IconePerfil}/>
           </ContainerButtons>
         </Header>
         {/* {this.changePage()} */}
