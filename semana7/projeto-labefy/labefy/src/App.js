@@ -3,6 +3,7 @@ import React from 'react';
 import TelaCriarPlaylist from './Components/TelaCriarPlaylist.js'
 import TelaVisualizarPlaylist from './Components/TelaVisualizarPlaylist.js'
 import TelaInformation from './Components/TelaInformation.js'
+import TelaHome from './Components/TelaHome.js'
 import Icone from './img/icone-simbolo2.png'
 import styled from 'styled-components'
 import IconePerfil from './img/icone-perfil2.png'
@@ -91,6 +92,13 @@ export default class App extends React.Component {
     pageNow: "",
     renderizacao: <></>
   }
+
+  componentDidMount() {
+    this.setState({
+      pageNow: "telaHome",
+      renderizacao: <TelaHome />
+    })
+  }
   
   changePage = () => {
     switch(this.state.pageNow){
@@ -102,6 +110,8 @@ export default class App extends React.Component {
         />
       case "telaInformation":
         return <TelaInformation />
+      case "telaHome":
+        return<TelaHome />
     }
   }
 
@@ -134,6 +144,13 @@ export default class App extends React.Component {
     })
   }
 
+  irParaPageHome = () => {
+    this.setState({
+      pageNow: "telaHome",
+      renderizacao: <TelaHome />
+    })
+  }
+
 
   render() {
     return (
@@ -144,7 +161,7 @@ export default class App extends React.Component {
             <Nome> LABEFY </Nome>
           </ContainerIcones>
           <ContainerButtons>
-            <Button> HOME </Button>
+            <Button onClick={this.irParaPageHome}> HOME </Button>
             <Button onClick={this.irParaPageCriarPlaylist}> CREATE PLAYLIST</Button>
             <Button onClick={this.irParaPageVisualizarPlaylist}> SEE MY PLAYLIST</Button>
             <IconeGostei src={IconeCoracao} />
