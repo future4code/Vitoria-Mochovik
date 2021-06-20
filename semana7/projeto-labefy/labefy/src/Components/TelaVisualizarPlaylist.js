@@ -45,6 +45,7 @@ export default class TelaVisualizarPlaylist extends React.Component {
     componentDidMount() {
         this.getAllPlaylist()
     }
+    
     getAllPlaylist =() => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists`
         const headers = {
