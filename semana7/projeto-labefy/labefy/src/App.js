@@ -133,7 +133,7 @@ export default class App extends React.Component {
   }
 
   irParaPageInformations = (id, playlistName) => {
-    console.log("id no app", id)
+    
     this.setState({
       pageNow: "telaInformation",
       renderizacao: <TelaInformation

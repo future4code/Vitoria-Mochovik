@@ -108,11 +108,12 @@ export default class TelaVisualizarPlaylist extends React.Component {
 
         axios.get(url, headers)
         .then((res) => {
-            console.log("res.data", res.data)
+           
+            
             this.setState({ playlist: res.data.result.list})
         })
         .catch((err) => {
-            alert("pegar", err.response.data.message)
+            alert("Não consegui encontrar as playlists", err.response.data.message)
         })
     }
 
@@ -128,11 +129,11 @@ export default class TelaVisualizarPlaylist extends React.Component {
 
             axios.delete(url, headers)
             .then((res) => {
-                alert("playlist excluida")
+                alert("playlist excluida com sucesso")
                 this.getAllPlaylist()
             })
             .catch((err) => {
-                alert(err.response.data.message)
+                alert("Não consegui excluir", err.response.data.message)
             })    
         }
         

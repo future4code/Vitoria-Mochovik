@@ -137,7 +137,7 @@ export default class TelaInformation extends React.Component {
     getMusicasPlaylist =() => {
 
         
-        console.log("props id", this.props.id)
+        
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.id}/tracks`
         const headers = {
             headers: {
@@ -148,10 +148,10 @@ export default class TelaInformation extends React.Component {
         axios.get(url, headers)
         .then((res) => {
             this.setState({ musicas: res.data.result.tracks})
-            console.log("informacoes user res", res.data.result.tracks)
+            
         })
         .catch((err) => {
-            alert(err.response.data.message)
+            alert("Não consegui encontrar as músicas",err.response.data.message)
         })
     
     }
@@ -200,7 +200,7 @@ export default class TelaInformation extends React.Component {
             })
         })
         .catch((err) => {
-            alert("nao deu")
+            alert("Não consegui adicionar a música, por favor tente novamente")
         })
     }
 
@@ -220,7 +220,7 @@ export default class TelaInformation extends React.Component {
                 this.getMusicasPlaylist()
             })
             .catch((err) => {
-                alert("nao foi apagada ")
+                alert("Não consegui apagar a música ")
             })
         }
 
@@ -242,7 +242,7 @@ export default class TelaInformation extends React.Component {
                 </CardMusic>
             )
         })
-        console.log("music list", musicList)
+      
 
         return (
             <div>

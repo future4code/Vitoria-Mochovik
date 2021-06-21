@@ -147,7 +147,7 @@ export default class TelaHome extends React.Component {
 
         axios.get(url, headers)
         .then((res) => {
-            alert("requisitei o spotufy")
+            alert("requisitei o spotify")
             this.setState({
                 artistasDoSearch: res.data.artists.items,
                 albunsDoSearch: res.data.albums.items,
@@ -160,19 +160,14 @@ export default class TelaHome extends React.Component {
 
             })
 
-            console.log("artist", res.data.artists)
-            console.log("albuns", res.data.albums.items)
-            console.log("playlist", res.data.playlists.items)
-            console.log("tracks", res.data.tracks.items)
-            console.log("shows", res.data.shows.items)
-            console.log("episodes", res.data.episodes.items)
-           
-            console.log("spotufy", res.data)
-            
         })
         .catch((err) => {
-            alert("o stotifi me negou acesso", err.data)
+            alert("o spotify me negou acesso", err.data)
         })
+    }
+
+    requisitarNovoToken = () => {
+
     }
 
     onChangeTypeSearch = (event) => {
@@ -185,7 +180,7 @@ export default class TelaHome extends React.Component {
  
        const linkAtual = resultSlip[0]
        window.location.href = resultSlip[0] + event.target.value
-       console.log("resultsplit", resultSlip)
+       
 
 
     }
@@ -200,11 +195,11 @@ export default class TelaHome extends React.Component {
 
         axios.get(url, headers)
         .then((res) => {
-            console.log("res.data", res.data)
+            
             this.setState({ playlist: res.data.result.list})
         })
         .catch((err) => {
-            alert("pegar", err.response.data.message)
+            alert("Não consegui encontrar as playlist", err.response.data.message)
         })
     }
 
@@ -228,16 +223,16 @@ export default class TelaHome extends React.Component {
             alert("musica adicionada")
         })
         .catch((err) => {
-            alert("não consegui add tenta novamente", err.data)
+            alert("não consegui adicionar, por favor tente novamente", err.data)
         })
     }
 
     onChangeValuePlaylist = (event) => {
-        console.log("vent", event.target.value)
+        
         this.setState({idPlaylist: event.target.value })
     }
     render() {
-        console.log("aquiiii eu de nvoooo")
+        
         const listaArtistas = this.state.artistasDoSearch.map((artista) => {
             return(
                 <CardMusicas key={artista.id}>
@@ -273,7 +268,7 @@ export default class TelaHome extends React.Component {
                 return artist.name
             }).join(", ")
 
-            console.log("string array", stringArtistas)
+           
             return(
                 <CardMusicas key={track.id}>
                     <Name > {track.name}</Name>
@@ -316,7 +311,7 @@ export default class TelaHome extends React.Component {
             )
         })
 
-       console.log("state do artista", this.state.artistasDoSearch)
+       
         return(
             
             <div>
