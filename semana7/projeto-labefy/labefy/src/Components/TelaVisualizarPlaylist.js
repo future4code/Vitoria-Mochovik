@@ -28,13 +28,65 @@ const Main = styled.div`
 const Name = styled.h2``
 
 
-const ButtonDelete = styled.button``
+const ButtonDelete = styled.button`
+   margin-bottom: 15px;
+   padding: 5px;
 
-const ButtonInformation = styled.button``
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    border: none;
+    color: #7572FF;
+    border-radius: 5px;
+    border: 1px solid #7572FF;
+    width: 60px;
+    font-size: 15px;
+    transition: all 0.5s;
+
+    &:hover {
+        cursor: pointer;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+
+`
+
+const ButtonInformation = styled.button`
+    margin-bottom: 15px;
+    padding: 5px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #7572ff;
+    width: 150px;
+    font-size: 15px;
+    transition: all 0.5s;
+
+    &:hover {
+        cursor: pointer;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+
+`
 
 const Play = styled.img`
     width: 105px;
+    transition: all 0.5s;
+
+    &:hover {
+        cursor: pointer;
+        -webkit-transform: scale(1.4);
+        transform: scale(1.4);
+    }
 `
+
+
 
 
 export default class TelaVisualizarPlaylist extends React.Component {
@@ -93,16 +145,15 @@ export default class TelaVisualizarPlaylist extends React.Component {
         const playlistList = this.state.playlist.map((play) => {
             return (
                 <CardPlaylist>
-                   <Name> {play.name}</Name>
-                   <Play src={IconePlay} />
-                   <ButtonDelete onClick={() => this.deletePlaylist(play.id)}> Excluir </ButtonDelete>
-                   <ButtonInformation onClick={() => this.props.irParaPageInformations(play.id, play.name)}> Ver músicas</ButtonInformation>
+                    <Name> {play.name}</Name>
+                    <Play src={IconePlay}  onClick={() => this.props.irParaPageInformations(play.id, play.name)}/>
+                    
+                        <ButtonDelete onClick={() => this.deletePlaylist(play.id)}> Delete </ButtonDelete>
+                        <ButtonInformation onClick={() => this.props.irParaPageInformations(play.id, play.name)}> Ver Playlist</ButtonInformation>
                     
                 </CardPlaylist>
             )
         })
-        console.log("estado dab playlist", this.state.playlist)
-        console.log("lista rederizada", playlistList)
         return (
             <Main>
                 {playlistList}

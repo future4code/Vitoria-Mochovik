@@ -161,7 +161,7 @@ export default class App extends React.Component {
             <Nome> LABEFY </Nome>
           </ContainerIcones>
           <ContainerButtons>
-            <Button onClick={this.irParaPageHome}> HOME </Button>
+            <Button onClick={this.irParaPageHome}> SEARCH </Button>
             <Button onClick={this.irParaPageCriarPlaylist}> CREATE PLAYLIST</Button>
             <Button onClick={this.irParaPageVisualizarPlaylist}> SEE MY PLAYLIST</Button>
             <IconeGostei src={IconeCoracao} />

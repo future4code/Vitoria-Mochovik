@@ -3,6 +3,107 @@ import React from 'react';
 import styled from 'styled-components'
 
 
+const Name = styled.p`
+    
+
+`
+
+const CardMusicas = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding:0 35px ;
+    background-color: #F6E8EA;
+
+    
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    align-items: center;
+   
+`
+
+const ContainerAdd = styled.div``
+
+const SelectPlaylist = styled.select``
+
+const ButtonAddMusic = styled.button`
+    background-color: #7275ff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+     padding: 5px 15px;
+
+
+
+    &:hover {
+        cursor: pointer;
+    }
+`
+
+const ContainerMusicas = styled.div`
+    padding: 0px 15px;
+    
+
+`
+
+const ContainerPesquisa = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  
+    
+
+
+`
+
+const ContainerSelect = styled.div`
+    display: flex;
+    align-self: center;
+    margin-right: 25px;
+
+`
+
+const Titulo = styled.h2`
+    display: flex;
+    justify-content: center;
+   
+    
+
+`
+
+const Input = styled.input`
+    height: 30px;
+    width: 350px;
+    margin-left: 25px;
+`
+
+const ButtonSearch = styled.button`
+    
+    background-color: #7572FF;
+    border:none;
+    color: white;
+    width:100px;
+    height: 37px;
+    
+
+    &:hover {
+        cursor: pointer;
+    }
+
+
+`
+
+const ContainerInput = styled.div`
+
+`
+
+const Select = styled.select`
+     height: 30px;
+`
+
 export default class TelaHome extends React.Component {
 
     state = {
@@ -17,7 +118,8 @@ export default class TelaHome extends React.Component {
 
         playlist: [],
         typeSearch: "",
-        idPlaylist: ""
+        idPlaylist: "",
+        renderizar: false
     }
 
     componentDidMount() {
@@ -32,7 +134,8 @@ export default class TelaHome extends React.Component {
         const url = `https://api.spotify.com/v1/search?q=${this.state.inputSearch}&type=album,artist,playlist,track,show,episode`
         const headers = {
             headers: {
-                Authorization: "Bearer BQDiGvzwpirxkwBsL9cmFyW8PYuIsX-LUeKAe8NwUH_Jab8nGaHoay8bmcLP74kT7D-OKJkfqjRKi3aMsS36EF51J_pU_3JHWZRCp-pq75DA90ZeDpYPc14G8D3-kEnEccu2_XGCdLlGj858-mqWFty2tfaGwmQ"
+                Authorization: "Bearer BQDA8GeNjk_5D9SJ_t8mmiJMNrOg6TYdl3n8i02q4mnPhRm4hAlq84iJ_qKM0cTsM6ON-gowhDPRG7QgVwlwLD0K3EstsZdzZlNLGzPLUVTogQOWz0ITNvgIsLvLhWczPvPYDGJmMSWlIAHk0kYvto8ARn4XuX4",
+                
             }
         }
 
@@ -47,6 +150,8 @@ export default class TelaHome extends React.Component {
                 showsDoSearch: res.data.shows.items,
                 episodesDoSearch: res.data.episodes.items,
 
+                renderizar: true,
+
             })
 
             console.log("artist", res.data.artists)
@@ -55,13 +160,8 @@ export default class TelaHome extends React.Component {
             console.log("tracks", res.data.tracks.items)
             console.log("shows", res.data.shows.items)
             console.log("episodes", res.data.episodes.items)
-            // switch (this.state.typeSearch) {
-            //     case "artist":
-                    console.log("spotufy", res.data)
-                    // this.setState({ itensDoSearch: res.data.artists.items}) 
-            // }
-            
-            // this.setState({ artistasDoSearch: res.data})
+           
+            console.log("spotufy", res.data)
             
         })
         .catch((err) => {
@@ -103,9 +203,6 @@ export default class TelaHome extends React.Component {
     }
 
     addMusicPlaylist =(nome, artistas, urlMusic) => {
-        console.log("musica", nome )
-        console.log("artistas", artistas )
-        console.log("musica", urlMusic )
         const url= `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`
         const headers = {
             headers: {
@@ -136,30 +233,30 @@ export default class TelaHome extends React.Component {
         console.log("aquiiii eu de nvoooo")
         const listaArtistas = this.state.artistasDoSearch.map((artista) => {
             return(
-                <div key={artista.id}>
+                <CardMusicas key={artista.id}>
                     <p > {artista.name}</p>
-                    <p> {artista.type} </p>
-                </div>
+                   
+                </CardMusicas>
                 
             )
         })
 
         const listaAlbuns = this.state.albunsDoSearch.map((artista) => {
             return(
-                <div key={artista.id}>
-                    <p > {artista.name}</p>
-                    <p> {artista.type} </p>
-                </div>
+                <CardMusicas key={artista.id}>
+                    <p> {artista.name}</p>
+                   
+                </CardMusicas>
                 
             )
         })
 
         const listaPlaylist = this.state.playlistsDoSearch.map((artista) => {
             return(
-                <div key={artista.id}>
-                    <p > {artista.name}</p>
-                    <p> {artista.type} </p>
-                </div>
+                <CardMusicas key={artista.id}>
+                    <p> {artista.name}</p>
+                    
+                </CardMusicas>
                 
             )
         })
@@ -171,90 +268,103 @@ export default class TelaHome extends React.Component {
 
             console.log("string array", stringArtistas)
             return(
-                <div key={track.id}>
-                    <p > {track.name}</p>
-                    <p> {track.type} </p>
-                    <select onChange={this.onChangeValuePlaylist}>
-                        <option> Selecione a playlist</option>
-                        {
-                            this.state.playlist.map((p) => {
-                                return(
-                                    <option value={p.id}> {p.name} </option>
-                                )
-                            })
-                        }
-                    </select>
-                    <button onClick={() => this.addMusicPlaylist(track.name, stringArtistas, track.preview_url)}> Adicionar</button>
-                </div>
+                <CardMusicas key={track.id}>
+                    <Name > {track.name}</Name>
+                    
+                    <ContainerAdd>
+                        <SelectPlaylist onChange={this.onChangeValuePlaylist}>
+                            <option> Selecione a playlist</option>
+                            {
+                                this.state.playlist.map((p) => {
+                                    return(
+                                        <option value={p.id}> {p.name} </option>
+                                    )
+                                })
+                            }
+                        </SelectPlaylist>
+                        <ButtonAddMusic onClick={() => this.addMusicPlaylist(track.name, stringArtistas, track.preview_url)}> ADICIONAR</ButtonAddMusic>
+                    </ContainerAdd>
+                </CardMusicas>
                 
             )
         })
 
         const listaShow = this.state.showsDoSearch.map((artista) => {
             return(
-                <div key={artista.id}>
+                <CardMusicas key={artista.id}>
                     <p > {artista.name}</p>
-                    <p> {artista.type} </p>
-                </div>
+                   
+                </CardMusicas>
                 
             )
         })
 
         const listaEpisode = this.state.episodesDoSearch.map((artista) => {
             return(
-                <div key={artista.id}>
+                <CardMusicas key={artista.id}>
                     <p > {artista.name}</p>
-                    <p> {artista.type} </p>
-                </div>
+                    
+                </CardMusicas>
                 
             )
         })
 
-       
-        
-        console.log("valot do estado typesearch", this.state.typeSearch)
+       console.log("state do artista", this.state.artistasDoSearch)
         return(
+            
             <div>
-                {/* {this.state.typeSearch ?  */}
-                    <div>
-                        <input 
+                <ContainerPesquisa>
+                    <ContainerInput>
+                        <Input 
                             value={this.state.inputSearch}
                             onChange={this.onChangeInputSearch}
-                            placeholder={this.state.typeSearch}
+                            placeholder={"Artista, música, albuns..."}
                         />
-                        <button onClick={this.getSearch}> Pesquisar </button>
-                        <p> Nome | Tipo | Genero</p>
+                        <ButtonSearch onClick={this.getSearch}> PESQUISAR </ButtonSearch>
+                    </ContainerInput>
+                    {this.state.renderizar === true  ?
+                        <ContainerSelect>
+                            <Select onChange={this.onChangeSelect}>
+                                <option > Selecione a categoria que deseja ver</option>
+                                <option value={'#artistas'}> Artistas</option>
+                                <option value={'#albuns'}> Albuns </option>
+                                <option value={'#playlists'}> Playlists</option>
+                                <option value={'#episodios'}> Episódios</option>
+                                <option value={'#musicas'}> Músicas </option>
+                            </Select>
+                        </ContainerSelect>
+                    : <></> }
+                </ContainerPesquisa>
+                
+                {this.state.renderizar === true  ? 
+                    <div>
+                        <Titulo id='musicas'> MÚSICAS </Titulo>
+                        <ContainerMusicas >
+                            {listaTrack}
+                        </ContainerMusicas>
+                        <Titulo id='artistas'> ARTISTAS </Titulo>
+                        <ContainerMusicas >
+                            {listaArtistas}
+                        </ContainerMusicas>
+                        <Titulo id='albuns'> ALBUNS </Titulo>
+                        <ContainerMusicas >
+                            {listaAlbuns}
+                        </ContainerMusicas>
+                        <Titulo id='playlists'> PLAYLISTS </Titulo>
+                        <ContainerMusicas >
+                            {listaPlaylist}
+                        </ContainerMusicas>
+                        <Titulo id='episodios'> EPISÓDIOS </Titulo>
+                        <ContainerMusicas >
+                            {listaEpisode}
+                        </ContainerMusicas>
+                        <Titulo id='shows'>SHOW</Titulo>
+                        <ContainerMusicas >
+                            {listaShow}
+                        </ContainerMusicas>
                     </div>
-                {/* <select onChange={this.onChangeTypeSearch}> 
-                    <option > Selecione o que deseja pesquisar</option>
-                    <option value={"artist"}> Artista</option>
-                    <option value={"album"}> Albuns</option>
-                    <option value={"playlist"}> Playlist</option>
-                    <option value={"episode"}> Episódio </option>
-                </select> 
-             */}
-                <a href='#show' >show</a>
-                <select onChange={this.onChangeSelect}>
-                    <option > Selecione a categoria</option>
-                    <option value={'#artistas'}> Artistas</option>
-                    <option value={'#albuns'}> Albuns </option>
-                    <option value={'#playlists'}> Playlists</option>
-                    <option value={'#episodios'}> Episódios</option>
-                    <option value={'#musicas'}> Músicas </option>
-                </select>
-                <h2 id='artistas'> Artistas </h2>
-                {listaArtistas}
-                <h2 id='albuns'> Albuns </h2>
-                {listaAlbuns}
-                <h2 id='playlists'> Playlists </h2>
-                {listaPlaylist}
-                <h2 id='episodios'> Episódios </h2>
-                {listaEpisode}
-                <h2 id='shows'>Show</h2>
-                {listaShow}
-                <h2 id='musicas'> Músicas </h2>
-                {listaTrack}
-
+                : <div></div>}
+    
             </div>
         )
     }
