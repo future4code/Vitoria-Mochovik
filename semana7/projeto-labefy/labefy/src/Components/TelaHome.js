@@ -134,8 +134,14 @@ export default class TelaHome extends React.Component {
         const url = `https://api.spotify.com/v1/search?q=${this.state.inputSearch}&type=album,artist,playlist,track,show,episode`
         const headers = {
             headers: {
-                Authorization: "Bearer BQDA8GeNjk_5D9SJ_t8mmiJMNrOg6TYdl3n8i02q4mnPhRm4hAlq84iJ_qKM0cTsM6ON-gowhDPRG7QgVwlwLD0K3EstsZdzZlNLGzPLUVTogQOWz0ITNvgIsLvLhWczPvPYDGJmMSWlIAHk0kYvto8ARn4XuX4",
-                
+                Authorization: "Bearer BQAOPXatcBKPo_teqt92H_HgaeIPgy4aCM0-h6UM1IIeCQFtvJAJj751IDUrIhcLe4CWa7VUXMXx2WbgoRMwM22Gw0vPjG8OyrDxcpTCEfkI1WLh6Y0C_2ZJxzD2ibWCaIfCyLlSDR3jJ7wVP6QML1aGgQ9IP-Q",
+                // access_token: "BQAOPXatcBKPo_teqt92H_HgaeIPgy4aCM0-h6UM1IIeCQFtvJAJj751IDUrIhcLe4CWa7VUXMXx2WbgoRMwM22Gw0vPjG8OyrDxcpTCEfkI1WLh6Y0C_2ZJxzD2ibWCaIfCyLlSDR3jJ7wVP6QML1aGgQ9IP-Q",
+                // token_type: "Bearer",
+                // expires_in: 3600,
+                // refresh_token: "ba6f5cf8f2fb41859b8cf561a42a588d",
+                // scope: "playlist-modify-private"
+                        // https://accounts.spotify.com/authorize?response_type=code&client_id=0903c7f83f004cae9f99ffad745ca1ce&scope=playlist-modify-private&redirect_uri=https://labefy-vitoria-mochovik.surge.sh
+
             }
         }
 
@@ -203,6 +209,7 @@ export default class TelaHome extends React.Component {
     }
 
     addMusicPlaylist =(nome, artistas, urlMusic) => {
+
         const url= `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`
         const headers = {
             headers: {
