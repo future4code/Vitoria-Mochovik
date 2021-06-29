@@ -9,9 +9,21 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 
 const Post = (props) => {
-
+  const [curtido, setCurtido] = useState(false)
+  const [numeroCurtidas, setNumeroCurtidas] = useState(0)
+  const [comentando, setComentando] = useState(false)
+  const [numeroComentarios, setNumeroComentarios] = useState(0)
+  const [comentarios, setComentarios] = useState([])
 
   const onClickCurtida = () => {
+
+    if(curtido) {
+      setCurtido(!curtido)
+      setNumeroCurtidas(numeroCurtidas - 1)
+    } else {
+      setCurtido(!curtido)
+      setNumeroCurtidas(numeroCurtidas + 1)
+    }
   };
 
   const onClickComentario = () => {
@@ -19,6 +31,9 @@ const Post = (props) => {
 
   const enviarComentario = (comentario) => {
   }
+
+  const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
+
 
   return (
     <PostContainer>
@@ -31,15 +46,15 @@ const Post = (props) => {
 
       <PostFooter>
         <IconeComContador
-          // icone={iconeCurtida}
+          icone={iconeCurtida}
           onClickIcone={onClickCurtida}
-          // valorContador={numeroCurtidas}
+          valorContador={numeroCurtidas}
         />
 
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-          // valorContador={numeroComentarios}
+          valorContador={numeroComentarios}
         />
       </PostFooter>
       {/* {caixaDeComentario} */}
