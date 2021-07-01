@@ -4,14 +4,17 @@ import getProfileChoose from '../../Requests/Requests';
 import {ImagePerson} from './styled'
 import CardPessoa from './Components/CardPerson/CardPerson';
 import Buttons from  './Components/Buttons/Buttons';
+import Header from '../../Components/Header/Header';
 
-const Initial = (props) => {
+const Initial = ({setPage}) => {
    
     return (
         <div> 
+            
             <p> initial</p>
+            <Header page='Initial' setPage={setPage}/>
             <CardPessoa />
-            <Buttons pageSet={props.pageSet}/>
+            <Buttons />
         </div>
     )
 

@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from  'react';
-import Header from '../Matches/Components/Header/Header'
+import Header from '../../Components/Header/Header'
 import ListMatches from '../Matches/Components/ListMatches/ListMatches'
 
 
-const Matches = () => {
+const Matches = ({setPage}) => {
     return(
         <div>
             <p> matches</p>
-            <Header />
+            <Header page='Matches' setPage={setPage} />
             <ListMatches />
             
         </div>
