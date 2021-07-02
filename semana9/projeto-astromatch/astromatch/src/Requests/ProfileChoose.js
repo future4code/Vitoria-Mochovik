@@ -2,7 +2,7 @@ import React, {useEffect, useState} from  'react';
 import axios from  'axios';
 
 const getProfileChoose = async () => {
-    const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:vitoria/person`
+    const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vitoriaMolina/person`
     
     const res = await axios.get(url)
     console.log('res', res.data.profile)

@@ -1,27 +1,14 @@
 import React, {useEffect, useState} from  'react';
 import {ImagePerson} from './styled'
-import getProfileChoose from '../../../../Requests/Requests';
+import getProfileChoose from '../../../../Requests/ProfileChoose';
 
-const CardPessoa = () => {
-    const [person, setPerson] = useState()
-
-    const personSet = async() => {
-        try{
-            const result = await getProfileChoose()
-            setPerson(result)
-            console.log("resultadooooooo", result)
-        }
-        catch(error){
-            alert(error.message)
-        }
-    }
-
-    useEffect(() => {
-        personSet()
-    }, [])
+const CardPessoa = ({person}) => {
+    
 
     
+    
     console.log("person", person)
+    
     return (
         <div> 
             <div>
