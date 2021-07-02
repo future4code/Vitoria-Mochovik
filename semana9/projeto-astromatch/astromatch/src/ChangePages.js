@@ -17,14 +17,17 @@ const ChangePages = () => {
   }
 
   const clearMatches = () => {
-    const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vitoriaMolina/clear`
-    axios.put(url)
-    .then((res) => {
-      alert("Matches apagados com sucesso!")
-    })
-    .catch((err) => {
-      alert(err.message)
-    })
+    if(window.confirm("Tem certeza que deseja limpar? Essa operação NÃO pode ser desfeita ")){
+      const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vitoriaMolina/clear`
+      axios.put(url)
+      .then((res) => {
+        alert("Matches apagados com sucesso!")
+      })
+      .catch((err) => {
+        alert(err.message)
+      })
+    }
+    
   }
   return (
     <div> 
