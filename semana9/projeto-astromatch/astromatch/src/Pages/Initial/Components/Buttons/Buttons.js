@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from  'react';
 import  ImageDelete  from '../../../../img/icone-excluir.png';
 import ImageCoracao from '../../../../img/icone-coracao.png'
-import { Delete, Gostei} from './styled.js'
+import { Delete, Gostei, Container} from './styled.js'
 import postChoosePerson from '../../../../Requests/ChoosePerson'
 
 
@@ -18,10 +18,10 @@ const Buttons = ({person, setNewPerson, newPerson}) => {
     }
 
     return(
-        <div>
-            <Delete src={ImageDelete} onClick={deleteClick} />
+        <Container>
+            <Delete  onClick={deleteClick}> X </Delete>
             <Gostei src={ImageCoracao} onClick={gosteiClick}/>
-        </div>
+        </Container>
     )
 
 }

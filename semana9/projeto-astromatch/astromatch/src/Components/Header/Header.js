@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from  'react';
+import Logo from '../../img/logo.png'
+import {ImageLogo, ContainerHeader} from './styled'
 
 
 const Header = ({page, setPage}) =>{
     return(
-        <div> 
+        <ContainerHeader> 
             {
                 page==='Matches' &&
                 <button onClick={()=>setPage("Initial")}>Initial</button>
             }
-            <p> header</p>
+            {/* <p> header</p> */}
+            <ImageLogo src={Logo} />
             {
                 page==='Initial' &&
                 <button onClick={()=>setPage('Matches')}>Matches </button>
             }
-        </div>
+        </ContainerHeader>
     )
 }
 

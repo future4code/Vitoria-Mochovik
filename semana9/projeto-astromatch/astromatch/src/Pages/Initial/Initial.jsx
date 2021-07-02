@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from  'react';
 import axios from  'axios';
 import getProfileChoose from '../../Requests/ProfileChoose';
-import {ImagePerson} from './styled'
+import {CardMain, CardBody} from './styled'
 import CardPessoa from './Components/CardPerson/CardPerson';
 import Buttons from  './Components/Buttons/Buttons';
 import Header from '../../Components/Header/Header';
@@ -25,12 +25,13 @@ const Initial = ({setPage}) => {
     }, [newPerson])
 
     return (
-        <div> 
-            <p> initial</p>
-            <Header page='Initial' setPage={setPage}/>
-            <CardPessoa person={person}/>
-            <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson}/>
-        </div>
+        <CardBody>
+            <CardMain> 
+                <Header page='Initial' setPage={setPage}/>
+                <CardPessoa person={person}/>
+                <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson}/>
+            </CardMain>
+        </CardBody>
     )
 
 }
