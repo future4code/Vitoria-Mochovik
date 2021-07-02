@@ -17,3 +17,11 @@ export const ContainerHeader = styled.div`
 
 
 `
+
+export const ImageLista = styled.img`
+    width: 35px;
+
+    &:hover{
+        cursor: pointer;
+    }
+`

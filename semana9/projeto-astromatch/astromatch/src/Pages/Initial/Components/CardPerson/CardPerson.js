@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from  'react';
-import { CardPerfil, Card} from './styled'
+import { CardPerfil, Card, Titulo, Bio} from './styled'
 import getProfileChoose from '../../../../Requests/ProfileChoose';
 
 const CardPessoa = ({person}) => {
@@ -12,8 +12,8 @@ const CardPessoa = ({person}) => {
                     <Card style={{ backgroundImage: "url(" + person.photo + ")" }} />
                     <img className="imagePerson" src={person.photo} />
                         <div className="cardInformation">
-                            <p> {person.name}, {person.age} </p>
-                            <p> {person.bio} </p>
+                            <Titulo> {person.name}, {person.age} </Titulo>
+                            <Bio> {person.bio} </Bio>
                         </div>
                 </CardPerfil>
                 : <p> nothing</p> }

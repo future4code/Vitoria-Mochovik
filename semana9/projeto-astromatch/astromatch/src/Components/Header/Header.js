@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from  'react';
 import Logo from '../../img/logo.png'
-import {ImageLogo, ContainerHeader} from './styled'
+import {ImageLogo, ImageLista, ContainerHeader} from './styled'
+import LogoLista from '../../img/listaIcone.jpg'
 
 
 const Header = ({page, setPage}) =>{
@@ -14,7 +15,7 @@ const Header = ({page, setPage}) =>{
             <ImageLogo src={Logo} />
             {
                 page==='Initial' &&
-                <button onClick={()=>setPage('Matches')}>Matches </button>
+                <ImageLista src={LogoLista} onClick={()=>setPage('Matches')} />
             }
         </ContainerHeader>
     )
