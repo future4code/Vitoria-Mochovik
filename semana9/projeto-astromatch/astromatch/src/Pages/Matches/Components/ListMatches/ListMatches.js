@@ -17,9 +17,9 @@ const ListMatches = ({listMatches}) =>{
         <div> 
             <p> listaa</p>
             <div>
-            {listMatches.lenght === 0 ?
-                <p> Nenhum matches</p>
-            : <p>{matches} </p> }
+                {listMatches.lenght === 0 ?
+                    <p> Nenhum matches</p>
+                : <p>{matches} </p> }
             </div>
         </div>
     )

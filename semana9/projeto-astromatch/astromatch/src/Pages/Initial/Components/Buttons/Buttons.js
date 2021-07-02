@@ -5,12 +5,22 @@ import { Delete, Gostei} from './styled.js'
 import postChoosePerson from '../../../../Requests/ChoosePerson'
 
 
-const Buttons = ({person}) => {
+const Buttons = ({person, setNewPerson, newPerson}) => {
+
+    const deleteClick = () => {
+        postChoosePerson(person.id, false)
+        setNewPerson(!newPerson)
+    }
+
+    const gosteiClick = () => {
+        postChoosePerson(person.id, true)
+        setNewPerson(!newPerson)
+    }
 
     return(
         <div>
-            <Delete src={ImageDelete} onClick={() => postChoosePerson(person.id, false)} />
-            <Gostei src={ImageCoracao} onClick={() => postChoosePerson(person.id, true)}/>
+            <Delete src={ImageDelete} onClick={deleteClick} />
+            <Gostei src={ImageCoracao} onClick={gosteiClick}/>
         </div>
     )
 

@@ -25,16 +25,6 @@ const Matches = ({setPage}) => {
         getMatches()
     }, [])
 
-    // console.log("lista", listMatches)
-    // console.log("lista matches", listMatches)
-    // const matches = listMatches.map((person) => {
-    //     return(
-    //         <div key={person.id}>
-    //             <img src={person.photo} />
-    //             <p> {person.name}</p>
-    //         </div>
-    //     )
-    // })
     return(
         <div>
             

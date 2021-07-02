@@ -8,6 +8,7 @@ import Header from '../../Components/Header/Header';
 
 const Initial = ({setPage}) => {
     const [person, setPerson] = useState()
+    const [newPerson, setNewPerson] = useState(false)
 
     const personSet = async() => {
         try{
@@ -21,15 +22,14 @@ const Initial = ({setPage}) => {
 
     useEffect(() => {
         personSet()
-    }, [])
+    }, [newPerson])
 
     return (
         <div> 
-            
             <p> initial</p>
             <Header page='Initial' setPage={setPage}/>
             <CardPessoa person={person}/>
-            <Buttons person={person}  />
+            <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson}/>
         </div>
     )
 
