@@ -2,6 +2,7 @@ import React, {useEffect, useState} from  'react';
 import Header from '../../Components/Header/Header'
 import ListMatches from '../Matches/Components/ListMatches/ListMatches'
 import axios from  'axios';
+import {CardBody, CardMain} from './styled'
 
 
 
@@ -26,14 +27,12 @@ const Matches = ({setPage}) => {
     }, [])
 
     return(
-        <div>
-            
-            <p> matches</p>
-            <Header page='Matches' setPage={setPage} />
-            <ListMatches listMatches={listMatches}/>
-            
-            
-        </div>
+        <CardBody>
+            <CardMain>
+                <Header page='Matches' setPage={setPage} />
+                <ListMatches listMatches={listMatches}/>
+            </CardMain>
+        </CardBody>
     )
 }
 
