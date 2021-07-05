@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from  'react';
-import { CardPerfil, Card, Titulo, Bio, Carregando} from './styled'
-
+import { CardPerfil, Card, Titulo, Bio, Carregando, 
+    TituloCarregando, TituloFim, ImgCoracao, ContainerFim} from './styled'
+import ImageCoracao from '../../../../img/coracao-partidofechado.png'
 
 const CardPessoa = ({person, load}) => {
     
@@ -9,7 +10,7 @@ const CardPessoa = ({person, load}) => {
             <div>
                 { load ? 
                     <Carregando>
-                        <p> Carregando</p> 
+                        <TituloCarregando> Carregando ...</TituloCarregando> 
                         <div class="content-coracao">
                             <div class="square"></div>
                             <div class="circle"></div>
@@ -24,9 +25,10 @@ const CardPessoa = ({person, load}) => {
                                 <Bio> {person.bio} </Bio>
                             </div>
                     </CardPerfil> 
-                    : <div>
-                    <p> A lista de Matches de hoje acabou!  </p>
-                    </div>
+                    : <ContainerFim>
+                        <TituloFim> A lista de Matches de hoje acabou!  </TituloFim>
+                        <ImgCoracao src={ImageCoracao} />
+                    </ContainerFim>
                 }
 
                 

@@ -31,7 +31,10 @@ const Initial = ({setPage}) => {
             <CardMain> 
                 <Header page='Initial' setPage={setPage}/>
                 <CardPessoa person={person} load={load} />
-                <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson} setLoad={setLoad} load={load} />
+                { person ? 
+                    <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson} setLoad={setLoad} load={load} />
+                : <div> </div>}
+                
             </CardMain>
         </CardBody>
     )

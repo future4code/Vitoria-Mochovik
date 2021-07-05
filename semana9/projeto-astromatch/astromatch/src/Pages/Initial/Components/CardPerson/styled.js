@@ -117,5 +117,33 @@ export const Carregando = styled.div`
     }
 
 `
+export const TituloCarregando = styled.h3`
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 35px;
+    color: #45A396;
 
+`
 
+export const TituloFim = styled.h3`
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 35px;
+    color: #712591;
+    
+`
+
+export const ImgCoracao = styled.img`
+    width: 100px;
+   
+
+`
+
+export const ContainerFim = styled.div`
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+
+`
