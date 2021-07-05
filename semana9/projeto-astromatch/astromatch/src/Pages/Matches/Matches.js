@@ -6,7 +6,7 @@ import {CardBody, CardMain} from './styled'
 
 
 
-const Matches = ({setPage}) => {
+const Matches = ({setPage, atualizaLista}) => {
     const [listMatches, setListMatches] = useState([])
 
     const getMatches = () => {
@@ -24,7 +24,7 @@ const Matches = ({setPage}) => {
 
     useEffect(() => {
         getMatches()
-    }, [])
+    }, [atualizaLista])
 
     return(
         <CardBody>

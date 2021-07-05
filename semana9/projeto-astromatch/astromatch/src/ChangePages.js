@@ -6,13 +6,14 @@ import axios from  'axios';
 
 const ChangePages = () => {
   const [page, setPage] = useState("Initial")
+  const [atualizaLista, setAtualizaLista] = useState(false)
 
   const changePage = () => {
     switch (page) {
       case 'Initial':
-        return <Initial setPage={setPage} />
+        return <Initial setPage={setPage} atualizaLista={atualizaLista} />
       case 'Matches':
-       return <Matches setPage={setPage} />
+       return <Matches setPage={setPage} atualizaLista={atualizaLista} />
     }
   }
 
@@ -22,6 +23,7 @@ const ChangePages = () => {
       axios.put(url)
       .then((res) => {
         alert("Matches apagados com sucesso!")
+        setAtualizaLista(!atualizaLista)
       })
       .catch((err) => {
         alert(err.message)

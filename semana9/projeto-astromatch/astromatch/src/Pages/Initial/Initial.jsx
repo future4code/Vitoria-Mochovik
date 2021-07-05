@@ -6,7 +6,7 @@ import CardPessoa from './Components/CardPerson/CardPerson';
 import Buttons from  './Components/Buttons/Buttons';
 import Header from '../../Components/Header/Header';
 
-const Initial = ({setPage}) => {
+const Initial = ({setPage, atualizaLista}) => {
     const [person, setPerson] = useState()
     const [newPerson, setNewPerson] = useState(false)
     const [load, setLoad] = useState(true)
@@ -24,7 +24,7 @@ const Initial = ({setPage}) => {
 
     useEffect(() => {
         personSet()
-    }, [newPerson])
+    }, [newPerson, atualizaLista])
 
     return (
         <CardBody>
