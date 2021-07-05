@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from  'react';
 import Logo from '../../img/logo.png'
-import {ImageLogo, ImageLista, ContainerHeader} from './styled'
+import {ImageLogo, ImageLista, ContainerHeader, ImgVoltar} from './styled'
 import LogoLista from '../../img/listaIcone.jpg'
+import Voltar from '../../img/back.png'
 
 
 const Header = ({page, setPage}) =>{
@@ -9,9 +10,9 @@ const Header = ({page, setPage}) =>{
         <ContainerHeader> 
             {
                 page==='Matches' &&
-                <button onClick={()=>setPage("Initial")}>Initial</button>
+                <ImgVoltar src={Voltar} onClick={()=>setPage("Initial")}/>
             }
-            {/* <p> header</p> */}
+            
             <ImageLogo src={Logo} />
             {
                 page==='Initial' &&
