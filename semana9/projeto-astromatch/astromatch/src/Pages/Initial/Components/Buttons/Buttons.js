@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from  'react';
+import React from  'react';
 import  ImageDelete  from '../../../../img/coracao-partido.png';
 import ImageCoracao from '../../../../img/icone-coracaoComBorda.png'
 import { Delete, Gostei, Container} from './styled.js'

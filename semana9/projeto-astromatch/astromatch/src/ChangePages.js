@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from  'react';
+import React, { useState} from  'react';
 import Initial from './Pages/Initial/Initial'
 import Matches from './Pages/Matches/Matches'
 import axios from  'axios';
@@ -14,6 +14,8 @@ const ChangePages = () => {
         return <Initial setPage={setPage} atualizaLista={atualizaLista} />
       case 'Matches':
        return <Matches setPage={setPage} atualizaLista={atualizaLista} />
+      default:
+        return <p> Página não encontrada!</p>
     }
   }
 

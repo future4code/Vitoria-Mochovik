@@ -24,7 +24,7 @@ export const CardContato = styled.div`
 `
 
 export const Titulo = styled.p`
-    
+    font-size: 20px;
     
 
 `
@@ -32,5 +32,21 @@ export const Titulo = styled.p`
 export const CardTitulo = styled.div`
     display: flex;
     justify-content: center;
+
+`
+
+export const ImgTriste = styled.img`
+    width: 80px;
+
+`
+
+export const ContainerSemMatches = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+    font-size: 25px;
+
 
 `

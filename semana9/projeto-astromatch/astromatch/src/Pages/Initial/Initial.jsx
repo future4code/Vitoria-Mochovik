@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from  'react';
-import axios from  'axios';
 import getProfileChoose from '../../Requests/ProfileChoose';
 import {CardMain, CardBody} from './styled'
 import CardPessoa from './Components/CardPerson/CardPerson';

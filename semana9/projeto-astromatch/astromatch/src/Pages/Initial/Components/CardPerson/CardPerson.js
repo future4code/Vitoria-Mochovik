@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from  'react';
+import React from  'react';
 import { CardPerfil, Card, Titulo, Bio, Carregando, 
     TituloCarregando, TituloFim, ImgCoracao, ContainerFim} from './styled'
 import ImageCoracao from '../../../../img/coracao-partidofechado.png'
@@ -11,15 +11,15 @@ const CardPessoa = ({person, load}) => {
                 { load ? 
                     <Carregando>
                         <TituloCarregando> Carregando ...</TituloCarregando> 
-                        <div class="content-coracao">
-                            <div class="square"></div>
-                            <div class="circle"></div>
+                        <div className="content-coracao">
+                            <div className="square"/>
+                            <div className="circle"/>
                         </div>  
                    </Carregando>
                 : person ?
                     <CardPerfil>
                         <Card style={{ backgroundImage: "url(" + person.photo + ")" }} />
-                        <img className="imagePerson" src={person.photo} />
+                        <img className="imagePerson" src={person.photo}  alt='Imagem de perfil da pessoa'/>
                             <div className="cardInformation">
                                 <Titulo> {person.name}, {person.age} </Titulo>
                                 <Bio> {person.bio} </Bio>

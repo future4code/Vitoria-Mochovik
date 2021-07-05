@@ -8,6 +8,7 @@ import {CardBody, CardMain} from './styled'
 
 const Matches = ({setPage, atualizaLista}) => {
     const [listMatches, setListMatches] = useState([])
+    const [load, setLoad] = useState(true)
 
     const getMatches = () => {
         const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vitoriaMolina/matches`
@@ -15,6 +16,7 @@ const Matches = ({setPage, atualizaLista}) => {
         .then((res) => {
             console.log("ressssssss", res.data.matches)
             setListMatches(res.data.matches)
+            setLoad(false)
         })
         .catch((err) =>{
             alert(err.message)
@@ -30,7 +32,7 @@ const Matches = ({setPage, atualizaLista}) => {
         <CardBody>
             <CardMain>
                 <Header page='Matches' setPage={setPage} />
-                <ListMatches listMatches={listMatches}/>
+                <ListMatches listMatches={listMatches} load={load} setLoad={setLoad} />
             </CardMain>
         </CardBody>
     )

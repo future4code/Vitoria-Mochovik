@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from  'react';
-import axios from  'axios';
-import {ImagePerson, CardContato, Titulo, CardTitulo} from './styled'
+import React from  'react';
+import {ImagePerson, CardContato, Titulo, CardTitulo, ImgTriste, ContainerSemMatches} from './styled'
+import Triste from '../../../../img/triste.png'
 
 
 
-const ListMatches = ({listMatches}) =>{
+const ListMatches = ({listMatches, load}) =>{
     console.log("lista matches", listMatches)
     const matches = listMatches.map((person) => {
         return(
@@ -20,8 +20,15 @@ const ListMatches = ({listMatches}) =>{
                 <Titulo> Seus Contatos ♥️ </Titulo>
             </CardTitulo>
             <div>
-                {listMatches.lenght === 0 ?
-                    <p> Nenhum matches</p>
+                { load ?
+                    <div>
+                        <p> Carregando ... </p>
+                    </div>
+                : listMatches.length === 0 ?
+                    <ContainerSemMatches>
+                        <p> Nenhum match</p>
+                        <ImgTriste src={Triste} />
+                    </ContainerSemMatches>
                 : <p>{matches} </p> }
             </div>
         </div>

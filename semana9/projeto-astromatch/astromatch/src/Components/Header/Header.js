@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from  'react';
+import React from  'react';
 import Logo from '../../img/logo.png'
 import {ImageLogo, ImageLista, ContainerHeader, ImgVoltar} from './styled'
 import LogoLista from '../../img/listaIcone.jpg'
