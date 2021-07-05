@@ -14,7 +14,6 @@ const Matches = ({setPage, atualizaLista}) => {
         const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/vitoriaMolina/matches`
         axios.get(url)
         .then((res) => {
-            console.log("ressssssss", res.data.matches)
             setListMatches(res.data.matches)
             setLoad(false)
         })

@@ -5,7 +5,6 @@ import Triste from '../../../../img/triste.png'
 
 
 const ListMatches = ({listMatches, load}) =>{
-    console.log("lista matches", listMatches)
     const matches = listMatches.map((person) => {
         return(
             <CardContato key={person.id}>
@@ -29,7 +28,9 @@ const ListMatches = ({listMatches, load}) =>{
                         <p> Nenhum match</p>
                         <ImgTriste src={Triste} />
                     </ContainerSemMatches>
-                : <p>{matches} </p> }
+                : <div>
+                    {matches}
+                </div> }
             </div>
         </div>
     )
