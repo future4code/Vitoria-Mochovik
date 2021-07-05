@@ -9,11 +9,13 @@ import Header from '../../Components/Header/Header';
 const Initial = ({setPage}) => {
     const [person, setPerson] = useState()
     const [newPerson, setNewPerson] = useState(false)
+    const [load, setLoad] = useState(true)
 
     const personSet = async() => {
         try{
             const result = await getProfileChoose()
             setPerson(result)
+            setLoad(false)
         }
         catch(error){
             alert(error.message)
@@ -28,8 +30,8 @@ const Initial = ({setPage}) => {
         <CardBody>
             <CardMain> 
                 <Header page='Initial' setPage={setPage}/>
-                <CardPessoa person={person}/>
-                <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson}/>
+                <CardPessoa person={person} load={load} />
+                <Buttons person={person}  setNewPerson={setNewPerson} newPerson={newPerson} setLoad={setLoad} load={load} />
             </CardMain>
         </CardBody>
     )

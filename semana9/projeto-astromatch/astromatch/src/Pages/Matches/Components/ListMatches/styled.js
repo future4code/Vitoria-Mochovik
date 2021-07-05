@@ -14,9 +14,12 @@ export const CardContato = styled.div`
     padding: 10px;
     display: flex;
     list-style: outside none none;
-    width: 100%;
+    width: 390;
     transition: all 0.2s ease 0s;
     cursor: pointer;
+   
+    box-shadow: rgba(200, 205, 200, 0.53) 0px 1.5px 0px 0px;
+
 
 `
 
