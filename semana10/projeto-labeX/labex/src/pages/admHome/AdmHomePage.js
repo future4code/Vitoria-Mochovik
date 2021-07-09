@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const AdmHomePage = () => {
     const [tripInformation, setTripInformation] = useState([])
@@ -34,10 +35,14 @@ const AdmHomePage = () => {
     
     }, [])
 
+    const goToTripDetails = (id) => {
+        history.push(`/admin/trips/${id}`)
+    }
+
     const namesTrips = tripInformation.map((information) => {
         return(
             <div key={information.id}>
-                <h3 > {information.name}</h3>
+                <h3 onClick={() => goToTripDetails(information.id)}> {information.name}</h3>
 
             </div>
         )
