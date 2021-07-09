@@ -15,22 +15,30 @@ const AdmHomePage = () => {
     }
 
     useEffect(() => {
-        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/trips`
-        axios.get(url)
-        .then((res) => {
-            console.log("aquiiii", res.data)
-            setTripInformation(res.data.trips)
-        })
-        .catch((err) => {
-            console.log("errou nas viagens". err.message)
-        })
+
+        const token = window.localStorage.getItem("token")
+        if(token) {
+            const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/trips`
+            axios.get(url)
+            .then((res) => {
+                console.log("aquiiii", res.data)
+                setTripInformation(res.data.trips)
+            })
+            .catch((err) => {
+                console.log("errou nas viagens". err.message)
+            }) 
+        } else {
+            history.push("/login")
+        }
+        
     
     }, [])
 
     const namesTrips = tripInformation.map((information) => {
         return(
             <div key={information.id}>
-                <h3> {information.name}</h3>
+                <h3 > {information.name}</h3>
+
             </div>
         )
     })

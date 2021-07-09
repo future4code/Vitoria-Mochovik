@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import useForm from '../hooks/useForm'
 
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const { form, onChange, cleanFields } = useForm({
+        email: "",
+        password: ""
+    })
     const history = useHistory()
 
     const token = window.localStorage.getItem("token")
@@ -17,25 +20,15 @@ const LoginPage = () => {
         history.goBack()
     }
 
-    const onChangeEmail = (event) => {
-        setEmail(event.target.value)
-    }
-
-    const onChangePassword = (event) => {
-        setPassword(event.target.value)
-    }
-
-    const verifyAuthorization = () => {
+    const toEnter = (event) => {
+        event.preventDefault();
+        
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/login`
-        const body = {
-            email: email,
-            password: password,
-        }
-
-        axios.post(url, body)
+        axios.post(url, form)
         .then((res) => {
             console.log("result", res.data)
             window.localStorage.setItem("token", res.data.token)
+            cleanFields()
             history.push("/admin/trips/list")
         }) 
         .catch((err) => {
@@ -43,18 +36,48 @@ const LoginPage = () => {
         })
     }
 
+    // const verifyAuthorization = () => {
+    //     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/login`
+    //     const body = {
+    //         email: email,
+    //         password: password,
+    //     }
+
+    //     axios.post(url, body)
+    //     .then((res) => {
+    //         console.log("result", res.data)
+    //         window.localStorage.setItem("token", res.data.token)
+    //         history.push("/admin/trips/list")
+    //     }) 
+    //     .catch((err) => {
+    //         console.log("aquii errouuuuuu", err.response)
+    //     })
+    // }
+
+
 
     return(
         <div>
             <p> LoginPage</p>
-            <input placeholder={"E-mail"} value={email} onChange={onChangeEmail}/>
-            <input 
-                placeholder={"Password"} 
-                type="password"
-                value={password} 
-                onChange={onChangePassword} 
-            />
-            <button onClick={verifyAuthorization}> Entrar </button>
+            <form onSubmit={toEnter}> 
+                <input 
+                    name="email"
+                    type="email"
+                    placeholder={"E-mail"} 
+                    value={form.email} 
+                    onChange={onChange}
+                    required
+                />
+                <input 
+                    name="password"
+                    type="password"
+                    placeholder={"Password"} 
+                    value={form.password} 
+                    onChange={onChange} 
+                    required
+                />
+                <button > Entrar </button>
+            </form>
             <button onClick={goBack}> Voltar</button>
         </div>
     )
