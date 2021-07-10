@@ -45,6 +45,11 @@ const Header = () => {
     const goHome = () => {
         history.push("/")
     }
+
+    const logout = () => {
+        localStorage.clear();
+        history.push("/login")
+    }
     
     return(
         <ContainerGeral>
@@ -66,7 +71,7 @@ const Header = () => {
             { urlAtual.length >= 6 && urlAtual[6] !== "create" &&
                 <ContainerButtons>    
                     <Button onClick={goBack}> VOLTAR </Button>
-                    <Button > LOGOUT </Button>
+                    <Button onClick={logout}> LOGOUT </Button>
                     <Button onClick={goHome}> HOME </Button>
                     <ButtonDestaque onClick={goToCreateTrip}> CRIAR VIAGENS</ButtonDestaque> 
                 </ContainerButtons> }

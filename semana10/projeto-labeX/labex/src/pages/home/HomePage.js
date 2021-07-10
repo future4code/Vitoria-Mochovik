@@ -43,7 +43,7 @@ const HomePage = () => {
                     <ImgAstronautaAdm src={AstronautaAdm} />
                 </ContainerAstronauta>
                 <ContainerTitulosAdm>
-                    <h3> É um administradior? </h3>
+                    <h3> É um administrador? </h3>
                     <h4> Acesse agora as suas viagens</h4> 
                     <Button onClick={goToAreaAdm}> Área Adm </Button>
                 </ContainerTitulosAdm>

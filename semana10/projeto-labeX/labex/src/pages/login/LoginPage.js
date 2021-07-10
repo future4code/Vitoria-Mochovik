@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import useForm from '../hooks/useForm'
+import { ContainerGeral, CardLogin, Form, ContainerButton, 
+    Button, ButtonDestaque, Input, IconePerfil} from './styled'
+import ImagemIcone from '../../img/icone-perfil2.png'
 
 
 const LoginPage = () => {
@@ -36,49 +39,38 @@ const LoginPage = () => {
         })
     }
 
-    // const verifyAuthorization = () => {
-    //     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/login`
-    //     const body = {
-    //         email: email,
-    //         password: password,
-    //     }
-
-    //     axios.post(url, body)
-    //     .then((res) => {
-    //         console.log("result", res.data)
-    //         window.localStorage.setItem("token", res.data.token)
-    //         history.push("/admin/trips/list")
-    //     }) 
-    //     .catch((err) => {
-    //         console.log("aquii errouuuuuu", err.response)
-    //     })
-    // }
-
-
-
     return(
         <div>
-            <p> LoginPage</p>
-            <form onSubmit={toEnter}> 
-                <input 
-                    name="email"
-                    type="email"
-                    placeholder={"E-mail"} 
-                    value={form.email} 
-                    onChange={onChange}
-                    required
-                />
-                <input 
-                    name="password"
-                    type="password"
-                    placeholder={"Password"} 
-                    value={form.password} 
-                    onChange={onChange} 
-                    required
-                />
-                <button > Entrar </button>
-            </form>
-            <button onClick={goBack}> Voltar</button>
+            <ContainerGeral>
+                <IconePerfil src={ImagemIcone} />
+                <CardLogin>
+                    <Form onSubmit={toEnter}> 
+                        <Input 
+                            name="email"
+                            type="email"
+                            placeholder={"E-mail"} 
+                            value={form.email} 
+                            onChange={onChange}
+                            required
+                        />
+                        <Input 
+                            name="password"
+                            type="password"
+                            placeholder={"Password"} 
+                            value={form.password} 
+                            onChange={onChange} 
+                            required
+                        />
+                        <ContainerButton>
+                            <ButtonDestaque > ENTRAR </ButtonDestaque>
+                        </ContainerButton>
+                    </Form>
+                    <ContainerButton>
+                        <Button onClick={goBack}> Voltar</Button>
+                    </ContainerButton>
+                    
+                </CardLogin>
+            </ContainerGeral>
         </div>
     )
 }
