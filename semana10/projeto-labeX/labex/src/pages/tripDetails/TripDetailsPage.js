@@ -19,24 +19,28 @@ const TripDetailsPage = () => {
     console.log("token", token)
     console.log("id", pathParams.id)
 
-    useEffect(() => {
+    const getTripDetails = () => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/trip/${pathParams.id}`
-        const headers = {
-            auth: token
-        }
-        
-        axios.get(url, {headers})
-        .then((res) => {
-            console.log("aqui deu tripdetail", res.data.trip)
-            setTrip(res.data.trip)
-            setPendingCandidates(res.data.trip.candidates)
-            setSuccessfulCandidates(res.data.trip.approved)
+            const headers = {
+                auth: token
+            }
             
+            axios.get(url, {headers})
+            .then((res) => {
+                console.log("aqui deu tripdetail", res.data.trip)
+                setTrip(res.data.trip)
+                setPendingCandidates(res.data.trip.candidates)
+                setSuccessfulCandidates(res.data.trip.approved)
+                
 
-        })
-        .catch((err) => {
-            console.log("deu ruim no details", err.message)
-        })
+            })
+            .catch((err) => {
+                console.log("deu ruim no details", err.message)
+            })    
+    }
+
+    useEffect(() => {
+        getTripDetails()
     }, [])
 
 
@@ -53,6 +57,7 @@ const TripDetailsPage = () => {
         axios.put(url, body, {headers})
         .then((res) => {
             console.log("deu aqui na decide", res.data)
+            getTripDetails()
         })
         .catch((err) => {
             console.log("deu naoooo", err.message)

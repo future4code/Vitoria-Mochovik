@@ -17,7 +17,7 @@ const LoginPage = () => {
     }
 
     const goBack = () => {
-        history.goBack()
+        history.push("/")
     }
 
     const toEnter = (event) => {
