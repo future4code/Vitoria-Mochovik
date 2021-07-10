@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom'
 import { ContainerGeral, ImgLogo, ContainerButtons, Button, ButtonDestaque }  from './styled'
 // import Logo  from '../img/logo-removebg-preview.png'
 import Logo  from '../img/logo5.png'
@@ -18,6 +19,32 @@ const Header = () => {
     console.log("url atual", urlAtual)
     console.log("url agrupada", urlAgrupada)
 
+    const history = useHistory()
+
+    const goToListTrips = () => {
+        history.push("/trips/list")
+    }
+
+    const goToAreaAdm = () => {
+        history.push("/login")
+    }
+
+    const goToCreateTrip = () => {
+        history.push("/admin/trips/create")
+    }
+
+    const goBack = () => {
+        if(urlAtual.length >= 6 && urlAtual[5] === "list") {
+            goHome()
+        } else {
+            history.goBack()
+        }
+        
+    }
+
+    const goHome = () => {
+        history.push("/")
+    }
     
     return(
         <ContainerGeral>
@@ -25,22 +52,29 @@ const Header = () => {
             
             { urlAgrupada.length === 0 && 
                 <ContainerButtons>    
-                    <Button > ÁREA ADM</Button>
+                    <Button onClick={goToAreaAdm} > ÁREA ADM</Button>
                     <Button > SOBRE NÓS</Button>
-                    <ButtonDestaque > LISTA DE VIAGENS</ButtonDestaque> 
+                    <ButtonDestaque onClick={goToListTrips} > LISTA DE VIAGENS</ButtonDestaque> 
                 </ContainerButtons> }
-            { urlAgrupada === "admintripslist" && 
+            {/* { urlAgrupada === "admintripslist" && 
                 <ContainerButtons>    
                     <Button > VOLTAR </Button>
                     <Button > LOGOUT </Button>
+                    <Button > HOME </Button>
                     <ButtonDestaque > CRIAR VIAGENS</ButtonDestaque> 
-                </ContainerButtons> }
-            { urlAtual.length >= 6 && urlAtual[5] !== "list" &&
+                </ContainerButtons> } */}
+            { urlAtual.length >= 6 && urlAtual[6] !== "create" &&
                 <ContainerButtons>    
-                    <Button > VOLTAR </Button>
+                    <Button onClick={goBack}> VOLTAR </Button>
                     <Button > LOGOUT </Button>
-                    <Button > LISTA DE VIAGENS </Button>
-                    <ButtonDestaque > CRIAR VIAGENS</ButtonDestaque> 
+                    <Button onClick={goHome}> HOME </Button>
+                    <ButtonDestaque onClick={goToCreateTrip}> CRIAR VIAGENS</ButtonDestaque> 
+                </ContainerButtons> }
+            { urlAgrupada === "tripslist" && 
+                <ContainerButtons>    
+                    <Button onClick={goBack}> VOLTAR </Button>
+                    <Button onClick={goHome}> HOME </Button>
+                    <ButtonDestaque > INSCREVA-SE </ButtonDestaque> 
                 </ContainerButtons> }
         </ContainerGeral>
     )

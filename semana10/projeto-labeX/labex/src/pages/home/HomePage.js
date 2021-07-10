@@ -1,6 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import Header  from '../../header/Header'
+import { ImgAstronauta, ContainerChamada, ContainerAstronauta,
+    ContainerTitulos, ContainerTextoLogo, ImgTextoLogo, 
+    ContainerTitulosAdm, Button, ImgAstronautaAdm } from './styled'
+import Astronauta from '../../img/astronauta-foguete.png'
+import AstronautaAdm from '../../img/astronauta-adm.png'
+import TextoLogo from '../../img/logomarca.png'
+import Back from '../../img/terra-back.jpg'
+
 
 const HomePage = () => {
     const history = useHistory()
@@ -16,8 +24,33 @@ const HomePage = () => {
     return(
         <div>
             <Header />
-            <button onClick={goToListTrips}> Lista de Viagens </button>
-            <button onClick={goToAreaAdm}> Área Adm </button>
+            <ContainerTextoLogo >
+                <ImgTextoLogo src={TextoLogo} />
+            </ContainerTextoLogo>
+            
+            <ContainerChamada>
+                <ContainerTitulos>
+                    <h3> Precisando sair da rotina?</h3>
+                    <h4> Aqui você encontra a viagem dos seus sonhos!</h4> 
+                    <Button onClick={goToListTrips}> Lista de Viagens </Button>
+                </ContainerTitulos>
+                <ContainerAstronauta>
+                    <ImgAstronauta src={Astronauta} />
+                </ContainerAstronauta>
+            </ContainerChamada>
+            <ContainerChamada> 
+                <ContainerAstronauta>
+                    <ImgAstronautaAdm src={AstronautaAdm} />
+                </ContainerAstronauta>
+                <ContainerTitulosAdm>
+                    <h3> É um administradior? </h3>
+                    <h4> Acesse agora as suas viagens</h4> 
+                    <Button onClick={goToAreaAdm}> Área Adm </Button>
+                </ContainerTitulosAdm>
+               
+            </ContainerChamada>
+            
+            
         </div>
     )
 }

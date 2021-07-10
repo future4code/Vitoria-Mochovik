@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
+import Header  from '../../header/Header'
+
 
 const ListTripsPage = () => {
     const [trips, setTrips] = useState([])
@@ -45,6 +47,7 @@ const ListTripsPage = () => {
     })
     return(
         <div>
+            <Header />
             <p> ListTripsPage</p>
             <button onClick={goToApplicationForm}> Inscreva-se</button>
             <button onClick={goBack}> Go back</button>
