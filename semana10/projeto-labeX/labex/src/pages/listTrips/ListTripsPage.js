@@ -27,6 +27,10 @@ const ListTripsPage = () => {
         getListTrip()
     }, [])
 
+    const goToApplicationForm = () => {
+        history.push("/trips/application")
+    }
+
     const tripDetails = trips.map((information) => {
         return(
             <div key={information.id}>
@@ -42,8 +46,10 @@ const ListTripsPage = () => {
     return(
         <div>
             <p> ListTripsPage</p>
-            <div> {tripDetails}</div>
+            <button onClick={goToApplicationForm}> Inscreva-se</button>
             <button onClick={goBack}> Go back</button>
+            <div> {tripDetails}</div>
+            
         </div>
     )
 }
