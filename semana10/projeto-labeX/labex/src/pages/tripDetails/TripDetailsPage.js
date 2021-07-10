@@ -2,6 +2,8 @@ import React, {useEffect, useState} from  'react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom'
+import Header  from '../../header/Header'
+
 
 
 const TripDetailsPage = () => {
@@ -99,6 +101,7 @@ const TripDetailsPage = () => {
     // })
     return(
         <div>
+            <Header />
             <p> TripDetailsPage</p>
 
             <h4> {trip.name} </h4>

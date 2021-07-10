@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
+import Header  from '../../header/Header'
 
 const HomePage = () => {
     const history = useHistory()
@@ -14,7 +15,7 @@ const HomePage = () => {
 
     return(
         <div>
-            <p> HomePage</p>
+            <Header />
             <button onClick={goToListTrips}> Lista de Viagens </button>
             <button onClick={goToAreaAdm}> Área Adm </button>
         </div>

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import Header  from '../../header/Header'
+
 
 const AdmHomePage = () => {
     const [tripInformation, setTripInformation] = useState([])
@@ -77,6 +79,7 @@ const AdmHomePage = () => {
 
     return(
         <div>
+            <Header />
             <p> AdmHomePage</p>
             <button onClick={goToCreateTrip}> Criar Viagens </button>
             <button onClick={goBack}> Voltar</button>
