@@ -16,8 +16,8 @@ const Header = () => {
         urlAgrupada = urlAgrupada.concat(urlAtual[i])
     }
     
-    console.log("url atual", urlAtual)
-    console.log("url agrupada", urlAgrupada)
+    // console.log("url atual", urlAtual)
+    // console.log("url agrupada", urlAgrupada)
 
     const history = useHistory()
 
