@@ -3,6 +3,19 @@ import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom'
 import Header  from '../../header/Header'
+import { ContainerCard, ContainerMain, ContainerAprovados, 
+    ContainerPendentes, ContainerGeral, CardCandidatos, ContainerPend,
+    ImgPlanet, ContainerImg, ContainerViagem } from './styled'
+
+import Saturno from '../../img/saturno.jpg'
+import Netuno from '../../img/netuno.jpg'
+import Marte from '../../img/marte.jpg'
+import Mercurio from '../../img/mercurio.jpg'
+import Urano from '../../img/urano.jpg'
+import Venus from '../../img/venus.jpg'
+import Jupiter from '../../img/jupiter.jpg'
+import Terra from '../../img/terra.jpg'
+import Plutao from '../../img/plutao.jpg'
 
 
 
@@ -15,11 +28,28 @@ const TripDetailsPage = () => {
     const [successfulCandidates, setSuccessfulCandidates] = useState([])
     const [pendingCandidates, setPendingCandidates] = useState([])
 
-    const goBack = () => {
-        history.goBack()
+    const caminho = (planet) => {
+        switch(planet){
+            case 'Saturno':
+                return Saturno
+            case 'Netuno':
+                return Netuno
+            case 'Marte':
+                return Marte
+            case 'Mercurio':
+                return Mercurio
+            case 'Urano':
+                return Urano
+            case 'Venus':
+                return Venus
+            case 'Jupiter':
+                return Jupiter
+            case 'Terra':
+                return Terra
+            case 'Plutão':
+                return Plutao
+        }
     }
-    console.log("token", token)
-    console.log("id", pathParams.id)
 
     const getTripDetails = () => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/trip/${pathParams.id}`
@@ -68,15 +98,15 @@ const TripDetailsPage = () => {
     
     const pending = pendingCandidates.map((information) => {
         return(
-            <div>
-                <h4> {information.name} </h4>
-                <p> {information.profession}</p>
-                <p> {information.age}</p>
-                <p> {information.country}</p>
-                <p> {information.applicationText}</p>
+            <CardCandidatos>
+                <p> Nome: {information.name} </p>
+                <p> Profissão: {information.profession}</p>
+                <p> Idade: {information.age}</p>
+                <p> País: {information.country}</p>
+                <p> Texto de Candidatura: {information.applicationText}</p>
                 <button onClick={() => decideCandidate(true, information.id)}> Aprovar </button>
                 <button onClick={() => decideCandidate(false, information.id)}> Reprovar </button>
-            </div>
+            </CardCandidatos>
         )
     })
 
@@ -92,37 +122,43 @@ const TripDetailsPage = () => {
         )
     })
 
-    // const successful = successfulCandidates.map((information) => {
-    //     return(
-    //         <div>
-    //             <p> {information}</p>
-    //         </div>
-    //     )
-    // })
+    
     return(
         <div>
             <Header />
-            <p> TripDetailsPage</p>
-
-            <h4> {trip.name} </h4>
-                <p> {trip.description}</p>
-                <p> {trip.planet}</p>
-                <p> {trip.durationInDays}</p>
-                <p> {trip.date}</p>
-                <h4> Candidatos pendentes</h4>
-                <div> 
-                    { pendingCandidates.length > 0 ? 
-                        <div> {pending} </div>
-                    : <p>Nenhum candidato pendente</p> }
-                </div>
-                <h4> Candidatos aprovados</h4>
-                <div> 
-                    { successfulCandidates.length > 0 ? 
-                        <div> {successful} </div>
-                    : <p>Nenhum candidato aprovado</p> }
-                </div>
-
-            <button onClick={goBack}> Voltar</button>
+            <ContainerGeral>
+                <ContainerCard>
+                    <ContainerImg>
+                        <ImgPlanet src={caminho(trip.planet)} />
+                    </ContainerImg>
+                    <ContainerViagem>
+                        <h2> {trip.name} </h2>
+                        <p> Descrição: {trip.description}</p>
+                        <p> Planeta: {trip.planet}</p>
+                        <p> Duração: {trip.durationInDays} dias</p>
+                        <p> Data: {trip.date}</p>      
+                    </ContainerViagem>
+                     
+                </ContainerCard>
+                <ContainerMain>
+                    <ContainerAprovados>
+                        <h4> Candidatos aprovados</h4>
+                        <div> 
+                            { successfulCandidates.length > 0 ? 
+                            <div> {successful} </div>
+                            : <p>Nenhum candidato aprovado</p> }
+                        </div>
+                    </ContainerAprovados>
+                    <ContainerPendentes>
+                        <h4> Candidatos pendentes</h4>
+                        <div> 
+                            { pendingCandidates.length > 0 ? 
+                                <ContainerPend> {pending} </ContainerPend>
+                            : <p>Nenhum candidato pendente</p> }
+                        </div>
+                    </ContainerPendentes>
+                </ContainerMain>
+            </ContainerGeral>
         </div>
     )
 }
