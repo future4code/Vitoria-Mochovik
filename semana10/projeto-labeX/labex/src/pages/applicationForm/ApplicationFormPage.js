@@ -366,7 +366,7 @@ const ApplicationFormPage = () => {
                 </ContainerForm>
             </form>
             <ContainerButton>
-            <Button onClick={goToBack}> Voltar</Button>
+                <Button onClick={goToBack}> Voltar</Button>
             </ContainerButton>
         </ContainerGeral>
     )

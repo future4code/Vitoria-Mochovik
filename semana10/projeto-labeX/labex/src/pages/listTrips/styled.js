@@ -27,6 +27,13 @@ export const ContainerViagem= styled.div`
     display: flex;
     flex-direction: column;
 
+    p{
+        b{
+            color: #343B45;   
+        }
+            
+    }
+
 `
 export const ContainerCards= styled.div`
    display: flex;
