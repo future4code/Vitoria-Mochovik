@@ -50,6 +50,10 @@ const Header = () => {
         localStorage.clear();
         history.push("/login")
     }
+
+    const goToApplicationForm = () => {
+        history.push("/trips/application")
+    }
     
     return(
         <ContainerGeral>
@@ -79,7 +83,7 @@ const Header = () => {
                 <ContainerButtons>    
                     <Button onClick={goBack}> VOLTAR </Button>
                     <Button onClick={goHome}> HOME </Button>
-                    <ButtonDestaque > INSCREVA-SE </ButtonDestaque> 
+                    <ButtonDestaque  onClick={goToApplicationForm} > INSCREVA-SE </ButtonDestaque> 
                 </ContainerButtons> }
         </ContainerGeral>
     )
