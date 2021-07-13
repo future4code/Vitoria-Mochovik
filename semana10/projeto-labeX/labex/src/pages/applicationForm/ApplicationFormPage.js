@@ -3,6 +3,9 @@ import {useHistory} from 'react-router-dom'
 import axios from "axios"
 import useForm from "../hooks/useForm"
 
+import { ContainerForm, Input, Button, Select, CardForm,
+    ContainerTitulo, ContainerGeral, ContainerButton, ButtonDestaque} from './styled'
+
 const ApplicationFormPage = () => {
 
     const history = useHistory()
@@ -64,42 +67,46 @@ const ApplicationFormPage = () => {
         )
     })
     return(
-        <div>
-            <p> ApplicationFormPage</p>
+        <ContainerGeral>
+            <ContainerTitulo>
+                <h3> Formulário de Inscrição</h3>
+            </ContainerTitulo>
             <form onSubmit={applyToTrip}>
-                <select name="id" onChange={onChange} required>
+            <ContainerForm>
+                <CardForm>
+                <Select name="id" onChange={onChange} required>
                     <option> Escolha uma viagem </option>
                         {nameTrips}
-                </select>
-                <input
+                </Select>
+                <Input
                     name="name"
                     value={form.name}
                     onChange={onChange}
                     placeholder="Nome"
                     required
                 />
-                <input
+                <Input
                     name="age"
                     value={form.age}
                     onChange={onChange}
                     placeholder="Idade"
                     required
                 />
-                <input
+                <Input
                     name="applicationText"
                     value={form.applicationText}
                     onChange={onChange}
                     placeholder="Texto de Candidatura"
                     required
                 />
-                <input
+                <Input
                     name="profession"
                     value={form.profession}
                     onChange={onChange}
                     placeholder="Profissão"
                     required
                 />
-                <select name="country" id="paises" onChange={onChange} required>
+                <Select name="country" id="paises" onChange={onChange} required>
                     <option value="Brasil" selected="selected">Brasil</option>
                     <option value="Afeganistão">Afeganistão</option>
                     <option value="África do Sul">África do Sul</option>
@@ -350,11 +357,18 @@ const ApplicationFormPage = () => {
                     <option value="Wallis e Futuna">Wallis e Futuna</option>
                     <option value="Zimbabwe">Zimbabwe</option>
                     <option value="Zâmbia">Zâmbia</option>
-                </select>
-                <button> Enviar</button>
+                </Select>
+                <ContainerButton>
+                    <ButtonDestaque> Enviar</ButtonDestaque>
+                </ContainerButton>
+                
+                </CardForm>
+                </ContainerForm>
             </form>
-            <button onClick={goToBack}> Voltar</button>
-        </div>
+            <ContainerButton>
+            <Button onClick={goToBack}> Voltar</Button>
+            </ContainerButton>
+        </ContainerGeral>
     )
 }
 
