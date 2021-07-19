@@ -56,9 +56,11 @@ const ListTripsPage = () => {
             <Header />
             { loading ? 
             <div> 
-                <p> Carregando</p>
+                <p> Carregando... </p>
             </div>
-            : <div> {tripDetails}</div>}
+            : trips.length != 0 ?
+                <div> {tripDetails} </div>
+                : <p> Nenhuma viagem encontrada </p>}
             
         </div>
     )
