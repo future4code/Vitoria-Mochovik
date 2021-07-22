@@ -2,15 +2,18 @@ import React, {useState} from 'react'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import LoginPage from './LoginPage'
+import {login} from '../../services/user'
 
 const LoginForm = () => {
-    const [form, onChange, clear] = useForm({ email: "", password: ""})
+    const [form, onChange, clear] = useForm({ email: "", password: "" })
     const history = useHistory()
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        login(form, clear, history)
     }
 
+    
     return(
         <div>
             <form onSubmit={onSubmitForm}>
