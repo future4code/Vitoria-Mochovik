@@ -4,7 +4,7 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import FeedPage from '../pages/FeedPage/FeedPage'
 import PostDetailsPage from '../pages/PostDetailsPage/PostDetailsPage'
-import RegisterPage from '../pages/RegisterPage/RegisterPage'
+import SignUpPage from '../pages/SignUpPage/SignUpPage'
 
 const Router = () => {
     return(
@@ -14,7 +14,7 @@ const Router = () => {
                     <FeedPage />
                 </Route>
                 <Route exact path="/cadastro">
-                    <RegisterPage />
+                    <SignUpPage />
                 </Route>
                 <Route exact path="/login">
                     <LoginPage />
