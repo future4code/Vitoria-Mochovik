@@ -22,3 +22,21 @@ export const createvote = (direction, id) => {
           alert(err.response.message)
       })
 }
+
+export const changeVote = (direction, id) => {
+    const body = {
+        direction: direction
+    }
+
+    axios.put(`${BASE_URL}/posts/${id}/votes`, body, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    })
+        .then((res) => {
+            console.log("conseguiu a change")
+        })
+        .catch((err) => {
+            alert(err.response.message)
+        })
+}
