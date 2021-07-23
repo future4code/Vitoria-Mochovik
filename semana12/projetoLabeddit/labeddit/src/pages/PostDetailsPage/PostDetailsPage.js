@@ -6,6 +6,7 @@ import {changeVote, createvote} from '../../services/vote'
 
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
+import PostCommentForm from './PostCommentForm'
 
 const PostDetailsPage = () => {
     useProtectedPage()
@@ -43,7 +44,8 @@ const PostDetailsPage = () => {
     console.log("post details", comentarios)
     return(
         <div>
-            PostDetailsPage
+            <p>PostDetailsPage </p>
+            <PostCommentForm />
             <div>
                 {comentarios.length > 0 ? 
                     <div> 
