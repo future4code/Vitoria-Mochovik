@@ -25,10 +25,10 @@ const FeedPage = () => {
         console.log("userbvot", userVote)
         if(userVote !== null) {
             if(userVote !== direction){
-                changeVote(direction, id)
+                changeVote("posts", direction, id)
             }
         } else {
-            createvote(direction, id)
+            createvote("posts", direction, id)
         }
         
     }
@@ -40,7 +40,8 @@ const FeedPage = () => {
                     <h4> {post.username} </h4>
                     <h6 > {post.title}</h6>
                     <p> {post.body} </p>
-                    <p> {post.userVote}</p>
+                    <p> Meu voto{post.userVote}</p>
+                    <p> Soma dos votos{post.voteSum}</p>
                 </div>
                 <p onClick={() => onClickVote(post.userVote, 1, post.id)}> &#128316;</p>
                 <p onClick={() => onClickVote(post.userVote, -1, post.id)}>&#128317;</p>
