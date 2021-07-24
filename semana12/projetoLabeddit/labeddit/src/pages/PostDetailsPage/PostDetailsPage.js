@@ -4,9 +4,16 @@ import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
 import {changeVote, createvote} from '../../services/vote'
 
+import { CardComentario, CardVote, ImgFlecha, CardInformation } from './styled'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import PostCommentForm from './PostCommentForm'
+
+import ImageFlechaBaixo from '../../assets/flecha-baixo.png'
+import ImageFlechaCima from '../../assets/flecha-cima.png'
+import ImagemBaixoPreenchida from '../../assets/flecha-baixo-preenchida.png'
+import ImagemCimaPreenchida from '../../assets/flecha-cima-preenchida.png'
+
 
 const PostDetailsPage = () => {
     useProtectedPage()
@@ -27,16 +34,38 @@ const PostDetailsPage = () => {
         
     }
 
+    const changeImageCima = (userVote) => {
+        if(userVote === null || userVote === -1 ){
+            return ImageFlechaCima
+        } else if ( userVote === 1) {
+            return ImagemCimaPreenchida
+        }
+
+    }
+
+    const changeImageBaixo = (userVote) => {
+        if(userVote === null || userVote === 1) {
+            return ImageFlechaBaixo
+        } else if (userVote === -1) {
+            return ImagemBaixoPreenchida
+        }
+    }
+
     const comentario = comentarios.map((item) => {
         return(
-            <div key={item.id}>
-                <h3>{item.username}</h3>
-                <p> {item.body} </p>
-                <p> Meu voto {item.userVote}</p>
-                <p> Soma dos votos {item.voteSum}</p>
-                <p onClick={() => onClickVote(item.userVote, 1, item.id)}> &#128316;</p>
-                <p onClick={() => onClickVote(item.userVote, -1, item.id)}>&#128317;</p>
-            </div>
+            <CardComentario key={item.id}>
+                 <CardVote>
+                    <ImgFlecha src={changeImageCima(item.userVote)} onClick={() => onClickVote(item.userVote, 1, item.id)}/>
+                    { item.voteSum === null ? 
+                        <p> <b> 0 </b></p>
+                    : <p> <b> {item.voteSum} </b></p>}
+                    <ImgFlecha src={changeImageBaixo(item.userVote)}  onClick={() => onClickVote(item.userVote, -1, item.id)}/>
+                </CardVote>
+                <CardInformation>
+                   <h3>{item.username}</h3>
+                    <p> {item.body} </p> 
+                </CardInformation>
+            </CardComentario>
         )
 
     })
