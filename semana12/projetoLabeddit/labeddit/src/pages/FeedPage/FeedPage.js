@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { BASE_URL } from '../../constants/urls'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
@@ -7,19 +7,33 @@ import { useHistory } from 'react-router-dom'
 import PostForm from './PostForm'
 import {changeVote, createvote} from '../../services/vote'
 import Header from '../../components/header/Header'
-import {CardPost, ImgFlecha, CardVote, CardName, CardAction, CardInformation} from './styled'
+import {CardPost, ImgFlecha, CardVote, CardName, CardAction, 
+    CardInformation, CardDescription, ImgIcone} from './styled'
+
+
 import ImageFlechaBaixo from '../../assets/flecha-baixo.png'
 import ImageFlechaCima from '../../assets/flecha-cima.png'
 import ImageComentario from '../../assets/comentario.png'
 import ImageSalvar from '../../assets/salvar.png'
 import ImageCompartilhar from '../../assets/flecha-compartilhar.png'
+import ImagemBaixoPreenchida from '../../assets/flecha-baixo-preenchida.png'
+import ImagemCimaPreenchida from '../../assets/flecha-cima-preenchida.png'
+
 
 
 
 const FeedPage = () => {
     useProtectedPage()
     const history = useHistory()
-    const posts = useRequestData([], `${BASE_URL}/posts`)
+    let posts = useRequestData([], `${BASE_URL}/posts`)
+    
+    // const pegaPosts = () => {
+    //     posts = 
+    // }
+
+    // useEffect(() => {
+    //     useRequestData([], `${BASE_URL}/posts`)
+    // }, [])
     
     
     console.log("posts", posts)
@@ -28,40 +42,67 @@ const FeedPage = () => {
         goToPostDetails(history, id)
     }
 
+    
     const onClickVote = (userVote, direction, id) => {
         console.log("userbvot", userVote)
         if(userVote !== null) {
             if(userVote !== direction){
                 changeVote("posts", direction, id)
+                
             }
         } else {
             createvote("posts", direction, id)
+            
         }
         
+    }
+    
+    const changeImageCima = (userVote) => {
+        if(userVote === null || userVote === -1 ){
+            return ImageFlechaCima
+        } else if ( userVote === 1) {
+            return ImagemCimaPreenchida
+        }
+
+    }
+
+    const changeImageBaixo = (userVote) => {
+        if(userVote === null || userVote === 1) {
+            return ImageFlechaBaixo
+        } else if (userVote === -1) {
+            return ImagemBaixoPreenchida
+        }
     }
 
     const postCard = posts.map((post) => {
         return(
             <CardPost key={post.id} >
                 <CardVote>
-                    <ImgFlecha src={ImageFlechaCima} />
-                    <p> <b> {post.voteSum} </b></p>
-                    <ImgFlecha src={ImageFlechaBaixo} />
+                    <ImgFlecha src={changeImageCima(post.userVote)} onClick={() => onClickVote(post.userVote, 1, post.id)}/>
+                    { post.voteSum === null ? 
+                        <p> <b> 0 </b></p>
+                    : <p> <b> {post.voteSum} </b></p>}
+                    <ImgFlecha src={changeImageBaixo(post.userVote)}  onClick={() => onClickVote(post.userVote, -1, post.id)}/>
                 </CardVote>
                 <CardInformation> 
                     <div onClick={() =>onClickCard(post.id)}>
                         <CardName>
-                            <h6> {post.username} </h6>
-                            <p> {post.createdAt} </p>
+                            <p> {post.username} </p>
+                            {/* <p> {post.createdAt} </p> */}
                         </CardName>
-                        <h6 > {post.title}</h6>
-                        <p> {post.body} </p>
-                        <p> Meu voto{post.userVote}</p>
+                        <CardDescription> 
+                            <h3 > {post.title}</h3>
+                            <p> {post.body} </p>
+                        </CardDescription>
+                        {/* <p> Meu voto{post.userVote}</p> */}
                     </div>
                     <CardAction>
-                        <ImgFlecha src={ImageComentario} />
-                        <ImgFlecha src={ImageSalvar} />
-                        <ImgFlecha src={ImageCompartilhar} />
+                        <ImgIcone src={ImageComentario} />
+                        <p> {post.commentCount} Comentarios </p>
+                        <ImgIcone src={ImageCompartilhar} />
+                        <p> Compartilhar</p>
+                        <ImgIcone src={ImageSalvar} />
+                        
                     </CardAction>
                 </CardInformation>
                 {/* <p onClick={() => onClickVote(post.userVote, 1, post.id)}> &#128316;</p>
@@ -83,4 +124,4 @@ const FeedPage = () => {
     )
 }
 
-export default FeedPage
+export default FeedPage;

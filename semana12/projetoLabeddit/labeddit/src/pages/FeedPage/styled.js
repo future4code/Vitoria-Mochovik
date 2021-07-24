@@ -22,13 +22,21 @@ export const CardVote = styled.div`
     width: 8%;
     height: 100%;
     background-color: #F8F9FA;
+    margin: 10px;
 `
 
 export const CardName = styled.div`
-    background-color: blue;
+    /* 
+     */
     margin: 0px;
     
     width: 100%;
+    p{
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        
+    }
 
 `
 
@@ -36,8 +44,18 @@ export const CardAction = styled.div`
     /* background-color: green; */
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
-    height: 15%;
+    height: 60px;
+    font-size: 15px;
+    color: #8F9294;
+    
+    p{
+        padding-right: 15px;
+        padding-left: 3px;
+    }
+    
+    
     
 `
 
@@ -47,4 +65,14 @@ export const CardInformation = styled.div`
     flex-direction: column;
     justify-content: space-between;;
     width: 95%;
+`
+
+export const CardDescription = styled.div`
+    
+
+`
+
+export const ImgIcone = styled.img`
+    width: 20px;
+    
 `
