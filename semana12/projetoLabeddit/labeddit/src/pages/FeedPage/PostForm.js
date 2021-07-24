@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import useForm from '../../hooks/useForm'
 import {createPost} from '../../services/post'
 
+
+import {ContainerInputs,InputDescricao, InpuTitulo,
+    ContainerButton, Button, Form} from './styledForm'
 const PostForm = () => {
     const [form, onChange, clear] = useForm({ title: "", body: ""})
 
@@ -11,27 +14,27 @@ const PostForm = () => {
     }
 
     return(
-        <form onSubmit={onSubmitForm}>
-            <div>
-                <div>
-                    <input 
+        <Form onSubmit={onSubmitForm}>
+                <ContainerInputs>
+                    <InpuTitulo 
                         name={"title"}
                         value={form.title}
                         onChange={onChange}
                         placeholder={"Titulo"}
                         required
                     />
-                    <input
+                    <InputDescricao
                         name={"body"}
                         value={form.body}
                         onChange={onChange}
                         placeholder={"Descrição"}
                         required
                     />
-                </div>
-                <button type={'submit'}> Criar </button>
-            </div>
-        </form>
+                </ContainerInputs>
+                <ContainerButton>
+                    <Button type={'submit'}> POSTAR </Button>
+                </ContainerButton>
+        </Form>
     )
 }
 

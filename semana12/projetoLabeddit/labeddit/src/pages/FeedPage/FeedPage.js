@@ -8,9 +8,11 @@ import PostForm from './PostForm'
 import {changeVote, createvote} from '../../services/vote'
 import Header from '../../components/header/Header'
 import {CardPost, ImgFlecha, CardVote, CardName, CardAction, 
-    CardInformation, CardDescription, ImgIcone} from './styled'
+    CardInformation, CardDescription, ImgLogo, 
+    ImgIcone, ContainerCriar, ContainerInputs,
+    ContainerLogo} from './styled'
 
-
+import ImageIcone from '../../assets/logo2.png'
 import ImageFlechaBaixo from '../../assets/flecha-baixo.png'
 import ImageFlechaCima from '../../assets/flecha-cima.png'
 import ImageComentario from '../../assets/comentario.png'
@@ -26,15 +28,6 @@ const FeedPage = () => {
     useProtectedPage()
     const history = useHistory()
     let posts = useRequestData([], `${BASE_URL}/posts`)
-    
-    // const pegaPosts = () => {
-    //     posts = 
-    // }
-
-    // useEffect(() => {
-    //     useRequestData([], `${BASE_URL}/posts`)
-    // }, [])
-    
     
     console.log("posts", posts)
 
@@ -98,7 +91,9 @@ const FeedPage = () => {
                     </div>
                     <CardAction>
                         <ImgIcone src={ImageComentario} />
-                        <p> {post.commentCount} Comentarios </p>
+                        { post.commentCount === null && <p> 0 Comentários</p> }
+                        { post.commentCount === "1" && <p> {post.commentCount} Comentário </p>}
+                        { post.commentCount > 1 && <p> {post.commentCount} Comentários </p>}
                         <ImgIcone src={ImageCompartilhar} />
                         <p> Compartilhar</p>
                         <ImgIcone src={ImageSalvar} />
@@ -113,7 +108,15 @@ const FeedPage = () => {
     return( 
         <div>
             <Header />
-            <PostForm />
+            <ContainerCriar>                    
+                <ContainerLogo>
+                    <ImgLogo src={ImageIcone} />
+                </ContainerLogo>
+                <ContainerInputs>
+                    <PostForm />
+                </ContainerInputs> 
+            </ContainerCriar>
+            
             <div>
                 {postCard}
             </div>

@@ -76,3 +76,41 @@ export const ImgIcone = styled.img`
     width: 20px;
     
 `
+
+export const ImgLogo = styled.img`
+    width: 40px;
+    height: 40px;
+    margin: 25px;
+`
+
+export const ContainerCriar = styled.div`
+    /* background-color: #b8b1ff; */
+    display: flex;
+    align-items: center;
+    
+    border: 1px solid #8F9294;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px  #8F9294;
+    width: 610px;
+    height: 220px;;
+    margin: 30px;
+
+
+`
+
+export const ContainerInputs = styled.div`
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+`
+
+export const ContainerLogo = styled.div`
+    /* background-color: blue; */
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+`
