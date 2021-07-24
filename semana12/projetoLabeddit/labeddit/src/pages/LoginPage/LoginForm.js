@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom'
 import LoginPage from './LoginPage'
 import {login} from '../../services/user'
 
+import { CardLogin, Form, ContainerButton, 
+     ButtonDestaque, Input} from './styled'
+
 const LoginForm = () => {
     const [form, onChange, clear] = useForm({ email: "", password: "" })
     const history = useHistory()
@@ -15,10 +18,10 @@ const LoginForm = () => {
 
     
     return(
-        <div>
-            <form onSubmit={onSubmitForm}>
+        
+            <Form onSubmit={onSubmitForm}>
                 <div>
-                    <input
+                    <Input
                         name={"email"}
                         value={form.email}
                         onChange={onChange}
@@ -26,7 +29,7 @@ const LoginForm = () => {
                         required
                         type={"email"}
                     />
-                    <input
+                    <Input
                         name={"password"}
                         value={form.password}
                         onChange={onChange}
@@ -35,11 +38,14 @@ const LoginForm = () => {
                         type={"password"}
                     />
                 </div>
-                <button
+                <ContainerButton>
+                   <ButtonDestaque
                     type={"submit"}
-                > Fazer Login </button> 
-            </form>
-        </div>
+                > Fazer Login </ButtonDestaque>  
+                </ContainerButton>
+                
+            </Form>
+        
     )
 }
 
