@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
-import {changeVote, createvote} from '../../services/vote'
+import {changeVote, createvote, deleteVote} from '../../services/vote'
 import Header from '../../components/header/Header'
 import { CardComentario, CardVote, ImgFlecha, CardInformation, CardAction } from './styled'
 import useProtectedPage from '../../hooks/useProtectedPage'
@@ -13,6 +13,7 @@ import ImageFlechaBaixo from '../../assets/flecha-baixo.png'
 import ImageFlechaCima from '../../assets/flecha-cima.png'
 import ImagemBaixoPreenchida from '../../assets/flecha-baixo-preenchida.png'
 import ImagemCimaPreenchida from '../../assets/flecha-cima-preenchida.png'
+import { CardPost } from '../FeedPage/CardPost'
 
 
 const PostDetailsPage = () => {
@@ -20,15 +21,24 @@ const PostDetailsPage = () => {
 
     const params = useParams()
     const [comentarios, setComentarios] = useRequestData( [], `${BASE_URL}/posts/${params.id}/comments`)
+    const [post, setPost] = useState()
 
+    useEffect(() => {
+        const auxiliar = window.localStorage.getItem("post")
+        setPost(JSON.parse(auxiliar))
+    }, [])
 
-    const onClickVote = (userVote, direction, id) => {
+    const onClickVote = ( userVote, direction, id) => {
         console.log("userbvot", userVote)
+        
         if(userVote !== null) {
             if(userVote !== direction){
-                changeVote("comments",direction, id)
+                changeVote("comments", direction, id)
                 changeVoteState(direction, id, userVote)
-
+ 
+            } else if (Number(userVote) === Number(direction) ){
+                deleteVote("comments", id)
+                changeVoteState(direction, id, userVote)
             }
         } else {
             createvote("comments", direction, id)
@@ -57,7 +67,11 @@ const PostDetailsPage = () => {
 
     const changeVoteState = (direction, id, userVote) => {
         const newComentarios = comentarios.map((comentario) => {
-            if(id === comentario.id && userVote) {
+            if(id === comentario.id && userVote && Number(userVote) === Number(direction)){
+                return{
+                    ... comentario, userVote: null, voteSum: Number(comentario.voteSum) + Number(direction*-1)
+                }
+            } else if(id === comentario.id && userVote) {
                 return{
                     ... comentario, userVote: direction, voteSum: Number(comentario.voteSum) + 2*Number(direction)
                 }
@@ -101,9 +115,17 @@ const PostDetailsPage = () => {
     console.log("post details", comentarios)
     return(
         <div>
-
             <Header />
+            { post && 
+            <CardPost post={post} 
+                changeImageCima={changeImageCima} 
+                changeImageBaixo={changeImageBaixo}
+                onClickCard={() => {}}
+                onClickVote={() => {}}
+            
+            /> }
             <PostCommentForm />
+            
             <div>
                 {comentarios.length > 0 ? 
                     <div> 

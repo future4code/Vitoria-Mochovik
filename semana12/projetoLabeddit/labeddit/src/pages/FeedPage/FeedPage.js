@@ -30,11 +30,10 @@ const FeedPage = () => {
     const history = useHistory()
     let [posts, setPosts] = useRequestData([], `${BASE_URL}/posts`)
     
-    
-    
     console.log("posts", posts)
 
     const onClickCard = (post) => {
+        window.localStorage.setItem("post", JSON.stringify(post))
         goToPostDetails(history, post.id)
     }
 
