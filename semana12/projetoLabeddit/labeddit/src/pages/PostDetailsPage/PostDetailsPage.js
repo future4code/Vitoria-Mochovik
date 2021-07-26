@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
-import {changeVote, createvote, deleteVote} from '../../services/vote'
+import {changeVote, createvote,deleteVote} from '../../services/vote'
 import Header from '../../components/header/Header'
 import { CardComentario, CardVote, ImgFlecha, CardInformation, CardAction } from './styled'
 import useProtectedPage from '../../hooks/useProtectedPage'
@@ -28,7 +28,7 @@ const PostDetailsPage = () => {
         setPost(JSON.parse(auxiliar))
     }, [])
 
-    const onClickVote = ( userVote, direction, id) => {
+    const onClickVoteComent = ( userVote, direction, id) => {
         console.log("userbvot", userVote)
         
         if(userVote !== null) {
@@ -91,11 +91,11 @@ const PostDetailsPage = () => {
         return(
             <CardComentario key={item.id}>
                  <CardVote>
-                    <ImgFlecha src={changeImageCima(item.userVote)} onClick={() => onClickVote(item.userVote, 1, item.id)}/>
+                    <ImgFlecha src={changeImageCima(item.userVote)} onClick={() => onClickVoteComent(item.userVote, 1, item.id)}/>
                     { item.voteSum === null ? 
                         <p> <b> 0 </b></p>
                     : <p> <b> {item.voteSum} </b></p>}
-                    <ImgFlecha src={changeImageBaixo(item.userVote)}  onClick={() => onClickVote(item.userVote, -1, item.id)}/>
+                    <ImgFlecha src={changeImageBaixo(item.userVote)}  onClick={() => onClickVoteComent(item.userVote, -1, item.id)}/>
                 </CardVote>
                 <CardInformation>
                    <h3>{item.username}</h3>
@@ -112,16 +112,65 @@ const PostDetailsPage = () => {
 
     })
 
+    const onClickVote = (userVote, direction, id) => {
+        console.log("userbvot", userVote)
+        console.log("direction", direction)
+
+        if(userVote !== null) {
+            if(Number(userVote) !== Number(direction)){
+                changeVote("posts", direction, id)
+                changeVoteState1(direction, id, userVote)
+                
+            } else if (Number(userVote) === Number(direction) ){
+                deleteVote("posts", id)
+                changeVoteState1(direction, id, userVote)
+            }
+        } else {
+            createvote("posts", direction, id)
+            changeVoteState1(direction, id, userVote)
+            console.log("estou onde nao deveria")
+            
+        }
+        
+    }
+    
+
+    const changeVoteState1 = (direction, id, userVote) => {
+        
+        let newPost 
+        if(id === post.id && userVote && Number(userVote) === Number(direction)){
+            newPost = {
+                ... post, userVote: null, voteSum: Number(post.voteSum) + Number(direction*-1)
+            }
+        } else if(id === post.id && userVote) {
+            newPost = {
+                ... post, userVote: direction, voteSum: Number(post.voteSum) + 2*Number(direction)
+            }
+        }  else if(id === post.id){
+            console.log("ṕrimeiro votoo")
+            newPost = {
+                ... post, userVote: direction, voteSum: Number(post.voteSum) + Number(direction)
+            }
+        } 
+        else {
+            newPost= post
+        }
+        
+        setPost(newPost)
+    }
+
+
     console.log("post details", comentarios)
     return(
         <div>
             <Header />
             { post && 
-            <CardPost post={post} 
+            <CardPost 
+                post={post} 
                 changeImageCima={changeImageCima} 
                 changeImageBaixo={changeImageBaixo}
                 onClickCard={() => {}}
-                onClickVote={() => {}}
+                onClickVote={onClickVote}
             
             /> }
             <PostCommentForm />
