@@ -15,6 +15,11 @@ const Header = () => {
     const clicKGoBack = () => {
         goBack(history)
     }
+
+    const logout = () => {
+        window.localStorage.removeItem('token')
+        history.push("/login")
+    }
     return(
         <ContainerGeral>
             <ContainerMarca>
@@ -28,7 +33,7 @@ const Header = () => {
             </div>}
             { urlAtual.length < 6 && 
             <div>
-                <Button > LOGOUT </Button>
+                <Button onClick={logout}> LOGOUT </Button>
             </div>}
             
         </ContainerGeral>
