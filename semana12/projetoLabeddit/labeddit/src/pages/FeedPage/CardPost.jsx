@@ -25,7 +25,7 @@ export const CardPost = ({
                 <ImgFlecha src={changeImageBaixo(post.userVote)}  onClick={() => onClickVote(post.userVote, -1, post.id)}/>
             </CardVote>
             <CardInformation> 
-                <div onClick={() =>onClickCard(post.id)}>
+                <div onClick={() =>onClickCard(post)}>
                     <CardName>
                         <p> {post.username} </p>
                         {/* <p> {post.createdAt} </p> */}
@@ -34,7 +34,6 @@ export const CardPost = ({
                         <h3 > {post.title}</h3>
                         <p> {post.body} </p>
                     </CardDescription>
-                    {/* <p> Meu voto{post.userVote}</p> */}
                 </div>
                 <CardAction>
                     <ImgIcone src={ImageComentario} />

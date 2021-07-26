@@ -5,7 +5,7 @@ import useRequestData from '../../hooks/useRequestData'
 import { goToPostDetails } from '../../routes/coordinator'
 import { useHistory } from 'react-router-dom'
 import PostForm from './PostForm'
-import {changeVote, createvote} from '../../services/vote'
+import {changeVote, createvote, deleteVote} from '../../services/vote'
 import Header from '../../components/header/Header'
 import {ImgFlecha, CardVote, CardName, CardAction, 
     CardInformation, CardDescription, ImgLogo, 
@@ -31,24 +31,31 @@ const FeedPage = () => {
     let [posts, setPosts] = useRequestData([], `${BASE_URL}/posts`)
     
     
+    
     console.log("posts", posts)
 
-    const onClickCard = (id) => {
-        goToPostDetails(history, id)
+    const onClickCard = (post) => {
+        goToPostDetails(history, post.id)
     }
 
     
     const onClickVote = (userVote, direction, id) => {
         console.log("userbvot", userVote)
+        console.log("direction", direction)
+
         if(userVote !== null) {
-            if(userVote !== direction){
+            if(Number(userVote) !== Number(direction)){
                 changeVote("posts", direction, id)
                 changeVoteState(direction, id, userVote)
                 
+            } else if (Number(userVote) === Number(direction) ){
+                deleteVote("posts", id)
+                changeVoteState(direction, id, userVote)
             }
         } else {
             createvote("posts", direction, id)
             changeVoteState(direction, id, userVote)
+            console.log("estou onde nao deveria")
             
         }
         
@@ -56,16 +63,22 @@ const FeedPage = () => {
     
 
     const changeVoteState = (direction, id, userVote) => {
+        
         const newPosts = posts.map((post) => {
-            if(id === post.id && userVote) {
+            if(id === post.id && userVote && Number(userVote) === Number(direction)){
+                return{
+                    ... post, userVote: null, voteSum: Number(post.voteSum) + Number(direction*-1)
+                }
+            } else if(id === post.id && userVote) {
                 return{
                     ... post, userVote: direction, voteSum: Number(post.voteSum) + 2*Number(direction)
                 }
-            } else if(id === post.id){
+            }  else if(id === post.id){
+                console.log("ṕrimeiro votoo")
                 return{
                     ... post, userVote: direction, voteSum: Number(post.voteSum) + Number(direction)
                 }
-            }
+            } 
             else {
                 return post
             }

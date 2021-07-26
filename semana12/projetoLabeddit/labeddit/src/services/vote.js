@@ -40,3 +40,18 @@ export const changeVote = (action, direction, id) => {
             alert(err.response.message)
         })
 }
+
+export const deleteVote = (action, id) => {
+    axios.delete(`${BASE_URL}/${action}/${id}/votes`, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    })
+        .then((res) => {
+            console.log("conseguiu a DELETE", res.data)
+        })
+        .catch((err) => {
+            alert(err.response.message)
+        })
+
+}

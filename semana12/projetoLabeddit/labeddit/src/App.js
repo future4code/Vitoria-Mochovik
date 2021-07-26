@@ -1,9 +1,9 @@
 import Router from "./routes/Router"
-
+import GlobalPost  from '../src/context/PrivateContext'
 
 const App = () => {
   return (
-    <div>
+    <div >
       <Router />
     </div>
   );
