@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CardPost = styled.div`
+export const CardPostContainer = styled.div`
     background-color: #F8F9FA;
     display: flex;
     

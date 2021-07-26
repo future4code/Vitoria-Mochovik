@@ -3,8 +3,8 @@ import { useParams } from 'react-router'
 import { BASE_URL } from '../../constants/urls'
 import { useHistory } from 'react-router-dom'
 import {changeVote, createvote} from '../../services/vote'
-
-import { CardComentario, CardVote, ImgFlecha, CardInformation } from './styled'
+import Header from '../../components/header/Header'
+import { CardComentario, CardVote, ImgFlecha, CardInformation, CardAction } from './styled'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import PostCommentForm from './PostCommentForm'
@@ -19,7 +19,7 @@ const PostDetailsPage = () => {
     useProtectedPage()
 
     const params = useParams()
-    const comentarios = useRequestData( [], `${BASE_URL}/posts/${params.id}/comments`)
+    const [comentarios, setComentarios] = useRequestData( [], `${BASE_URL}/posts/${params.id}/comments`)
 
 
     const onClickVote = (userVote, direction, id) => {
@@ -27,9 +27,13 @@ const PostDetailsPage = () => {
         if(userVote !== null) {
             if(userVote !== direction){
                 changeVote("comments",direction, id)
+                changeVoteState(direction, id, userVote)
+
             }
         } else {
             createvote("comments", direction, id)
+            changeVoteState(direction, id, userVote)
+
         }
         
     }
@@ -51,6 +55,24 @@ const PostDetailsPage = () => {
         }
     }
 
+    const changeVoteState = (direction, id, userVote) => {
+        const newComentarios = comentarios.map((comentario) => {
+            if(id === comentario.id && userVote) {
+                return{
+                    ... comentario, userVote: direction, voteSum: Number(comentario.voteSum) + 2*Number(direction)
+                }
+            } else if(id === comentario.id){
+                return{
+                    ... comentario, userVote: direction, voteSum: Number(comentario.voteSum) + Number(direction)
+                }
+            }
+            else {
+                return comentario
+            }
+        })
+        setComentarios([...newComentarios])
+    }
+
     const comentario = comentarios.map((item) => {
         return(
             <CardComentario key={item.id}>
@@ -64,7 +86,13 @@ const PostDetailsPage = () => {
                 <CardInformation>
                    <h3>{item.username}</h3>
                     <p> {item.body} </p> 
+                    <CardAction>
+                        <p> Curtir</p>
+                        <p> Comentar</p>
+                        <p> Compartilhar</p>
+                    </CardAction>
                 </CardInformation>
+                
             </CardComentario>
         )
 
@@ -73,7 +101,8 @@ const PostDetailsPage = () => {
     console.log("post details", comentarios)
     return(
         <div>
-            <p>PostDetailsPage </p>
+
+            <Header />
             <PostCommentForm />
             <div>
                 {comentarios.length > 0 ? 

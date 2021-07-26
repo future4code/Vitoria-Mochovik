@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 import PostForm from './PostForm'
 import {changeVote, createvote} from '../../services/vote'
 import Header from '../../components/header/Header'
-import {CardPost, ImgFlecha, CardVote, CardName, CardAction, 
+import {ImgFlecha, CardVote, CardName, CardAction, 
     CardInformation, CardDescription, ImgLogo, 
     ImgIcone, ContainerCriar, ContainerInputs,
     ContainerLogo} from './styled'
@@ -20,6 +20,7 @@ import ImageSalvar from '../../assets/salvar.png'
 import ImageCompartilhar from '../../assets/flecha-compartilhar.png'
 import ImagemBaixoPreenchida from '../../assets/flecha-baixo-preenchida.png'
 import ImagemCimaPreenchida from '../../assets/flecha-cima-preenchida.png'
+import { CardPost } from './CardPost'
 
 
 
@@ -27,7 +28,8 @@ import ImagemCimaPreenchida from '../../assets/flecha-cima-preenchida.png'
 const FeedPage = () => {
     useProtectedPage()
     const history = useHistory()
-    let posts = useRequestData([], `${BASE_URL}/posts`)
+    let [posts, setPosts] = useRequestData([], `${BASE_URL}/posts`)
+    
     
     console.log("posts", posts)
 
@@ -41,15 +43,37 @@ const FeedPage = () => {
         if(userVote !== null) {
             if(userVote !== direction){
                 changeVote("posts", direction, id)
+                changeVoteState(direction, id, userVote)
                 
             }
         } else {
             createvote("posts", direction, id)
+            changeVoteState(direction, id, userVote)
             
         }
         
     }
     
+
+    const changeVoteState = (direction, id, userVote) => {
+        const newPosts = posts.map((post) => {
+            if(id === post.id && userVote) {
+                return{
+                    ... post, userVote: direction, voteSum: Number(post.voteSum) + 2*Number(direction)
+                }
+            } else if(id === post.id){
+                return{
+                    ... post, userVote: direction, voteSum: Number(post.voteSum) + Number(direction)
+                }
+            }
+            else {
+                return post
+            }
+        })
+        setPosts([...newPosts])
+    }
+
+
     const changeImageCima = (userVote) => {
         if(userVote === null || userVote === -1 ){
             return ImageFlechaCima
@@ -69,40 +93,13 @@ const FeedPage = () => {
 
     const postCard = posts.map((post) => {
         return(
-            <CardPost key={post.id} >
-                <CardVote>
-                    <ImgFlecha src={changeImageCima(post.userVote)} onClick={() => onClickVote(post.userVote, 1, post.id)}/>
-                    { post.voteSum === null ? 
-                        <p> <b> 0 </b></p>
-                    : <p> <b> {post.voteSum} </b></p>}
-                    <ImgFlecha src={changeImageBaixo(post.userVote)}  onClick={() => onClickVote(post.userVote, -1, post.id)}/>
-                </CardVote>
-                <CardInformation> 
-                    <div onClick={() =>onClickCard(post.id)}>
-                        <CardName>
-                            <p> {post.username} </p>
-                            {/* <p> {post.createdAt} </p> */}
-                        </CardName>
-                        <CardDescription> 
-                            <h3 > {post.title}</h3>
-                            <p> {post.body} </p>
-                        </CardDescription>
-                        {/* <p> Meu voto{post.userVote}</p> */}
-                    </div>
-                    <CardAction>
-                        <ImgIcone src={ImageComentario} />
-                        { post.commentCount === null && <p> 0 Comentários</p> }
-                        { post.commentCount === "1" && <p> {post.commentCount} Comentário </p>}
-                        { post.commentCount > 1 && <p> {post.commentCount} Comentários </p>}
-                        <ImgIcone src={ImageCompartilhar} />
-                        <p> Compartilhar</p>
-                        <ImgIcone src={ImageSalvar} />
-                        
-                    </CardAction>
-                </CardInformation>
-                {/* <p onClick={() => onClickVote(post.userVote, 1, post.id)}> &#128316;</p>
-                <p onClick={() => onClickVote(post.userVote, -1, post.id)}>&#128317;</p> */}
-            </CardPost>
+            <CardPost 
+                changeImageBaixo={changeImageBaixo}
+                changeImageCima={changeImageCima}
+                onClickCard={onClickCard}
+                onClickVote={onClickVote}
+                post={post}
+            />
         )
     })
     return( 
