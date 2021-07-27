@@ -37,9 +37,9 @@ export const CardPost = ({
                 </div>
                 <CardAction>
                     <ImgIcone src={ImageComentario} />
-                    { post.commentCount === null && <p> 0 Comentários</p> }
-                    { post.commentCount === "1" && <p> {post.commentCount} Comentário </p>}
-                    { post.commentCount > 1 && <p> {post.commentCount} Comentários </p>}
+                    { post.commentCount === null && <p onClick={() =>onClickCard(post) }> 0 Comentários</p> }
+                    { post.commentCount === "1" && <p onClick={() =>onClickCard(post) }> {post.commentCount} Comentário </p>}
+                    { post.commentCount > 1 && <p onClick={() =>onClickCard(post)}> {post.commentCount} Comentários </p>}
                     <ImgIcone src={ImageCompartilhar} />
                     <p> Compartilhar</p>
                     <ImgIcone src={ImageSalvar} />

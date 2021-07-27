@@ -4,10 +4,16 @@ export const CardPostContainer = styled.div`
     background-color: #F8F9FA;
     display: flex;
     
-    border: 1px solid black;
+    border-radius: 10px;
+    border: 1px solid #DAE0E6;
     margin: 30px;
     height: 100%;
     width: 610px;
+    
+    &:hover{
+        border-color: #878A8C;
+        cursor: pointer;
+    }
 `
 
 export const ImgFlecha = styled.img`
@@ -53,8 +59,18 @@ export const CardAction = styled.div`
     p{
         padding-right: 15px;
         padding-left: 3px;
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
     }
     
+    img{
+        &:hover{
+            cursor: pointer;
+        }
+    }
     
     
 `
@@ -65,6 +81,8 @@ export const CardInformation = styled.div`
     flex-direction: column;
     justify-content: space-between;;
     width: 95%;
+
+    
 `
 
 export const CardDescription = styled.div`
@@ -112,5 +130,13 @@ export const ContainerLogo = styled.div`
     align-items: center;
     justify-content: center;
     display: flex;
+
+`
+
+export const Main = styled.div`
+    /* background-color: #DAE0E6 */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
 `

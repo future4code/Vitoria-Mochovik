@@ -10,7 +10,7 @@ import Header from '../../components/header/Header'
 import {ImgFlecha, CardVote, CardName, CardAction, 
     CardInformation, CardDescription, ImgLogo, 
     ImgIcone, ContainerCriar, ContainerInputs,
-    ContainerLogo} from './styled'
+    ContainerLogo, Main} from './styled'
 
 import ImageIcone from '../../assets/logo2.png'
 import ImageFlechaBaixo from '../../assets/flecha-baixo.png'
@@ -117,7 +117,8 @@ const FeedPage = () => {
     return( 
         <div>
             <Header />
-            <ContainerCriar>                    
+            <Main>
+              <ContainerCriar>                    
                 <ContainerLogo>
                     <ImgLogo src={ImageIcone} />
                 </ContainerLogo>
@@ -128,7 +129,9 @@ const FeedPage = () => {
             
             <div>
                 {postCard}
-            </div>
+            </div>  
+            </Main>
+            
     
         </div> 
 
