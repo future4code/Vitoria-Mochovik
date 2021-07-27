@@ -10,9 +10,10 @@ export const createPost = (body, clear) => {
       .then((res) => {
           alert(res.data.message)
           clear()
-
+          
       })
       .catch((err) => {
           alert(err.response.message)
+          
       })
 }

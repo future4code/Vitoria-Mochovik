@@ -15,8 +15,7 @@ export const createvote = (action, direction, id) => {
         }
     })
       .then((res) => {
-        console.log("consegui", res.data)
-
+        
       })
       .catch((err) => {
           alert(err.response.message)
@@ -34,7 +33,7 @@ export const changeVote = (action, direction, id) => {
         }
     })
         .then((res) => {
-            console.log("conseguiu a change")
+            
         })
         .catch((err) => {
             alert(err.response.message)
@@ -48,7 +47,7 @@ export const deleteVote = (action, id) => {
         }
     })
         .then((res) => {
-            console.log("conseguiu a DELETE", res.data)
+            
         })
         .catch((err) => {
             alert(err.response.message)

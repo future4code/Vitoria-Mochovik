@@ -54,7 +54,7 @@ const FeedPage = () => {
         } else {
             createvote("posts", direction, id)
             changeVoteState(direction, id, userVote)
-            console.log("estou onde nao deveria")
+            
             
         }
         
@@ -73,7 +73,6 @@ const FeedPage = () => {
                     ... post, userVote: direction, voteSum: Number(post.voteSum) + 2*Number(direction)
                 }
             }  else if(id === post.id){
-                console.log("ṕrimeiro votoo")
                 return{
                     ... post, userVote: direction, voteSum: Number(post.voteSum) + Number(direction)
                 }
