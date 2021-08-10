@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start1": "node ./exercicio1/exercicio1.js",
+    "start2": "node ./exercicio2/exercicio2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vitoria Mochovik",
