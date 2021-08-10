@@ -10,7 +10,7 @@ A-
 
 */
 
-//B-
+//B && C
 
 const name = process.argv[2]
 const age = Number(process.argv[3])
