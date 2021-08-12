@@ -1,0 +1,2 @@
+Get http://localhost:3003/countries
+Content-Type: application/json
