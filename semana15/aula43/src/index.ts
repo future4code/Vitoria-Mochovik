@@ -20,6 +20,35 @@ app.get('/countries', (req: Request, res: Response) => {
     res.status(200).send(result)
 })
 
+//EXERCICIO 03
+
+app.get('/countries/search', (req: Request, res: Response) => {
+    let result: country[] = countries
+
+    try {
+        if(!req.query.name && !req.query.capital && !req.query.continent) {
+            throw new Error("Parametros invalidos")
+        }
+        if(req.query.name) {
+            result = result.filter((country) => 
+                country.name.includes(req.query.name as string)
+            )
+        }
+        if(req.query.capital) {
+            result = result.filter((country) => 
+                country.capital.includes(req.query.capital as string)
+            )
+        }
+        if(req.query.continent) {
+            result = result.filter((country) =>
+                country.continent.includes(req.query.continent as string))
+        }
+        res.status(200).send(result)
+    } catch (error){
+        res.status(400).send(error.message)
+    }
+})
+
 //EXERCICIO 02
 
 app.get('/countries/:id', (req: Request, res: Response) => {
@@ -39,3 +68,4 @@ app.get('/countries/:id', (req: Request, res: Response) => {
     }
     
 })
+

@@ -5,3 +5,7 @@ Content-Type: application/json
 ### 2 - Buscar país por id
 Get http://localhost:3003/countries/2
 Content-Type: application/json
+
+### 3 - Busca com filtros
+Get http://localhost:3003/countries/search?name=Bra
+Content-Type: application/json
