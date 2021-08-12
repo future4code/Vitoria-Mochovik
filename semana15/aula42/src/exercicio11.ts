@@ -1,6 +1,6 @@
 //DESAFIO 07 QUESTÃO 11
 
-function calculaFatorial(num: number): number | string {
+export function calculaFatorial(num: number): number | string {
     if(typeof num !== "number") {
         return "Invalid number"
     }
