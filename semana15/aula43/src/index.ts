@@ -127,3 +127,42 @@ app.delete('/countries/:id', (req: Request, res: Response) => {
         
     }
 })
+
+//EXERCICIO 06
+
+app.post("/countries", (req: Request, res: Response) => {
+    let errorCode: number = 400
+
+    try {
+        const authorization: string = req.headers.authorization as string
+        if (!authorization || authorization.length < 10) {
+            errorCode = 401
+            throw new Error("Não Autorizado!")
+        }
+
+        if(!req.body.name && !req.body.capital && !req.body.continent) {
+            throw new Error("Parametro invalido")
+        }
+        const countryName: number = countries.findIndex(
+            (country) => country.name === req.body.name
+        )
+
+        if (countryName !== -1) {
+            errorCode = 409
+            throw new Error("Esse pai já existe!")
+        }
+
+        const newCountry: country = {
+            id: Date.now(),
+            name: req.body.name,
+            capital: req.body.capital,
+            continent: req.body.continent,
+        }
+
+        countries.push(newCountry)
+        res.status(200).send({ message: "Sucesso!!!", country: newCountry})
+    } catch(error) {
+        console.log(error)
+        res.status(errorCode).send(error.message)
+    }
+})

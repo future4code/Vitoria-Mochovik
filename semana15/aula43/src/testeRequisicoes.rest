@@ -23,3 +23,15 @@ Content-Type: application/json
 DELETE http://localhost:3003/countries/1626271643952
 Authorization: "12544789542"
 Content-Type: application/json
+
+
+### 6 - Criar país
+Post http://localhost:3003/countries
+Authorization: "12544789542"
+Content-Type: application/json
+
+{
+		"name":"Wakanda",
+		"capital":"Birnin Zana",
+		"continent":"África"
+}
