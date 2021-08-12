@@ -12,7 +12,7 @@ enum IDADE_HISTORICA {
     IDADE_ANTIGA = "Idade Antiga",
     IDADE_MEDIA = "Idade Média",
     IDADE_MODERNA = "Idade Moderna",
-    IDADE_CONTEMPORANEA = "Idade Contenporânea"
+    IDADE_CONTEMPORANEA = "Idade Contemporânea"
 }
 
 const ano = Number(process.argv[2])
