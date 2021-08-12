@@ -1,2 +1,7 @@
+###  1 - Buscar todos os países
 Get http://localhost:3003/countries
+Content-Type: application/json
+
+### 2 - Buscar país por id
+Get http://localhost:3003/countries/2
 Content-Type: application/json
