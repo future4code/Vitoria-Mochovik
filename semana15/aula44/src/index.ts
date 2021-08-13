@@ -76,7 +76,8 @@ let users: User[] = [
 
 app.get("/users", (req: Request, res: Response) => {
     let type = req.query.type as string
-
+    let nameSearch = req.query.name as string
+   
     try {
         if(type) {
             type = type.toUpperCase()
@@ -88,8 +89,24 @@ app.get("/users", (req: Request, res: Response) => {
 
             throw new Error("Invalid type")
         }   
+        if(nameSearch){
+            nameSearch = nameSearch.toLowerCase()
+            const resul = users.filter(
+                user => user.name.toLowerCase().includes(nameSearch))
+           
+            if(resul.length === 0) {
+                return res.status(204).send("No user was found")
+                
+            }
+
+            return res.status(200).send(resul)
+        }
+
+        res.status(200).send(users)
+
     } catch (error) {
         res.status(400).send(error.message)
     }
     
 })
+
