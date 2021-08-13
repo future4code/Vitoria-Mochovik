@@ -146,10 +146,11 @@ app.post("/users", (req: Request, res: Response) => {
             id: users.length+1,
             name,
             email,
-            age,
             type: type === USER_ROLES.NORMAL
                 ? USER_ROLES.NORMAL
-                : USER_ROLES.ADMIN
+                : USER_ROLES.ADMIN,
+            age,
+            
         }
 
         users.push(newUser)
