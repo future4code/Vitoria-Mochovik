@@ -1,0 +1,8 @@
+Exercicio 01
+
+A- Qual método HTTP você deve utilizar para isso?
+Método GET.
+
+B- Como você indicaria a entidade que está sendo manipulada?
+("/users")
+
