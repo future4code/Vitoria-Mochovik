@@ -164,3 +164,23 @@ app.post("/users", (req: Request, res: Response) => {
         res.status(400).send(error.message)
     }
 })
+
+app.put("/users/:id", (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params.id)
+
+        if(isNaN(id)) {
+            throw new Error("Invalid Id");
+        }
+
+        users.forEach(user => {
+            if(user.id === id){
+                user.name += "-ALTERADO"
+                return res.status(200).end()
+            }
+        })
+        res.status(204).send("User not found")
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+})
