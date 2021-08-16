@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
 import { openFile, saveFile } from "./file";
+import { Statement } from "./types";
 
 const app: Express = express();
 app.use(express.json());
@@ -63,9 +64,10 @@ app.get("/users/all", (req: Request, res: Response) => {
 
 //PEGAR SALDO
 
-app.get("users/:cpf", (req: Request, res: Response) => {
+app.get("/users/:cpf", (req: Request, res: Response) => {
     try {
-        const cpf = req.params.toString()
+        const cpf = req.params.cpf.toString()
+        console.log("teste", cpf)
         if(!cpf) {
             throw new Error ("Informe cpf")
         }
@@ -84,6 +86,44 @@ app.get("users/:cpf", (req: Request, res: Response) => {
 })
 
 //ADICIONAR SALDO
+
+app.put("/users/add", (req: Request, res: Response) => {
+    try {
+        const {name, cpf, value} = req.body
+        if(!name || !cpf || !value) {
+            throw new Error("Informe nome, cpf e valor")
+        }
+
+        if(typeof value !== "number") {
+            throw new Error("Informe um valor em formato de número")
+        }
+        if(value<=0){
+            throw new Error("Informe um valor maior que 0")
+        }
+
+        const clients = openFile()
+        const clientIndex = clients.findIndex(person => person.cpf === cpf && person.name === name)
+
+        if(!clientIndex){
+            throw new Error("Não há cliente com o nome e cpf correspondentes!")
+        }
+
+        const statement: Statement = {
+            date: new Date(),
+            value,
+            description: "Depósito em dinheiro",
+        }
+
+        clients[clientIndex].balance+=Number(value)
+        clients[clientIndex].statement.push(statement)
+        saveFile(clients)
+
+        res.status(200).send("Saldo adicionado com sucesso!")
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+})
+
 
 //PAGAR CONTA
 
