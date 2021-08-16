@@ -46,6 +46,8 @@ app.post("/users/create", (req: Request, res: Response) => {
     }
 })
 
+//PEGAR TODOS OS CLIENTES
+
 app.get("/users/all", (req: Request, res: Response) => {
     try {
         const clients = openFile()
@@ -58,8 +60,28 @@ app.get("/users/all", (req: Request, res: Response) => {
         res.status(400).send(error.message)
     }
 })
+
 //PEGAR SALDO
 
+app.get("users/:cpf", (req: Request, res: Response) => {
+    try {
+        const cpf = req.params.toString()
+        if(!cpf) {
+            throw new Error ("Informe cpf")
+        }
+
+        const clients = openFile()
+        const client = (clients.find(person => person.cpf === cpf))
+
+        if(!client) {
+            throw new Error ("Cpf não encontrado")
+        }
+
+        res.status(200).send({balance: client.balance})
+    } catch(error) {
+        res.status(400).send(error.message)
+    }
+})
 
 //ADICIONAR SALDO
 
