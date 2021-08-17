@@ -4,6 +4,7 @@ import { AddressInfo } from "net";
 import { openFile, saveFile } from "./file";
 import { Statement } from "./types";
 import { analizeTodayDate } from "./data"
+import { refresh } from "./refreshFunction";
 
 const app: Express = express();
 app.use(express.json());
@@ -113,6 +114,7 @@ app.put("/users/add", (req: Request, res: Response) => {
             date: new Date(),
             value,
             description: "Depósito em dinheiro",
+            refresh: true,
         }
 
         clients[clientIndex].balance+=Number(value)
@@ -167,6 +169,7 @@ app.post("/users/pay", (req: Request, res: Response) => {
             value: value*-1,
             date,
             description,
+            refresh: true
         }
 
         clients[clientIndex].statement.push(statement)
@@ -178,7 +181,36 @@ app.post("/users/pay", (req: Request, res: Response) => {
     }
 })
 
+
+// ATUALIZAR SALDO
+
+app.put("/users/refresh?", (req: Request, res: Response) => {
+    try {
+        const {cpf} = req.query
+        if(typeof cpf !== "string") {
+            throw new Error("Informe um cpf valido");
+        }
+
+        const clients = openFile()
+        const clientIndex = clients.findIndex(person => person.cpf === cpf)
+
+        if(clientIndex < 0){
+            throw new Error("Cliente não encontrado!");
+        }
+
+        const client = refresh(clients[clientIndex])
+        clients[clientIndex] = client
+        saveFile(clients)
+
+        res.status(200).send(client)
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+
+})
 //TRANSFERÊNCIA INTERNA
+
+
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
