@@ -208,8 +208,68 @@ app.put("/users/refresh?", (req: Request, res: Response) => {
     }
 
 })
+
 //TRANSFERÊNCIA INTERNA
 
+app.post("/users/transfer", (req: Request, res: Response) => {
+    try{
+        const {recipient, sender, value} = req.body
+
+        if(!recipient.name || !recipient.cpf || !sender.name || !sender.cpf || !value) {
+            throw new Error("Informe: sender{name, cpf}, recipient{name, cpf}, value");
+        }
+
+        if(typeof value !== "number") {
+            throw new Error("Informe um valor válido para transferência!");
+        }
+
+        let clients = openFile()
+        const clientSenderIndex = clients.findIndex(person => person.cpf === sender.cpf && person.name === sender.name)
+        const clientRecipientIndex = clients.findIndex(person => person.cpf === recipient.cpf && person.name === recipient.name)
+
+        if(clientSenderIndex <0 || clientRecipientIndex<0){
+            if(clientSenderIndex<0 && clientRecipientIndex<0) {
+                throw new Error("Cliente remetente e cliente destinatario não encontrados!");
+            }
+
+            if(clientSenderIndex<0){
+                throw new Error("Cliente remetente não encontrado!");
+            }
+
+            if(clientRecipientIndex <0) {
+                throw new Error("Cliente destinatario não encontrado!");
+            }
+        }
+
+        if(clients[clientSenderIndex].balance < value) {
+            throw new Error("Saldo insuficiente");
+        }
+
+        const send : Statement = {
+            refresh: true,
+            value: value*-1,
+            description: "Transferência bancaria para" + recipient.name,
+            date: new Date()
+        }
+
+        const recip : Statement = {
+            refresh: true,
+            value: value,
+            description: "Transferência recebida de" + sender.name,
+            date: new Date()
+        }
+
+        
+        clients[clientSenderIndex].statement.push(send)
+        clients[clientRecipientIndex].statement.push(recip)
+        saveFile(clients)
+
+        res.status(200).send("Transferência realizada com sucesso!")
+
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+})
 
 
 
