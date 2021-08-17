@@ -11,9 +11,6 @@ app.use(express.json());
 app.use(cors());
 
 
-
-
-
 //CRIAR CONTA
 
 app.post("/users/create", (req: Request, res: Response) => {
@@ -27,12 +24,12 @@ app.post("/users/create", (req: Request, res: Response) => {
 
         if(age < 18) {
             res.statusCode = 406
-            throw new Error("Idade deve ser maior que 18 anos")
+            throw new Error("Age must be over 18 years old")
         }
 
         const clients = openFile()
         if(clients.findIndex(person => person.cpf === cpf) >= 0) {
-            throw new Error("Cpf já cadastrado!")
+            throw new Error("Cpf already registered")
         }
         
         clients.push({
@@ -43,7 +40,7 @@ app.post("/users/create", (req: Request, res: Response) => {
             statement: []
         })
         saveFile( clients)
-        res.status(201).send("Conta Criada com Sucesso!")
+        res.status(201).send("Account Created Successfully!")
     } catch (error) {
         res.status(400).send(error.message)
     }
@@ -56,7 +53,7 @@ app.get("/users/all", (req: Request, res: Response) => {
         const clients = openFile()
         if(!clients.length) {
             res.statusCode = 404
-            throw new Error("Nenhuma conta encontrada!")
+            throw new Error("No accounts found")
         }
         res.status(200).send(clients)
     } catch (error) {
@@ -71,14 +68,14 @@ app.get("/users/:cpf", (req: Request, res: Response) => {
         const cpf = req.params.cpf.toString()
         console.log("teste", cpf)
         if(!cpf) {
-            throw new Error ("Informe cpf")
+            throw new Error ("Inform the cpf")
         }
 
         const clients = openFile()
         const client = (clients.find(person => person.cpf === cpf))
 
         if(!client) {
-            throw new Error ("Cpf não encontrado")
+            throw new Error ("Cpf not found")
         }
 
         res.status(200).send({balance: client.balance})
@@ -93,21 +90,21 @@ app.put("/users/add", (req: Request, res: Response) => {
     try {
         const {name, cpf, value} = req.body
         if(!name || !cpf || !value) {
-            throw new Error("Informe nome, cpf e valor")
+            throw new Error("Inform name, cpf and value")
         }
 
         if(typeof value !== "number") {
-            throw new Error("Informe um valor em formato de número")
+            throw new Error("Inform a value in number format")
         }
         if(value<=0){
-            throw new Error("Informe um valor maior que 0")
+            throw new Error("Enter a value greater than 0")
         }
 
         const clients = openFile()
         const clientIndex = clients.findIndex(person => person.cpf === cpf.toString() && person.name === name.toString())
 
         if(!clientIndex){
-            throw new Error("Não há cliente com o nome e cpf correspondentes!")
+            throw new Error("There is no customer with the corresponding name and cpf")
         }
 
         const statement: Statement = {
@@ -121,7 +118,7 @@ app.put("/users/add", (req: Request, res: Response) => {
         clients[clientIndex].statement.push(statement)
         saveFile(clients)
 
-        res.status(200).send("Saldo adicionado com sucesso!")
+        res.status(200).send("Balance successfully added!")
     } catch (error) {
         res.status(400).send(error.message)
     }
@@ -135,15 +132,15 @@ app.post("/users/pay", (req: Request, res: Response) => {
         let {cpf, description, value, date} = req.body
 
         if(!cpf || !description || !value ) {
-            throw new Error("Informe cpf, descrição, valor e data")
+            throw new Error("Inform cpf, description, value and date")
         }
 
         if(typeof value !== "number") {
-            throw new Error("Informe um valor em formato de número")
+            throw new Error("Enter a value in number format")
         }
 
         if( value <= 0) {
-            throw new Error("Informe um valor maior que 0");
+            throw new Error("Enter a value greater than 0");
         }
 
         if(!date){
@@ -151,18 +148,18 @@ app.post("/users/pay", (req: Request, res: Response) => {
         }
 
         if(!analizeTodayDate(date)){
-            throw new Error("Data informada deve ser maior ou igual a data atual");
+            throw new Error("Date entered must be greater than or equal to current date");
         }
 
         const clients = openFile()
         const clientIndex = clients.findIndex(person => person.cpf === cpf)
 
         if(clientIndex<0){
-            throw new Error("Cliente não encontardo"); 
+            throw new Error("Customer not found"); 
         }
 
         if(value > clients[clientIndex].balance){
-            throw new Error("SAldo insuficiente");
+            throw new Error("Insufficient funds");
         }
 
         const statement: Statement={
@@ -188,14 +185,14 @@ app.put("/users/refresh?", (req: Request, res: Response) => {
     try {
         const {cpf} = req.query
         if(typeof cpf !== "string") {
-            throw new Error("Informe um cpf valido");
+            throw new Error("Enter a valid CPF");
         }
 
         const clients = openFile()
         const clientIndex = clients.findIndex(person => person.cpf === cpf)
 
         if(clientIndex < 0){
-            throw new Error("Cliente não encontrado!");
+            throw new Error("Customer not found!");
         }
 
         const client = refresh(clients[clientIndex])
@@ -216,11 +213,15 @@ app.post("/users/transfer", (req: Request, res: Response) => {
         const {recipient, sender, value} = req.body
 
         if(!recipient.name || !recipient.cpf || !sender.name || !sender.cpf || !value) {
-            throw new Error("Informe: sender{name, cpf}, recipient{name, cpf}, value");
+            throw new Error("Inform: sender{name, cpf}, recipient{name, cpf}, value");
         }
 
         if(typeof value !== "number") {
-            throw new Error("Informe um valor válido para transferência!");
+            throw new Error("Please enter a valid value for transfer");
+        }
+
+        if(value < 0){
+            throw new Error("Enter a value greater than 0");
         }
 
         let clients = openFile()
@@ -229,20 +230,20 @@ app.post("/users/transfer", (req: Request, res: Response) => {
 
         if(clientSenderIndex <0 || clientRecipientIndex<0){
             if(clientSenderIndex<0 && clientRecipientIndex<0) {
-                throw new Error("Cliente remetente e cliente destinatario não encontrados!");
+                throw new Error("Sending customer and receiving customer not found");
             }
 
             if(clientSenderIndex<0){
-                throw new Error("Cliente remetente não encontrado!");
+                throw new Error("Sending customer not found");
             }
 
             if(clientRecipientIndex <0) {
-                throw new Error("Cliente destinatario não encontrado!");
+                throw new Error("Recipient customer not found");
             }
         }
 
         if(clients[clientSenderIndex].balance < value) {
-            throw new Error("Saldo insuficiente");
+            throw new Error("Insufficient funds");
         }
 
         const send : Statement = {
@@ -264,7 +265,7 @@ app.post("/users/transfer", (req: Request, res: Response) => {
         clients[clientRecipientIndex].statement.push(recip)
         saveFile(clients)
 
-        res.status(200).send("Transferência realizada com sucesso!")
+        res.status(200).send("Transfer successful!")
 
     } catch (error) {
         res.status(400).send(error.message)
