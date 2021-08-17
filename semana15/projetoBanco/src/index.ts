@@ -15,12 +15,12 @@ app.use(cors());
 
 app.post("/users/create", (req: Request, res: Response) => {
     try {
-        const { name, cpf, birth_dateString } = req.body
+        const { name, cpf, birth_date } = req.body
 
-        const [day, month, year] = birth_dateString.split("/")
-        const birth_date: Date = new Date(`${year}-${month}-${day}`)
+        const [day, month, year] = birth_date.split("/")
+        const birthDate: Date = new Date(`${year}-${month}-${day}`)
 
-        const age: number = (Date.now() - birth_date.getTime()) /1000 / 60 / 60 /24 / 365
+        const age: number = (Date.now() - birthDate.getTime()) /1000 / 60 / 60 /24 / 365
 
         if(age < 18) {
             res.statusCode = 406
@@ -35,7 +35,7 @@ app.post("/users/create", (req: Request, res: Response) => {
         clients.push({
             name,
             cpf,
-            birth_date,
+            birth_date: birthDate,
             balance: 0,
             statement: []
         })
