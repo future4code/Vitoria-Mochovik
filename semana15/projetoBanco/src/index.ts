@@ -3,6 +3,7 @@ import cors from "cors";
 import { AddressInfo } from "net";
 import { openFile, saveFile } from "./file";
 import { Statement } from "./types";
+import { analizeTodayDate } from "./data"
 
 const app: Express = express();
 app.use(express.json());
@@ -102,7 +103,7 @@ app.put("/users/add", (req: Request, res: Response) => {
         }
 
         const clients = openFile()
-        const clientIndex = clients.findIndex(person => person.cpf === cpf && person.name === name)
+        const clientIndex = clients.findIndex(person => person.cpf === cpf.toString() && person.name === name.toString())
 
         if(!clientIndex){
             throw new Error("Não há cliente com o nome e cpf correspondentes!")
@@ -127,9 +128,59 @@ app.put("/users/add", (req: Request, res: Response) => {
 
 //PAGAR CONTA
 
+app.post("/users/pay", (req: Request, res: Response) => {
+    try {
+        let {cpf, description, value, date} = req.body
+
+        if(!cpf || !description || !value ) {
+            throw new Error("Informe cpf, descrição, valor e data")
+        }
+
+        if(typeof value !== "number") {
+            throw new Error("Informe um valor em formato de número")
+        }
+
+        if( value <= 0) {
+            throw new Error("Informe um valor maior que 0");
+        }
+
+        if(!date){
+            date = new Date()
+        }
+
+        if(!analizeTodayDate(date)){
+            throw new Error("Data informada deve ser maior ou igual a data atual");
+        }
+
+        const clients = openFile()
+        const clientIndex = clients.findIndex(person => person.cpf === cpf)
+
+        if(clientIndex<0){
+            throw new Error("Cliente não encontardo"); 
+        }
+
+        if(value > clients[clientIndex].balance){
+            throw new Error("SAldo insuficiente");
+        }
+
+        const statement: Statement={
+            value: value*-1,
+            date,
+            description,
+        }
+
+        clients[clientIndex].statement.push(statement)
+        saveFile(clients)
+
+        res.status(200).send(statement)
+    } catch (error) {
+        res.status(400).send(error.message)
+    }
+})
+
 //TRANSFERÊNCIA INTERNA
 
-//
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;
