@@ -142,7 +142,30 @@ Y de year (ano), M de month (mês) e D de day (dia).**
 ### Exercício 03
 
 **A-**
+``` sql
+	SELECT * from Actor WHERE gender = "female";
+```
 
-
+**B-**
+``` sql
+	SELECT salary from Actor WHERE name = "Tony Ramos";
+```
+**C-**
+``` sql
+	SELECT * FROM Actor WHERE gender = "invalid";
+```
+**D-**
+``` sql
+	SELECT id, name, salary FROM Actor WHERE salary < 500000;
+```
+**E-**
+``` sql
+	SELECT id, nome from Actor WHERE id = "002";
+```
+Error Code: 1054. Unknown column 'nome' in 'field list'.
+**Significa:** O nome da coluna 'nome' não existe, porque na criação da tabela foi utilizado 'name'.
+``` sql
+	SELECT id, name from Actor WHERE id = "002"
+```
 
 
