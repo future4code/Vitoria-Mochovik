@@ -296,3 +296,34 @@ Retorna todas as linhas da tabela Actor que respeitem as seguintes condições: 
 	SELECT id, name, synopsis FROM Movies WHERE assessment >= 7;
 ```
 
+### Exercício 07
+
+**A-**
+
+```sql
+	SELECT * FROM Movies WHERE
+		(name LIKE "%vida%");
+```
+
+**B-**
+
+```sql
+	SELECT * FROM Movies WHERE 
+	name LIKE "%vida%" OR synopsis LIKE "%vida%";
+```
+
+**C-**
+
+```sql
+	SELECT * FROM Movies WHERE release_date_of <= current_date();
+```
+
+**D-**
+
+```sql
+	SELECT * FROM Movies WHERE
+		(name LIKE "%vida%" OR name LIKE "%vida%") AND
+	    release_date_of <= current_date() AND
+	    assessment > 7;
+```
+
