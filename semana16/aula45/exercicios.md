@@ -167,5 +167,33 @@ Error Code: 1054. Unknown column 'nome' in 'field list'.
 ``` sql
 	SELECT id, name from Actor WHERE id = "002"
 ```
+### Exercício 04
+```sql
+	SELECT * FROM Actor
+	WHERE (name LIKE "A%" OR name LIKE "J%") AND salary > 300000
+```
 
+**A-**
+Retorna todas as linhas da tabela Actor que respeitem as seguintes condições: nome precisa começar com "A" ou "J", e o salário precisa ser maior que 300000.
+
+**B-**
+```sql
+	SELECT * FROM Actor
+	WHERE (name NOT LIKE "A%") AND salary > 350000;
+```
+
+**C-**
+```sql
+	SELECT * FROM Actor
+	WHERE (name LIKE "%G%" OR name LIKE "%g%");
+```
+**D-**
+```sql
+	SELECT * FROM Actor
+	WHERE 
+		(name LIKE "%a%" OR name LIKE "%A%" 
+		OR name LIKE "%G%" 						
+		OR 	name LIKE "%g%") AND
+		salary BETWEEN 350000 AND 900000;
+```
 
