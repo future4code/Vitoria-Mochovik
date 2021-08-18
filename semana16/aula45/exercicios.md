@@ -276,4 +276,23 @@ Retorna todas as linhas da tabela Actor que respeitem as seguintes condições: 
 ```
 
 
+### Exercício 06
+
+**A-**
+
+```sql
+	SELECT id, name, assessment FROM Movies WHERE id = 003;
+```
+
+**B-**
+
+```sql
+	SELECT * FROM Movies WHERE name = "Minha mãe é uma peça";
+```
+
+**C-**
+
+```sql
+	SELECT id, name, synopsis FROM Movies WHERE assessment >= 7;
+```
 
