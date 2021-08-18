@@ -61,6 +61,17 @@ Nos mostra mais detalhadamente a estrutura da tabela e suas propriedades :arrow_
 ```
   
 **B-**
+``` sql
+	INSERT INTO Actor (id, name, salary, birth_date, gender)
+	VALUES (
+		"002",
+        "Thamires Rodrigues",
+        1500,
+        "1991-05-21",
+        "female"
+	);
+    
+```
 Error Code: 1062. Duplicate entry '002' for key 'PRIMARY'
 Significa: Entrada duplicada '002' para a chave 'PRIMARY'
 
@@ -127,6 +138,11 @@ Y de year (ano), M de month (mês) e D de day (dia).**
 	  "female"
 	 );
 ```
+
+### Exercício 03
+
+**A-**
+
 
 
 
