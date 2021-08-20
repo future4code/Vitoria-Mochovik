@@ -1,4 +1,3 @@
-
 # Exercícios Aula 46  :memo:  
 
 ### Exercício 01
@@ -72,6 +71,22 @@ Altera a propriedade/definição da coluna "gender" na tabela para um valor máx
 ```sql
 	UPDATE Actor
 	SET name = "Juliana"
-	WHERE id = "104"
+	WHERE id = "104";
 ```
 Nenhum erro foi sinalizado, mas nada na tabela mudou visto que esse id não existe.
+
+
+### Exercício 03
+
+**A-**
+``` sql
+	DELETE FROM Actor WHERE name = "Tony Ramos";
+```
+
+**B-**
+``` sql
+	DELETE FROM Actor 
+	WHERE
+		gender = "male" AND
+	    salary > 1000000;
+```
