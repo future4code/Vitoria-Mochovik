@@ -111,3 +111,42 @@ Nenhum erro foi sinalizado, mas nada na tabela mudou visto que esse id não exis
 ```sql
 	SELECT SUM(salary) FROM Actor;
 ```
+
+### Exercício 05
+
+**A-**
+
+```sql
+	SELECT COUNT(*), gender FROM Actor GROUP BY gender
+```
+Contou a quantidade por genero.
+
+**B-**
+
+```sql
+	SELECT id, name FROM Actor 
+	ORDER BY name DESC;
+```
+
+**C-**
+
+```sql
+	SELECT * FROM Actor 
+	ORDER BY salary;
+```
+
+**D-**
+
+```sql
+	SELECT * FROM Actor
+	ORDER BY salary DESC
+	LIMIT 3;
+```
+
+**E-**
+
+```sql
+	SELECT AVG(salary), gender FROM Actor 
+	GROUP BY gender;
+```
+
