@@ -1,3 +1,4 @@
+
 # Exercícios Aula 46  :memo:  
 
 ### Exercício 01
@@ -150,3 +151,47 @@ Contou a quantidade por genero.
 	GROUP BY gender;
 ```
 
+
+### Exercício 06
+
+**A-**
+
+```sql
+	ALTER TABLE Movies ADD playying_limit_date DATE;
+```
+
+**B-**
+
+```sql
+	ALTER TABLE Movies CHANGE assessment assessment FLOAT;
+```
+
+**C-**
+
+Já saiu de cartaz :arrow_down:
+```sql
+	UPDATE Movies 
+	SET 
+		playying_limit_date = "2020-12-31"
+	WHERE id = "001";
+```
+Ainda está em cartaz :arrow_down:
+```sql
+	UPDATE Movies
+	SET
+		playying_limit_date = "2021-08-25"
+	WHERE id = "002";
+```
+
+**D-**
+```sql
+	DELETE FROM Movies WHERE id = "003";
+```
+```sql
+	UPDATE Movies
+	SET 
+		synopsis = "Dona flor tinha 6 maridos"
+	WHERE id = "003";
+```
+
+Nada aconteceu, nem deu erro, apenas nada mudou, visto que ele não encontrou o id que procurava.
