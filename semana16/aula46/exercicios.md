@@ -90,3 +90,24 @@ Nenhum erro foi sinalizado, mas nada na tabela mudou visto que esse id não exis
 		gender = "male" AND
 	    salary > 1000000;
 ```
+
+### Exercício 04
+
+**A-**
+``` sql
+	SELECT MAX(salary) FROM Actor;
+```
+
+**B-**
+```sql
+	SELECT MIN(salary) FROM Actor WHERE gender = "female";
+```
+
+**C-**
+```sql
+	SELECT COUNT(*) FROM Actor WHERE gender = "female";
+```
+**D-**
+```sql
+	SELECT SUM(salary) FROM Actor;
+```
