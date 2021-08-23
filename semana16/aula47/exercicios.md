@@ -39,3 +39,58 @@ O "raw" nos devolve um array de objetos, no qual nos interessa apenas as informa
 		}
 	})
 ```
+
+### Exercício 02
+
+**A-**
+```ts
+	app.put("/actors/change/:id", async(req: Request, res: Response) => {
+		try {
+			await connection("Actor")
+			.update({
+				salary: Number(req.body.salary)
+			})
+			.where("id", req.params.id)
+			
+			res.status(200).send("Actor updated successfully!")
+				
+		} catch (error) {
+				res.status(500).send(error.message)
+		}
+})
+```
+
+  
+**B-**
+```ts
+	app.delete("/actors/:id", async(req: Request, res: Response) => {
+		try {
+			await connection("Actor")
+			.delete()
+			.where("id", req.params.id)
+			
+			res.end()
+		} catch (error) {
+			res.status(500).send(error.message)
+		}
+
+})
+```
+
+**C-**
+```ts
+	app.get("/actors/avg/:gender", async(req: Request, res: Response) => {
+		try {
+			const result = await connection("Actor")
+				.avg("Salary as average")
+				.where("gender", req.params.gender)
+			
+			const avg = result[0].average
+			res.status(200).send(avg)
+			
+		} catch (error) {
+			res.status(500).send(error.message)
+		}
+
+}
+```
