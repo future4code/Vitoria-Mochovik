@@ -195,3 +195,49 @@ Ainda está em cartaz :arrow_down:
 ```
 
 Nada aconteceu, nem deu erro, apenas nada mudou, visto que ele não encontrou o id que procurava.
+
+### Exercício 07
+
+**A-**
+
+```sql
+	SELECT COUNT(*) FROM Movies WHERE assessment > 7.5; 
+```
+**Resposta:** 02
+
+**B-**
+
+```sql
+	SELECT AVG(assessment) FROM Movies;
+```
+**Resposta:** 8.33
+
+**C-**
+
+```sql
+	SELECT COUNT(*) FROM Movies 
+	WHERE playying_limit_date > current_date();
+```
+**Resposta:** 01
+
+**D-**
+
+```sql
+	SELECT COUNT(*) FROM Movies 
+	WHERE release_date_of > current_date();
+```
+**Resposta:** 00
+
+**E-**
+
+```sql
+	SELECT MAX(assessment) FROM Movies;
+```
+**Resposta:** 10
+
+**F-**
+
+```sql
+	SELECT MIN(assessment) FROM Movies;
+```
+**Resposta:** 07
