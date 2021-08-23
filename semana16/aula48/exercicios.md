@@ -1,4 +1,3 @@
-
 # Exercícios Aula 48  :memo:  
 
 ### Exercício 01
@@ -145,3 +144,22 @@
 **Error Code: 1451** Cannot delete or update a parent row: a foreign key constraint fails (`molina-2136166-vitoria-mochovik`.`MovieCast`, CONSTRAINT `MovieCast_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `Actor` (`id`))	0,204 sec.
 
 **Significado:** Não é possivel apagar ou atualizar a linha pai, pois tem uma relação com uma tabela.
+
+
+### Exercício 03
+
+
+```sql
+	SELECT * FROM Movie 
+	INNER JOIN Rating ON Movie.id = Rating.movie_id;
+```
+
+**A-**
+O operador "on" junta duas tabelas com a condição assumida, nesse caso o movie_id da tabela Rating precisa ser mesmo da tabela Movie, para corresponderem suas linhas.
+
+
+**B-**
+```sql
+	SELECT name, Movies.id, rate FROM Movies
+	INNER JOIN Rating ON Movies.id = Rating.movie_id;
+```
