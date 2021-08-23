@@ -169,3 +169,27 @@ O "raw" nos devolve um array de objetos, no qual nos interessa apenas as informa
 	}
 })
 ```
+
+### Exercício 05
+
+```ts
+	app.post("/movie/create", async(req: Request, res: Response) => {
+	try {
+		await connection("Movies")
+			.insert({
+				id: Number(req.body.id,)
+				name: req.body.name,
+				synopsis: req.body.synopsis,
+				release_date_of: req.body.releaseDateOf,
+				assessment: req.body.assessment,
+				playying_limit_date: req.body.playingLimitDate
+			})
+		res.status(200).send({
+			message: "Success"
+		})
+	} catch (error) {
+		res.status(400).send({ message: err.message, })
+	}
+	
+})
+```
