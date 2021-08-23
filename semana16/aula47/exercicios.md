@@ -1,4 +1,3 @@
-
 # Exercícios Aula 47  :memo:  
 
 ### Exercício 01
@@ -129,6 +128,42 @@ O "raw" nos devolve um array de objetos, no qual nos interessa apenas as informa
 		
 	} catch (error) {
 		res.status(400).send({
+			message: error.message
+		})
+	}
+})
+```
+
+### Exercício 04
+
+**A-**
+```ts
+	app.put("/actor", async(req: Request, res: Response) => {
+		try {
+			await connection("Actor")
+				.update({
+					salary: req.body.salary
+				})
+				.where("id", req.body.id)
+			res.status(200).send("Actor updated successfully!")
+		} catch (error) {
+			res.status(500).send({
+				message: error.message
+			})
+		}
+	})
+```
+
+**B-**
+```ts
+	app.delete("/actor/:id", async(req: Request, res: Response) => {
+	try {
+		await connection("Actor")
+			.delete()
+			.where("id", req.params.id)
+		res.end()
+	} catch (error) {
+		res.status(500).send({
 			message: error.message
 		})
 	}
