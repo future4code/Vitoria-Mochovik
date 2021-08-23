@@ -1,3 +1,4 @@
+
 # Exercícios Aula 47  :memo:  
 
 ### Exercício 01
@@ -203,6 +204,29 @@ O "raw" nos devolve um array de objetos, no qual nos interessa apenas as informa
 	try {
 		const result = await connection.raw(`
 			SELECT * FROM Movies LIMIT 15
+		`)
+		const movies = result[0]
+		res.status(200).send({
+			movies: movies
+		})
+		
+	} catch (error) {
+		res.status(400).send({ message: error.message, })
+	}
+	
+})
+```
+
+
+
+### Exercício 07
+
+```ts
+	app.get("/movie/search?query=", async(req: Request, res: Response) => {
+	try {
+		const name = req.query.query as string
+		const result = await connection.raw(`
+			SELECT * FROM Movies WHERE name LIKE "${name}"
 		`)
 		const movies = result[0]
 		res.status(200).send({
