@@ -241,3 +241,36 @@ Nada aconteceu, nem deu erro, apenas nada mudou, visto que ele não encontrou o 
 	SELECT MIN(assessment) FROM Movies;
 ```
 **Resposta:** 07
+
+### Exercício 08
+
+**A-**
+
+```sql
+	SELECT * FROM Movies ORDER BY name;
+```
+
+**B-**
+
+```sql
+	SELECT * FROM Movies ORDER BY name LIMIT 5;
+```
+
+**C-**
+
+```sql
+	SELECT * FROM Movies 
+	WHERE release_date_of < curdate()
+	ORDER BY release_date_of DESC
+	LIMIT 3;
+```
+
+
+**D-**
+
+```sql
+	SELECT * FROM Movies
+	ORDER BY assessment DESC
+	LIMIT 3; 
+```
+
