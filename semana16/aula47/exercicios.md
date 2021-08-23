@@ -1,3 +1,4 @@
+
 # Exercícios Aula 47  :memo:  
 
 ### Exercício 01
@@ -92,5 +93,44 @@ O "raw" nos devolve um array de objetos, no qual nos interessa apenas as informa
 			res.status(500).send(error.message)
 		}
 
-}
+})
+```
+
+### Exercício 03
+
+**A-**
+```ts
+	app.get("/actor/:id", async(req: Request, res: Response) => {
+	try {
+		const result = await connection("Actor")
+		.where("id", req.params.id)	
+
+		const actor = result[0]
+		res.status(200).send(actor)
+	} catch (error) {
+		res.status(400).send({ message: error.message })
+	}
+	
+})
+```
+
+**B-**
+```ts
+	app.get("/actor?gender=", async(req: Request, res: Response) => {
+	try {
+		const gender = req.query.gender as string
+		const result = await connection("Actor")
+		.count()
+		.where("gender", gender)
+		
+		res.status(200).send({
+			quantity: result,
+		})
+		
+	} catch (error) {
+		res.status(400).send({
+			message: error.message
+		})
+	}
+})
 ```
