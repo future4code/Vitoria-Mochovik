@@ -189,3 +189,41 @@ O operador "on" junta duas tabelas com a condição assumida, nesse caso o movie
 	LEFT JOIN Rating r ON m.id = r.movie_id
 	GROUP BY (m.id);
 ```
+
+### Exercício 05
+
+```sql
+	SELECT * FROM Movie m 
+	LEFT JOIN MovieCast mc ON m.id = mc.movie_id 
+	JOIN Actor a ON a.id = mc.actor_id;
+```
+
+**A-**
+
+Pois nesse caso estamos tratando de 03 tabelas diferentes.
+
+**B-**
+```sql
+	SELECT m.id as movie_id, m.name, a.id as actor_id, a.name 	
+	FROM Movies m
+	LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+	JOIN Actor a ON a.id = mc.actor_id;
+```
+**C-**
+
+	Ele roda normalmente e atende os requisitos da questão "B".
+
+**D-**
+```sql
+	SELECT 
+	m.id as movie_id, 
+    m.name, 
+    a.id as actor_id, 
+    a.name, 
+    r.rate, 
+    r.comment 
+	FROM Movies m
+	LEFT JOIN Rating r on r.movie_id = m.id
+	LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+	JOIN Actor a ON a.id = mc.actor_id;
+```
