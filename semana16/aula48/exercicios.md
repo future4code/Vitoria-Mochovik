@@ -1,3 +1,4 @@
+
 # Exercícios Aula 48  :memo:  
 
 ### Exercício 01
@@ -162,4 +163,29 @@ O operador "on" junta duas tabelas com a condição assumida, nesse caso o movie
 ```sql
 	SELECT name, Movies.id, rate FROM Movies
 	INNER JOIN Rating ON Movies.id = Rating.movie_id;
+```
+
+### Exercício 04
+
+**A-**
+```sql
+	SELECT m.id as movie_id, m.name, r.rate as rating, 
+	r.comment as rating_comment
+	FROM Movies m
+	LEFT JOIN Rating r ON m.id = r.movie_id;
+```
+
+**B-**
+```sql
+	SELECT m.id as movie_id, m.name, mc.actor_id 
+	FROM Movies m
+	RIGHT JOIN MovieCast mc ON mc.movie_id = m.id;
+```
+
+**C-**
+```sql
+	SELECT AVG(r.rate), m.id, m.name 
+	FROM Movies m
+	LEFT JOIN Rating r ON m.id = r.movie_id
+	GROUP BY (m.id);
 ```
