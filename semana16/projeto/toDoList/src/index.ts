@@ -1,14 +1,21 @@
-import express, {Express} from 'express'
+import express, {Express, Request, Response} from 'express'
 import cors from 'cors'
 import knex from "knex";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
+import { connection } from './data/connection';
+import { User } from './types';
+import validadeEmail from './data/validateEmail';
+import createUser from './endpoints/createUser';
 
 dotenv.config();
 
 const app: Express = express();
 app.use(express.json());
 app.use(cors());
+
+app.put("/users/create", createUser)
+    
 
 
 const server = app.listen(process.env.PORT || 3003, () => {
