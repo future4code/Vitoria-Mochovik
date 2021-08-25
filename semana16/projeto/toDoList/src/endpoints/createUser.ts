@@ -24,14 +24,11 @@ export default async function createUser(req: Request, res: Response) {
 
         
         const listUsers: Array<User> = resultBusca[0]
-        console.log("user", listUsers)
         const indexOfName = listUsers.findIndex(person => person.name === name)
         const indexOfEmail = listUsers.findIndex(person => person.email === email)
         const indexOfNickname = listUsers.findIndex(person => person.nickname === nickname)
 
-        console.log("index name", indexOfName)
-        console.log("index nick", indexOfNickname)
-        console.log("index email", indexOfEmail)
+
         if(indexOfName !== -1  || indexOfEmail !== -1 || indexOfNickname !== -1){
             if(indexOfName !== -1  && indexOfEmail !== -1 && indexOfNickname !== -1){
                 throw new Error("Name, email and nickname already registered ");

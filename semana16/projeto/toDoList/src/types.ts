@@ -6,3 +6,18 @@ export type User = {
     email : string
   }
   
+  export type Task = {
+    id : string,
+    title : string
+    description : string,
+    deadline : string,
+    author_id : string,
+    status : Status,
+
+  }
+  
+  export enum Status {
+    TO_DO = 'to do',
+    DOING = 'doing',
+    DONE = 'done'
+  }
