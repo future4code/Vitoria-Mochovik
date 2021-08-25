@@ -1,4 +1,4 @@
-import { connection } from "./connection";
+import { connection } from "./functions/connection";
 
 export default async function selectUserById(
     id:string
