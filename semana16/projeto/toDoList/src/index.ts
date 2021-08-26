@@ -18,6 +18,7 @@ import assigneUserTask from './endpoints/assignUserTask'
 import getUserByTask from './endpoints/getUserByTask';
 import getTaskAndUserById from './endpoints/getTaskAndUserById';
 import updateStatusTask from './endpoints/updateStatusTask';
+import getTaskByStatus from './endpoints/getTaskByStatus';
 
 dotenv.config();
 
@@ -48,6 +49,8 @@ app.get("/task/:id/responsible", getUserByTask)
 app.get("/task/responsible/:id", getTaskAndUserById)
 
 app.post("/task/status/edit", updateStatusTask)
+
+app.get("/task/status/see/:status", getTaskByStatus)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

@@ -10,7 +10,7 @@ export default async function getTaskAndUserById(
     res: Response
 ) {
     try {
-        const resultsTask = await selectTaskAndUserById(req.params.id)
+        const resultsTask = await selectTaskAndUserById(req.params.id, "id")
         
         if(!resultsTask){
             throw new Error("Task not found");
