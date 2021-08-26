@@ -13,6 +13,8 @@ import createTask from './endpoints/createTask';
 import getTaskById from './endpoints/getTaskById';
 import getAllUsers from './endpoints/getAllUsers';
 import getTaskByCreatorId from './endpoints/getTaskByCreatorId'
+import getUserBySearch from './endpoints/getUserBySearch'
+
 
 dotenv.config();
 
@@ -33,6 +35,8 @@ app.get("/task/:id", getTaskById)
 
 app.get("/task/searchCreator/:id", getTaskByCreatorId)
 
+
+app.get("/task/search/:query", getUserBySearch)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
