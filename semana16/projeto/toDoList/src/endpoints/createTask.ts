@@ -16,10 +16,10 @@ export default async function createTask(req: Request, res: Response) {
         
         const dateDiff: number = moment(req.body.deadline, 'DD/MM/YYYY').unix() - moment().unix()
 
-        if(dateDiff <= 0){
-            throw new Error("'deadline' need to be a future date");
+        // if(dateDiff <= 0){
+        //     throw new Error("'deadline' need to be a future date");
             
-        }
+        // }
 
         const resultBusca = await connection.raw(`
         SELECT * FROM to_do_list_tasks

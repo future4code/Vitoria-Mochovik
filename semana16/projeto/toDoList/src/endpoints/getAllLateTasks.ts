@@ -1,16 +1,16 @@
 import selectUserById from "../data/selectUserById"
 import { Request, Response } from "express"
 import moment from "moment";
-import selectTaskAndUserById from "../data/selectTaskAndUserById";
+import selectLateTasks from "../data/selectLateTasks";
 
-export default async function getTaskByStatus(
+export default async function getAllLateTasks(
     req: Request,
     res: Response
 ) {
     try {
-        const result = await selectTaskAndUserById(req.params.status, 'status')
+        const result = await selectLateTasks()
 
-        console.log("result", result)
+        console.log("result lateee", result)
         if(!result){
             throw new Error("Task not found");
         }
@@ -18,7 +18,7 @@ export default async function getTaskByStatus(
         const resultsFormated = result.map((r:any )=> {
             return{
                 ...r,
-                limitDate: moment(r.deadline, 'YYYY-MM-DD').format('DD/MM/YYYY')
+                limitDate: moment(r.limitDate, 'YYYY-MM-DD').format('DD/MM/YYYY')
             }
         })
 

@@ -19,6 +19,8 @@ import getUserByTask from './endpoints/getUserByTask';
 import getTaskAndUserById from './endpoints/getTaskAndUserById';
 import updateStatusTask from './endpoints/updateStatusTask';
 import getTaskByStatus from './endpoints/getTaskByStatus';
+import getAllLateTasks from './endpoints/getAllLateTasks';
+
 
 dotenv.config();
 
@@ -34,7 +36,7 @@ app.get("/user/:id", getUserById)
 app.post("/user/edit/:id", editUser)
 
 app.put("/task", createTask)
-
+app.get("/task/delayed", getAllLateTasks)
 app.get("/task/:id", getTaskById)
 
 app.get("/task/searchCreator/:id", getTaskByCreatorId)
@@ -51,6 +53,8 @@ app.get("/task/responsible/:id", getTaskAndUserById)
 app.post("/task/status/edit", updateStatusTask)
 
 app.get("/task/status/see/:status", getTaskByStatus)
+
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
