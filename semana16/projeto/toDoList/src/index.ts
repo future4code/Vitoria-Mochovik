@@ -20,6 +20,7 @@ import getTaskAndUserById from './endpoints/getTaskAndUserById';
 import updateStatusTask from './endpoints/updateStatusTask';
 import getTaskByStatus from './endpoints/getTaskByStatus';
 import getAllLateTasks from './endpoints/getAllLateTasks';
+import deleteUserOfTask from './endpoints/deleteUserOfTask';
 
 
 dotenv.config();
@@ -54,6 +55,7 @@ app.post("/task/status/edit", updateStatusTask)
 
 app.get("/task/status/see/:status", getTaskByStatus)
 
+app.delete("/task/:taskId/responsible/:responsibleUserId", deleteUserOfTask)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {

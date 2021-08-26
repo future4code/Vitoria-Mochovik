@@ -21,3 +21,8 @@ export type User = {
     DOING = 'doing',
     DONE = 'done'
   }
+
+  export type Relation = {
+    task_id: string,
+    assignee_id: string
+  }
