@@ -2,13 +2,16 @@ import { connection } from "../connection"
 
 
 export default async function selectUsersByName(
-    name: string
+    name: string,
+    type: string,
+    sort: string,
+    order: string
 ):Promise<any> {
-    const result = await connection.raw(`
-       SELECT id, name, email, type
-       FROM aula48_exercicio
-       WHERE name = "${name}";
-    `)
+    const result = await connection(`aula48_exercicio`)
+        .where("name", "LIKE", `%${name}%`)
+        .where("type", "LIKE", `%${type}%`)
+        .orderBy(sort,order)
+       
  
-    return result[0]
+    return result
  }
