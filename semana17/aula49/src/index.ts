@@ -5,6 +5,8 @@ import knex from "knex";
 import dotenv from "dotenv";
 import { getAllUsers } from './endpoints/getAllUsers'
 import { getUsersByName } from './endpoints/getUsersByName'
+import { getUsersByType } from './endpoints/getUsersByType'
+
 
 dotenv.config();
 const app: Express = express();
@@ -15,6 +17,7 @@ app.use(cors());
 
 app.get("/users", getAllUsers)
 app.get("/users/name", getUsersByName)
+app.get("/users/:type", getUsersByType)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
