@@ -9,6 +9,8 @@ export const getUsersByName = async(req: Request,res: Response): Promise<void> =
         const type = req.query.type || "%"
         const order = req.query.order || "asc"
         const sort = req.query.sort || "email"
+        const page = Number(req.query.page) || 1
+        const size = Number(req.query.size) || 5
 
         if(sort !== "name" && sort !== "email"){
             res.statusCode = 422
@@ -28,8 +30,9 @@ export const getUsersByName = async(req: Request,res: Response): Promise<void> =
             throw new Error("Expected string in value of 'type'");
         }
 
+        const offset = size * (page - 1)
 
-        const users = await selectUsersByName(name, type, sort, order)
+        const users = await selectUsersByName(name, type, sort, order, size, offset)
  
         if(!users.length){
             res.statusCode = 404
