@@ -44,7 +44,7 @@ export default async function createUser(
 
       const mailInfo = await transporter.sendMail({
           from: `<${process.env.NODEMAILER_USER}>`,
-          to: `lbn_report_molina-aaaadvqgvvkxbtcijshbktp4ki@labenualunos.slack.com `,
+          to: `lbn_report_molina-aaaadvqgvvkxbtcijshbktp4ki@labenualunos.slack.com`,
           subject: `Finalize seu cadastro ${name}`,
           html: `
             <p> Bem-vindo ${name}!!! </p>
