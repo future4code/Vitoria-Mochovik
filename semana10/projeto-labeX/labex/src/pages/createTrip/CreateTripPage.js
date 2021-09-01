@@ -56,6 +56,7 @@ const CreateTripPage = () => {
                     <Input 
                         name="name"
                         type="name"
+                        minlength="3"
                         placeholder={"Nome"} 
                         value={form.name} 
                         onChange={onChange}
@@ -76,7 +77,7 @@ const CreateTripPage = () => {
                     </Select>
                     <Input 
                         name="date"
-                        type="date"
+                        type="datetime-local"
                         value={form.date} 
                         onChange={onChange}
                         required
