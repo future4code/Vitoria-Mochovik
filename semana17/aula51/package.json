@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "migrations": "tsnd ./src/data/migration.ts",
     "dev": "ts-node-dev ./src/index.ts",
     "start": "tsc && node ./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@types/knex": "^0.16.1",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

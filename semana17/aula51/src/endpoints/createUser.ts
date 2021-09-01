@@ -23,7 +23,7 @@ export default async function createUser(
 
       res.status(201).send("Usuário criado!")
 
-   } catch (error) {
+   } catch (error: any) {
 
       if (typeof error === "string") {
 
