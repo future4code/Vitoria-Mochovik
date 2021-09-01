@@ -1,68 +1,37 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom'
 import Header  from '../../header/Header'
+import caminho from '../../components/ImgPlanets'
+
 import { ContainerCard, ContainerImg, ImgPlanet, ContainerViagem,
 ContainerCards } from './styled'
 
-import Saturno from '../../img/saturno.jpg'
-import Netuno from '../../img/netuno.jpg'
-import Marte from '../../img/marte.jpg'
-import Mercurio from '../../img/mercurio.jpg'
-import Urano from '../../img/urano.jpg'
-import Venus from '../../img/venus.jpg'
-import Jupiter from '../../img/jupiter.jpg'
-import Terra from '../../img/terra.jpg'
-import Plutao from '../../img/plutao.jpg'
 
 const ListTripsPage = () => {
     const [trips, setTrips] = useState([])
-    const history = useHistory()
+    const [loading, setLoading] = useState(false)
 
-    const caminho = (planet) => {
-        switch(planet){
-            case 'Saturno':
-                return Saturno
-            case 'Netuno':
-                return Netuno
-            case 'Marte':
-                return Marte
-            case 'Mercurio':
-                return Mercurio
-            case 'Urano':
-                return Urano
-            case 'Venus':
-                return Venus
-            case 'Jupiter':
-                return Jupiter
-            case 'Terra':
-                return Terra
-            case 'Plutão':
-                return Plutao
-        }
-    }
-
-    
-    const getListTrip = () => {
+    const getListTrip = async() => {
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/vitoria-mochovik-molina/trips`
         
-        axios.get(url)
-        .then((res) => {
-            console.log("LISTA TRIPS", res.data)
+        try {
+            const res = await axios.get(url)
             setTrips(res.data.trips)
-        })
-        .catch((err) => {
-            console.log("erroooooooouuu", err.message)
-        })
+            setLoading(false)
+
+        }
+        catch(err){
+            alert("Ocorreu um erro ao carregar as viagens, por favor tente novamente!")
+        }
     }
 
     useEffect(() => {
         getListTrip()
+        setLoading(true)
     }, [])
 
-   
-
     const tripDetails = trips.map((information) => {
+        const date = information.date
         return(
             <ContainerCards key={information.id}>
                 <ContainerCard >
@@ -70,12 +39,14 @@ const ListTripsPage = () => {
                         <ImgPlanet src={caminho(information.planet)} />
                     </ContainerImg>
                     <ContainerViagem>
-                        <p> Nome: {information.name}</p>
-                        <p> Descrição: {information.description}</p>
-                        <p> Planeta: {information.planet}</p>
-                        <p> Duração: {information.durationInDays}</p>
-                        <p> Data: {information.date}</p>
-                    </ContainerViagem>
+                        <p> <b> Nome: </b>{information.name} </p>
+                        <p> <b>Descrição:  </b> {information.description}</p>
+                        <p> <b>Planeta: </b> {information.planet}</p>
+                        <p> <b>Duração: </b> {information.durationInDays}</p>
+                        { (information.date.indexOf("-") != -1) ?
+                            <p> <b>Data: </b> {information.date.split("-")[2]} / {information.date.split("-")[1]} / {information.date.split("-")[0]} </p>
+                            : <p> <b>Data: </b> {information.date} </p> }
+                        </ContainerViagem>
                 </ContainerCard>
             </ContainerCards>
         )
@@ -83,7 +54,13 @@ const ListTripsPage = () => {
     return(
         <div>
             <Header />
-            <div> {tripDetails}</div>
+            { loading ? 
+            <div> 
+                <p> Carregando... </p>
+            </div>
+            : trips.length != 0 ?
+                <div> {tripDetails} </div>
+                : <p> Nenhuma viagem encontrada </p>}
             
         </div>
     )
