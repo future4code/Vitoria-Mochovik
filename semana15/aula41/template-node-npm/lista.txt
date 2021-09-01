@@ -1,0 +1,1 @@
+["limpar a mesa","jogar bola com amigos","varrer a casa","varrer o patio"]
