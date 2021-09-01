@@ -13,4 +13,16 @@ export type user = {
     state: string
  }
 
+ export type userAddressInfo = {
+    id: string,
+    zip_code: string,
+    street: string,
+    number: string,
+    complement: string,
+    neighborhood: string,
+    city: string,
+    state: string,
+    user_id: string
+ }
+
  
