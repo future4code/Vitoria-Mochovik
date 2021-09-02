@@ -7,6 +7,11 @@ import { User } from './entities/User';
 import { Customer } from './entities/Customer';
 import { Client } from '../src/types';
 import {Place }from './entities/Place'
+
+import Industry from './entities/Industry'
+import Residence from './entities/Residence'
+import Commerce from './entities/Commerce'
+
 const app: Express = express();
 dotenv.config();
 app.use(express.json());
@@ -45,6 +50,24 @@ console.log(client.calculateBill())
 //EXERCICIO 02 
 
 //const error = new Place()
+
+//EXERCICIO 03
+
+
+const industryInstance = new Industry(7,'78521')
+const residenceInstance = new Residence(10,'74125')
+const commerceInstance = new Commerce(4,"45687")
+
+console.table([{
+    name: "Industry",
+    cep: industryInstance.getCep()
+},{
+    name: "Residence",
+    cep: residenceInstance.getCep()
+},{
+    name: "Commerce",
+    cep: commerceInstance.getCep()
+}])
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
