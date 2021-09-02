@@ -9,3 +9,13 @@ Não seria possível, visto que ela é do tipo privado e não possui nenhum mét
 **B-**
 
 Apenas 1 vez, visto que o construtor foi chamado apenas uma vez.
+
+### Exercício 02
+
+**A-** 
+
+1 vez visto que o construtor é chamado apenas uma vez.
+
+**B-**
+
+Apenas 1 vez, visto que o construtor "User" é chamado por meio do construtor "Customer", e este só é chamado uma vez.
