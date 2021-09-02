@@ -52,3 +52,14 @@ Criando um classe que acessa Place, com isso acessamos as propriedades e método
 Métodos e funções obrigatórios:
 name, resgistrationNumber, consumeEnergy, calculateBill, cpf,
 residentsQuantity, cep
+
+
+### EXERCICIO 05
+
+**A-**
+
+Ambas possuem a propriedade cep, herdadas de Place.
+
+**B-**
+
+Propriedades como CNPJ e floorQuantity e os métodos getCnpj e calculateBill.
