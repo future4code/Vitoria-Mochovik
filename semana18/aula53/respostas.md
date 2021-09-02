@@ -25,3 +25,13 @@ Apenas 1 vez, visto que o construtor "User" é chamado por meio do construtor "C
 **A-** 
 
 Sim, consigo acessar e imprimir a "password", pois a propriedade privada é uma restrição  apenas para acesso direto dessa propriedade tanto pela classe pai quanto filho.
+
+
+### POLIMORFISMO
+
+### Exercício 01
+
+**A-** 
+
+Consegui imprimir todas as propriedades, apenas "calculateBill" que não foi possivel.
+Ela apenas é impressa se chamada como função.

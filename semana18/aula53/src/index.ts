@@ -5,6 +5,7 @@ import { AddressInfo } from "net";
 import dotenv from "dotenv";
 import { User } from './entities/User';
 import { Customer } from './entities/Customer';
+import { Client } from '../src/types';
 
 const app: Express = express();
 dotenv.config();
@@ -24,9 +25,24 @@ console.table({id: customer.getId(), name: customer.getName(), email: customer.g
 
 console.table(customer)
 
-//EXERCICIO 04
+//EXERCICIO 04 && 05
 
 console.log(customer.introduceYourself())
+
+
+//EXERCICIO 01 POLIMORFISMO
+
+const client: Client = {
+    name: "Astrodev",
+    registrationNumber: 123456,
+    consumedEnergy: 14789,
+    calculateBill: ():number => {return 2}
+}
+
+console.table(client)
+console.log(client.calculateBill())
+
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
