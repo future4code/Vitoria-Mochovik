@@ -19,3 +19,9 @@ Apenas 1 vez, visto que o construtor foi chamado apenas uma vez.
 **B-**
 
 Apenas 1 vez, visto que o construtor "User" é chamado por meio do construtor "Customer", e este só é chamado uma vez.
+
+### Exercício 03
+
+**A-** 
+
+Sim, consigo acessar e imprimir a "password", pois a propriedade privada é uma restrição  apenas para acesso direto dessa propriedade tanto pela classe pai quanto filho.

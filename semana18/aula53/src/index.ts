@@ -20,6 +20,11 @@ console.table({id: user.getId(), name: user.getName(), email: user.getEmail()})
 const customer = new Customer("2", "v@gmail.com", "Samuel", "123456", "147896")
 console.table({id: customer.getId(), name: customer.getName(), email: customer.getEmail(), creditCard: customer.getCreditCard()})
 
+//EXERCICIO 03
+
+console.table(customer)
+
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;
