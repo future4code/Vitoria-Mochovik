@@ -5,6 +5,7 @@ export class User {
     private email: string;
     private name: string;
     private password: string;
+
   
     constructor(
           id: string,
@@ -30,4 +31,8 @@ export class User {
       public getName(): string {
           return this.name
       }
-  }
+
+      public introduceYourself(): string {
+          return `Olá ${this.getName()}, Bom dia!`
+      }
+}

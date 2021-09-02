@@ -24,6 +24,9 @@ console.table({id: customer.getId(), name: customer.getName(), email: customer.g
 
 console.table(customer)
 
+//EXERCICIO 04
+
+console.log(customer.introduceYourself())
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
