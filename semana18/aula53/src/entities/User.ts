@@ -33,6 +33,6 @@ export class User {
       }
 
       public introduceYourself(): string {
-          return `Olá ${this.getName()}, Bom dia!`
+          return `Olá ${this.name}, Bom dia!`
       }
 }
