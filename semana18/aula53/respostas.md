@@ -63,3 +63,18 @@ Ambas possuem a propriedade cep, herdadas de Place.
 **B-**
 
 Propriedades como CNPJ e floorQuantity e os métodos getCnpj e calculateBill.
+
+
+### EXERCICIO 06
+
+**A-**
+
+Filha de Industry pois sua propriedade machinesQuantity é necessaria para realizar o método calculateBill
+
+**B-**
+
+Deve implementar Client visto que possui as propriedades name e método calculateBill 
+
+**C-**
+
+Por uma questão de segurança, sem correr o risco de alterar valores indevidos.
