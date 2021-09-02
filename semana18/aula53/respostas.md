@@ -35,3 +35,14 @@ Sim, consigo acessar e imprimir a "password", pois a propriedade privada é uma 
 
 Consegui imprimir todas as propriedades, apenas "calculateBill" que não foi possivel.
 Ela apenas é impressa se chamada como função.
+
+
+### Exercício 02
+
+**A-**
+
+ERROR: Cannot create an instance of an abstract class
+
+**B-**
+
+Criando um classe que acessa Place, com isso acessamos as propriedades e métodos que não são privados de Place.

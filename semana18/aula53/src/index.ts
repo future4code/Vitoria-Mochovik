@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import { User } from './entities/User';
 import { Customer } from './entities/Customer';
 import { Client } from '../src/types';
-
+import {Place }from './entities/Place'
 const app: Express = express();
 dotenv.config();
 app.use(express.json());
@@ -29,8 +29,8 @@ console.table(customer)
 
 console.log(customer.introduceYourself())
 
-
-//EXERCICIO 01 POLIMORFISMO
+// POLIMORFISMO -------------------------------------------------------------------------
+// EXERCICIO 01 
 
 const client: Client = {
     name: "Astrodev",
@@ -42,7 +42,9 @@ const client: Client = {
 console.table(client)
 console.log(client.calculateBill())
 
+//EXERCICIO 02 
 
+//const error = new Place()
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
