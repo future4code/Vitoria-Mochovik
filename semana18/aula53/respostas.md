@@ -46,3 +46,9 @@ ERROR: Cannot create an instance of an abstract class
 **B-**
 
 Criando um classe que acessa Place, com isso acessamos as propriedades e métodos que não são privados de Place.
+
+### EXERCICIO 04
+
+Métodos e funções obrigatórios:
+name, resgistrationNumber, consumeEnergy, calculateBill, cpf,
+residentsQuantity, cep

@@ -11,6 +11,8 @@ import {Place }from './entities/Place'
 import Industry from './entities/Industry'
 import Residence from './entities/Residence'
 import Commerce from './entities/Commerce'
+import {ResidentialClient} from './entities/ResidentialClient'
+
 
 const app: Express = express();
 dotenv.config();
@@ -68,6 +70,16 @@ console.table([{
     name: "Commerce",
     cep: commerceInstance.getCep()
 }])
+
+
+//EXERCICIO 04
+
+
+const instanceOfResidentialClients = new ResidentialClient("Pafuncia",234,16,"654321",145, "031408")
+console.table(instanceOfResidentialClients)
+console.log("getCPF: ",instanceOfResidentialClients.getCPF())
+console.log("Bill: ",instanceOfResidentialClients.calculateBill())
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
