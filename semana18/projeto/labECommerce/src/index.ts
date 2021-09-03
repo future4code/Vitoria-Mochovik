@@ -9,6 +9,10 @@ app.use(express.json());
 app.use(cors());
 
 import { AddressInfo } from "net";
+import { createUser } from './endpoints/createUser';
+
+
+app.post("/create/user", createUser)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
