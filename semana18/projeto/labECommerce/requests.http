@@ -2,9 +2,18 @@ POST http://localhost:3003/create/user
 Content-Type: application/json
 
 {
-  "name": "admin",
-  "email": "admin@usuario.com",
+  "name": "vi",
+  "email": "vi@usuario.com",
   "age": 12
 }
 
 ###
+
+POST http://localhost:3003/create/product
+Content-Type: application/json
+
+{
+  "name": "boné",
+  "description": "boné rosa com fecho lateral",
+  "price": 25.80
+}

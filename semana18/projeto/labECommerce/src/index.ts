@@ -10,9 +10,11 @@ app.use(cors());
 
 import { AddressInfo } from "net";
 import { createUser } from './endpoints/createUser';
+import { createProduct } from './endpoints/createProduct';
 
 
 app.post("/create/user", createUser)
+app.post("/create/product", createProduct)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

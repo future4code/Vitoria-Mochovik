@@ -1,4 +1,5 @@
 import { connection } from "./connection"
+import knex from "knex";
 
 
 const printError = (error: any) => { console.log(error.sqlMessage || error.message) };

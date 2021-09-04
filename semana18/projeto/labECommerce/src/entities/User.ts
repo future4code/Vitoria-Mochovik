@@ -3,9 +3,9 @@
 export default class User {
     constructor(
         private id: string,
-        private name: string,
-        private email: string,
-        private age: number
+        public name: string,
+        public email: string,
+        public age: number
     ){
         this.id = id
         this.name = name
@@ -17,15 +17,4 @@ export default class User {
         return this.id
     }
 
-    public getName(): string {
-        return this.name
-    }
-
-    public getEmail(): string {
-        return this.email
-    }
-
-    public getAge(): number {
-        return this.age
-    }
 }

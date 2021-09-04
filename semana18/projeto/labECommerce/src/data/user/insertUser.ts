@@ -1,15 +1,13 @@
+import User from "../../entities/User";
 import { connection } from "../connection";
 
 export default async function insertUser(
-    id: string,
-    name: string,
-    email: string,
-    age: number
+    user: User
 ) {
     await connection.insert({
-        id,
-        name,
-        email,
-        age
+        id: user.getId(),
+        name: user.name,
+        email: user.email,
+        age: user.age
     }).into('Users_ECommerce')
 }

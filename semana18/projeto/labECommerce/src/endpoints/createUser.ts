@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { connection } from "../data/connection";
+import insertUser from "../data/user/insertUser";
 
 import User from "../entities/User"
 import { findBodyDontHave } from "../functions/findBodyDontHave";
@@ -52,6 +53,7 @@ export const createUser = async (req: Request, res: Response) => {
     
         const id = Date.now() + Math.random().toString()
         const user = new User(id, name, email, age)
+        await insertUser(user)
 
         res.status(201).send({
             message: "User created successfully!",
