@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
-import { connection } from "../data/connection";
-import insertUser from "../data/user/insertUser";
+import { connection } from "../../data/connection";
+import UserDatabase from "../../data/user/UserDatabase";
+import insertUser from "../../data/user/UserDatabase";
 
-import User from "../entities/User"
-import { findBodyDontHave } from "../functions/findBodyDontHave";
-import { UserT } from "../types/user";
+import User from "../../entities/User"
+import { findBodyDontHave } from "../../functions/findBodyDontHave";
+import { UserT } from "../../types/user";
 
 export const createUser = async (req: Request, res: Response) => {
     try {
@@ -50,11 +51,12 @@ export const createUser = async (req: Request, res: Response) => {
             } 
         }
 
-    
+        const userDB = new UserDatabase()
+
         const id = Date.now() + Math.random().toString()
         const user = new User(id, name, email, age)
-        await insertUser(user)
 
+        await userDB.insertUser(user)
         res.status(201).send({
             message: "User created successfully!",
             user

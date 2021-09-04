@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
-import { connection } from "../data/connection";
-import insertProduct from "../data/product/insertProduct";
-import Product from "../entities/Product";
+import { connection } from "../../data/connection";
 
-import User from "../entities/User"
-import { findBodyDontHave } from "../functions/findBodyDontHave";
-import { ProductT } from "../types/product";
+import Product from "../../entities/Product";
+
+import { ProductT } from "../../types/product";
+import { ProductDatabase } from "../../data/product/ProductDatabase";
 
 export const createProduct = async (req: Request, res: Response) => {
     try {
@@ -49,7 +48,7 @@ export const createProduct = async (req: Request, res: Response) => {
         const id = Date.now() + Math.random().toString()
         const product = new Product(id, name, description, price)
 
-        await insertProduct(product)
+        await new ProductDatabase().insertProduct(product)
 
         res.status(201).send({
             message: "Product created successfully!",
