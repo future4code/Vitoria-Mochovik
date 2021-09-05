@@ -2,8 +2,8 @@ POST http://localhost:3003/create/user
 Content-Type: application/json
 
 {
-  "name": "vito22122",
-  "email": "viuu222@usuario.com",
+  "name": "Luana",
+  "email": "lulu@usuario.com",
   "age": 12
 }
 
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
   "name": "boné",
-  "description": "boné rosa com fecho lateral",
+  "description": "boné rosa com fecho lateral E GLITER",
   "price": 25.80
 }
 
@@ -23,3 +23,7 @@ Content-Type: application/json
 GET http://localhost:3003/users
 Content-Type: application/json
 
+###
+
+GET http://localhost:3003/products
+Content-Type: application/json
