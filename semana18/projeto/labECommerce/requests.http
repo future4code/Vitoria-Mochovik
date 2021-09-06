@@ -13,7 +13,7 @@ POST http://localhost:3003/create/product
 Content-Type: application/json
 
 {
-  "name": "boné1",
+  "name": "boné11",
   "description": "boné rosa com fecho lateral E GLITER",
   "price": 25.80
 }
