@@ -2,8 +2,8 @@ POST http://localhost:3003/create/user
 Content-Type: application/json
 
 {
-  "name": "Luana",
-  "email": "lulu@usuario.com",
+  "name": "Luana1",
+  "email": "lu1lu@usuario.com",
   "age": 12
 }
 
@@ -13,7 +13,7 @@ POST http://localhost:3003/create/product
 Content-Type: application/json
 
 {
-  "name": "boné",
+  "name": "boné1",
   "description": "boné rosa com fecho lateral E GLITER",
   "price": 25.80
 }
@@ -41,3 +41,9 @@ Content-Type: application/json
   "origin": "Porto Alegre",
   "destination": "França"
 }
+
+
+###
+
+GET http://localhost:3003/tickets
+Content-Type: application/json

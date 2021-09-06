@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ProductDatabase } from "../../data/product/ProductDatabase";
+import ProductDatabase  from "../../data/product/ProductDatabase";
 
 import UserDatabase from "../../data/user/UserDatabase";
 

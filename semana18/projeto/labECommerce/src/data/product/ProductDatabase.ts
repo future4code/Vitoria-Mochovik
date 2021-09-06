@@ -3,12 +3,12 @@ import Ticket from "../../entities/Ticket";
 import { BaseDatabase } from "../BaseDatabase";
 
 
-export class ProductDatabase extends BaseDatabase {
+export default class ProductDatabase extends BaseDatabase {
     private static tableName = "Products_ECommerce"
 
     private toProduct = (input: any): Product => {
         if (input.origin){
-            return new Ticket(
+            return new Product(
                 input.id,
                 input.name,
                 input.description,
@@ -25,16 +25,22 @@ export class ProductDatabase extends BaseDatabase {
             )
     }
 
-    insertProduct = (product: Product) => {
+    insertProduct = (product: Product) => 
         BaseDatabase
             .connection(ProductDatabase.tableName)
             .insert(product)
-    }
+    
 
-    getAllProducts = async() => {
+    getAllProducts = async () => {
         const result = await BaseDatabase
             .connection(ProductDatabase.tableName)
         
         return result.map(this.toProduct)
+    }
+
+    getAllTickets = async() => {
+        const result = await BaseDatabase
+            .connection(ProductDatabase.tableName)
+            .where("origin", "<>", "NULL")
     }
 }

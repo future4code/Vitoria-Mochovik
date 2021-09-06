@@ -14,6 +14,7 @@ import { createProduct } from './endpoints/product/createProduct';
 import { getAllUsers } from './endpoints/user/getAllUsers';
 import { getAllProducts } from './endpoints/product/getAllProducts';
 import { createTicket } from './endpoints/product/createTicket';
+import { getAllTickets } from './endpoints/product/getAllTickets';
 
 
 app.post("/create/user", createUser)
@@ -22,6 +23,9 @@ app.post("/create/ticket", createTicket)
 
 app.get("/products", getAllProducts)
 app.get("/users", getAllUsers)
+app.get("/tickets", getAllTickets)
+
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;

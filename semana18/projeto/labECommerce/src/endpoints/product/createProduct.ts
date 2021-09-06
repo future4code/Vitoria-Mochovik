@@ -1,10 +1,9 @@
-import { Request, Response } from "express";
-import { connection } from "../../data/connection";
 
 import Product from "../../entities/Product";
-
+import { Request, Response } from "express";
+import { connection } from "../../data/connection";
 import { ProductT } from "../../types/product";
-import { ProductDatabase } from "../../data/product/ProductDatabase";
+import ProductDatabase  from "../../data/product/ProductDatabase";
 
 export const createProduct = async (req: Request, res: Response) => {
     try {
@@ -48,7 +47,8 @@ export const createProduct = async (req: Request, res: Response) => {
         const id = Date.now() + Math.random().toString()
         const product = new Product(id, name, description, price)
 
-        await new ProductDatabase().insertProduct(product)
+        const productDB = new ProductDatabase()
+        await productDB.insertProduct(product)
 
         res.status(201).send({
             message: "Product created successfully!",
