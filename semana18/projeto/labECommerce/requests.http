@@ -27,3 +27,17 @@ Content-Type: application/json
 
 GET http://localhost:3003/products
 Content-Type: application/json
+
+
+###
+
+POST http://localhost:3003/create/ticket
+Content-Type: application/json
+
+{
+  "name": "Viagem de luxo",
+  "description": "Um destino de luxo, para pessoas que buscam descanso, conforto e beleza",
+  "price": 25.80,
+  "origin": "Porto Alegre",
+  "destination": "França"
+}
