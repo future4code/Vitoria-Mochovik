@@ -1,0 +1,49 @@
+POST http://localhost:3003/create/user
+Content-Type: application/json
+
+{
+  "name": "Luana1",
+  "email": "lu1lu@usuario.com",
+  "age": 12
+}
+
+###
+
+POST http://localhost:3003/create/product
+Content-Type: application/json
+
+{
+  "name": "boné11",
+  "description": "boné rosa com fecho lateral E GLITER",
+  "price": 25.80
+}
+
+###
+
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/products
+Content-Type: application/json
+
+
+###
+
+POST http://localhost:3003/create/ticket
+Content-Type: application/json
+
+{
+  "name": "Viagem de luxo",
+  "description": "Um destino de luxo, para pessoas que buscam descanso, conforto e beleza",
+  "price": 25.80,
+  "origin": "Porto Alegre",
+  "destination": "França"
+}
+
+
+###
+
+GET http://localhost:3003/tickets
+Content-Type: application/json
